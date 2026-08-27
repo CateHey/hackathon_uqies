@@ -56,6 +56,7 @@ export async function upgradeInBackground(
     session.pendingUpgrade = null;
     session.upgradeError = null;
     await repo.upsert(session);
+    await repo.recordPlan({ sessionId, plan: result.plan, metrics: result.metrics, mode: "ai", usage: result.usage });
   } catch (e) {
     console.error("[upgrade] failed", e);
     const session = await repo.get(sessionId);

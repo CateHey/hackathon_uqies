@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ModeToggle } from "./mode-toggle";
+import { AUTH_ENABLED, useUser } from "@/lib/use-user";
 
 const nav = [
   { href: "/map", label: "Map" },
@@ -12,12 +13,15 @@ const nav = [
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { user, signOut } = useUser();
   const onPlan = pathname.startsWith("/map");
   const inOnboarding = pathname.startsWith("/onboarding");
+
   return (
     <header className="sticky top-0 z-20 border-b border-white/5 bg-ink/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="whitespace-nowrap font-display text-xl tracking-wide text-parchment">
+        <Link href="/" className="whitespace-nowrap font-display text-xl font-semibold tracking-wide text-parchment">
           🚀 Free Me
         </Link>
         {!inOnboarding && (
@@ -33,7 +37,28 @@ export function SiteHeader() {
             ))}
           </nav>
         )}
-        {onPlan ? <ModeToggle /> : <span className="hidden text-xs text-mist sm:block">Discover your path to financial freedom.</span>}
+        <div className="flex items-center gap-2">
+          {onPlan && <ModeToggle />}
+          {AUTH_ENABLED && user !== undefined && (
+            user ? (
+              <button
+                onClick={async () => {
+                  await signOut();
+                  router.push("/");
+                  router.refresh();
+                }}
+                className="hidden rounded-full border border-white/10 px-3 py-1.5 text-xs text-mist hover:text-parchment sm:block"
+                title={user.email ?? "Signed in"}
+              >
+                {user.email ? user.email.split("@")[0] : "Account"} · Sign out
+              </button>
+            ) : (
+              <Link href="/login" className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-mist hover:text-parchment">
+                Sign in
+              </Link>
+            )
+          )}
+        </div>
       </div>
     </header>
   );

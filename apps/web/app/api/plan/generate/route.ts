@@ -2,6 +2,7 @@ import { after } from "next/server";
 import { computeMetrics, templatePlan } from "@free-me/core";
 import { ApiError, handle, json } from "@/lib/api";
 import { planMode } from "@/lib/ai";
+import { getRepository } from "@/lib/repository";
 import { loadSession, saveSession } from "@/lib/session";
 import { upgradeInBackground } from "@/lib/upgrade";
 
@@ -35,6 +36,7 @@ export const POST = handle(async (req) => {
   session.upgradeError = null;
   session.pendingUpgrade = pending ? { startedAt: now.toISOString() } : null;
   await saveSession(session);
+  await getRepository().recordPlan({ sessionId: session.id, plan, metrics, mode });
 
   if (pending) {
     const { id, profile } = session;

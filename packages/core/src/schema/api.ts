@@ -113,7 +113,16 @@ export const LessonPayload = z.object({
 });
 export type LessonPayload = z.infer<typeof LessonPayload>;
 
-export const HealthResponse = z.object({ ok: z.boolean(), mode: PlanMode, version: z.string() });
+export const HealthResponse = z.object({
+  ok: z.boolean(),
+  mode: PlanMode,
+  version: z.string(),
+  db: z.enum(["memory", "supabase"]),
+  /** false when Supabase is configured but the schema has not been applied / can't be reached. */
+  dbReady: z.boolean(),
+  dbError: z.string().nullable(),
+  auth: z.boolean(),
+});
 export type HealthResponse = z.infer<typeof HealthResponse>;
 
 export const DemoName = z.enum(["sarah", "userA", "userB", "debtHeavy", "zeroIncome"]);

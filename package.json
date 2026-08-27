@@ -18,7 +18,9 @@
     "db:reset": "supabase db reset",
     "db:types": "supabase gen types typescript --local > packages/core/src/db.types.ts",
     "format": "prettier --write .",
-    "e2e": "pnpm --filter web e2e"
+    "e2e": "pnpm --filter web e2e",
+    "db:push": "supabase db push",
+    "db:test": "pnpm --filter web test -- supabase"
   },
   "devDependencies": {
     "prettier": "^3.9.6",

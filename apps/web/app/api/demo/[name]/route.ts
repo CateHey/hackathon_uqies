@@ -1,6 +1,7 @@
 import { DemoName } from "@free-me/core";
 import { ApiError, handle, json } from "@/lib/api";
 import { demoBundle } from "@/lib/demo";
+import { getRepository } from "@/lib/repository";
 import { loadSession, saveSession } from "@/lib/session";
 
 type Ctx = { params: Promise<{ name: string }> };
@@ -22,6 +23,7 @@ export const POST = handle<Ctx>(async (_req, { params }) => {
   session.upgrade = null;
   session.upgradeError = null;
   await saveSession(session);
+  await getRepository().recordPlan({ sessionId: session.id, plan: bundle.plan, metrics: bundle.metrics, mode: "demo" });
 
   return json({ ...bundle, source, attempts: 0, mode: "demo", pending: false });
 });
