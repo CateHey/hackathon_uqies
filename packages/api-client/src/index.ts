@@ -65,7 +65,7 @@ export function createApi(opts: ApiOptions = {}) {
     health: () => request("/health", HealthResponse),
     saveProfile: (profile: FreedomProfile) => request("/profile", ProfileResponse, post(profile)),
     getProfile: () => request("/profile", ProfileResponse),
-    generatePlan: () => request("/plan/generate", GenerateResponse, post()),
+    generatePlan: (opts?: { force?: "template" }) => request("/plan/generate", GenerateResponse, post(opts ?? {})),
     getPlan: () => request("/plan", PlanBundle),
     why: (req: WhyRequest) => request("/plan/why", WhyApiResponse, post(req)),
     allocate: (req: AllocationRequest) => request("/allocate", AllocateApiResponse, post(req)),
@@ -135,7 +135,7 @@ export function useGeneratePlan() {
   const api = useApi();
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: () => api.generatePlan(),
+    mutationFn: (opts?: { force?: "template" }) => api.generatePlan(opts),
     onSuccess: (data) => qc.setQueryData(planKey, { profile: data.profile, plan: data.plan, metrics: data.metrics }),
   });
 }
