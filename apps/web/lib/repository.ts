@@ -57,7 +57,6 @@ export class MemoryRepository implements PlanRepository {
 }
 
 declare global {
-  // eslint-disable-next-line no-var
   var __freeMeRepository: PlanRepository | undefined;
 }
 
