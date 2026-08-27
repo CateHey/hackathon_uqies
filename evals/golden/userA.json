@@ -1,7 +1,7 @@
 {
   "name": "userA",
-  "source": "template",
-  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "source": "ai",
+  "generatedAt": "2026-08-27T21:29:35.798Z",
   "profile": {
     "freedomStatement": "Being able to say yes to a trip without checking my bank balance first.",
     "age": 19,
@@ -58,174 +58,180 @@
     ]
   },
   "plan": {
-    "version": 1,
-    "source": "template",
-    "generatedAt": "2026-09-01T00:00:00.000Z",
     "profileSummary": {
-      "headline": "Travel-focused student building a foundation",
+      "headline": "Student building a first buffer and Japan fund",
       "tags": [
-        "🎓 Student",
-        "🌍 Travel-focused",
-        "💰 Tight budget",
-        "📚 Beginner knowledge",
-        "⚖️ Moderate risk preference"
+        "🎓 Student life",
+        "🌴 Japan trip focus",
+        "🪙 Tight capacity",
+        "🌱 Beginner",
+        "⚖️ Moderate risk"
       ]
     },
     "currentPriorityRegionId": "foundation",
-    "nextStepId": "foundation.understand-spending",
+    "nextStepId": "foundation.see-your-money",
     "regions": [
       {
-        "status": "active",
-        "progress": 0,
-        "stepIds": [
-          "foundation.understand-spending",
-          "foundation.build-budget"
-        ],
         "id": "foundation",
         "type": "foundation",
         "exploreTitle": "Foundation Village",
-        "proTitle": "Financial foundations",
-        "summary": "Know where your money goes and put a simple budget in place.",
-        "why": "Everything else on your map gets easier once you can see your money clearly — this is where every journey starts.",
+        "proTitle": "Foundation",
+        "summary": "Get a clear picture of the $1,200 coming in and the $1,100 going out each month.",
+        "why": "You have about $100 left over each month, which is a savings rate of 8.3% — real, but thin enough that surprises can wipe it out. Seeing exactly where the $1,100 goes is the fastest way to protect that $100 and grow it. This is where your trip money will actually come from.",
         "relevance": 5,
-        "lessonIds": [
-          "budgeting-basics"
-        ]
-      },
-      {
-        "status": "locked",
-        "progress": 0.136,
-        "stepIds": [
-          "security.emergency-buffer"
-        ],
-        "id": "security",
-        "type": "security",
-        "exploreTitle": "Security Harbour",
-        "proTitle": "Financial security",
-        "summary": "Build a buffer against surprises and get on top of any debt.",
-        "why": "A buffer of $2,200 is the difference between a setback and a crisis. It comes before growth on purpose.",
-        "relevance": 5,
-        "lessonIds": [
-          "emergency-fund"
-        ]
-      },
-      {
-        "status": "locked",
+        "status": "active",
         "progress": 0,
         "stepIds": [
-          "growth.saving-target",
-          "growth.grow-income"
+          "foundation.see-your-money",
+          "foundation.name-your-freedom-number",
+          "foundation.protect-the-surplus"
         ],
-        "id": "growth",
-        "type": "growth",
-        "exploreTitle": "Savings Garden",
-        "proTitle": "Saving & growth",
-        "summary": "Turn saving into a habit and grow what you earn.",
-        "why": "Consistent saving is the engine for every goal on this map. This is where the habit gets built.",
-        "relevance": 5,
         "lessonIds": [
+          "budgeting-basics",
           "compound-interest"
         ]
       },
       {
+        "id": "security",
+        "type": "security",
+        "exploreTitle": "Security Harbour",
+        "proTitle": "Safety net",
+        "summary": "Build a 2-month emergency buffer of $2,200 so an unexpected bill doesn't derail the plan.",
+        "why": "You have $300 saved against a $2,200 target, so you're 13.6% of the way there and covered for about 0.27 months. You carry no debt, which is a big head start — the only gap is the $1,900 buffer. A buffer is what lets you say yes to a trip without panic later.",
+        "relevance": 5,
+        "status": "locked",
+        "progress": 0.068,
+        "stepIds": [
+          "security.close-the-gap",
+          "security.pick-a-monthly-amount"
+        ],
+        "lessonIds": [
+          "emergency-fund",
+          "understanding-debt"
+        ]
+      },
+      {
+        "id": "growth",
+        "type": "growth",
+        "exploreTitle": "Savings Garden",
+        "proTitle": "Growth",
+        "summary": "Turn the leftover $100 a month into an automatic habit that keeps building once the buffer is full.",
+        "why": "Your surplus is small, so the habit matters more than the amount right now. Once the $2,200 buffer is in place, the same $100 a month can be pointed at Japan and at learning how money grows over time. Consistency is the whole trick at your stage.",
+        "relevance": 4,
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "goal-g-japan.save"
+          "growth.automate-the-habit",
+          "growth.grow-the-gap"
         ],
+        "lessonIds": [
+          "compound-interest",
+          "what-is-investing"
+        ]
+      },
+      {
         "id": "goal-g-japan",
         "type": "personal_goal",
         "exploreTitle": "Trip to Japan Destination",
         "proTitle": "Trip to Japan",
-        "summary": "Your goal: Trip to Japan.",
-        "why": "You told us this is what freedom looks like — it gets its own place on the map so every saving habit has somewhere to go.",
+        "summary": "A $4,000 trip, currently $0 funded, roughly 40 months away at your present surplus.",
+        "why": "This goal is your freedom statement in real form — saying yes to a trip without checking your balance. At $100 a month the projection is about 40 months, so the lever isn't discipline, it's either more income or a smaller first version of the trip. Knowing that number now is far better than guessing.",
         "relevance": 5,
-        "lessonIds": [],
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "goal-g-japan.set-the-number",
+          "goal-g-japan.shorten-the-timeline"
+        ],
+        "lessonIds": [
+          "budgeting-basics"
+        ],
         "goalId": "g-japan"
       },
       {
-        "status": "locked",
-        "progress": 0,
-        "stepIds": [
-          "markets.what-is-investing",
-          "markets.risk-and-diversification"
-        ],
         "id": "markets",
         "type": "markets",
         "exploreTitle": "Markets District",
-        "proTitle": "Investing & markets",
-        "summary": "Understand shares, funds, risk and diversification before you commit money.",
-        "why": "A sensible next path once your buffer is in place: learn how markets work, then decide what fits.",
+        "proTitle": "Investing",
+        "summary": "Learn how investing works now, so it's familiar when you have money that isn't already spoken for.",
+        "why": "Your spare savings figure is $0 — every dollar you have is doing a job in the buffer or the Japan fund. That makes this a place to learn rather than act, and your moderate risk preference means the ideas will suit you when the time comes. Understanding compounding at 19 is worth a lot on its own.",
         "relevance": 3,
-        "lessonIds": [
-          "what-is-investing",
-          "understanding-risk",
-          "diversification",
-          "etfs-explained"
-        ]
-      },
-      {
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "property.learn-deposit"
+          "markets.learn-the-basics"
         ],
+        "lessonIds": [
+          "what-is-investing",
+          "understanding-risk",
+          "compound-interest"
+        ]
+      },
+      {
         "id": "property",
         "type": "property",
         "exploreTitle": "Property Quarter",
         "proTitle": "Property",
-        "summary": "What a deposit takes, how borrowing works, and whether property fits your plan.",
-        "why": "Not a priority yet because of the capital involved — it stays on the map so you can learn what it would take.",
+        "summary": "Far off for now — property needs capital that is many multiples of your current position.",
+        "why": "A deposit typically runs into tens of thousands, and you currently have $300 saved with $100 a month spare. That's not a criticism, it's just arithmetic — this region is honestly low relevance today. It's here so you know what it would take if it ever becomes a goal.",
         "relevance": 1,
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "property.understand-what-it-takes"
+        ],
         "lessonIds": [
           "saving-for-a-deposit"
         ]
       },
       {
-        "status": "locked",
-        "progress": 0,
-        "stepIds": [
-          "business.side-income"
-        ],
         "id": "business",
         "type": "business",
         "exploreTitle": "Enterprise Workshop",
-        "proTitle": "Business & extra income",
-        "summary": "Side income, entrepreneurship and what it takes to build something of your own.",
-        "why": "Not a must, but extra income is the fastest way to raise your saving capacity.",
-        "relevance": 2,
-        "lessonIds": []
-      },
-      {
+        "proTitle": "Earning more",
+        "summary": "The one branch that can meaningfully change your 40-month Japan timeline: extra income.",
+        "why": "With $1,200 in and $1,100 out, there isn't much left to squeeze from spending. Earning even a little more as a student changes the maths faster than anything else on this map. That's why this branch rates higher for you than the investing ones.",
+        "relevance": 4,
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "digital_assets.understand-volatility"
+          "business.explore-extra-income"
         ],
+        "lessonIds": [
+          "budgeting-basics"
+        ]
+      },
+      {
         "id": "digital_assets",
         "type": "digital_assets",
         "exploreTitle": "Digital Frontier",
         "proTitle": "Digital assets",
-        "summary": "How cryptocurrency works, why it swings so much, and how to think about the risk.",
-        "why": "Volatile and speculative; on the map for education, not as a destination.",
+        "summary": "High volatility, and you have no spare savings — a topic to understand, not to act on.",
+        "why": "Your spare savings are $0 and your risk preference is moderate, so the size of the price swings here sits well outside what your situation can absorb. It's still worth understanding, because you'll hear about it constantly. Learning first costs you nothing.",
         "relevance": 1,
-        "lessonIds": [
-          "crypto-and-volatility"
-        ]
-      },
-      {
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "freedom_city.define-freedom"
+          "digital_assets.learn-before-anything"
         ],
+        "lessonIds": [
+          "crypto-and-volatility",
+          "understanding-risk"
+        ]
+      },
+      {
         "id": "freedom_city",
         "type": "freedom_city",
         "exploreTitle": "🌴 Freedom City",
-        "proTitle": "Your definition of freedom",
-        "summary": "Trip to Japan · Financial security",
-        "why": "This is the destination — your version of freedom, not a number someone else picked.",
+        "proTitle": "Freedom City",
+        "summary": "The point where a trip is a decision, not a calculation.",
+        "why": "You described freedom as saying yes to a trip without checking your bank balance first. That arrives when the $2,200 buffer is behind you and the Japan fund is filled. Everything else on this map is just the road there.",
         "relevance": 5,
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "freedom_city.review-the-map"
+        ],
         "lessonIds": []
       }
     ],
@@ -235,241 +241,275 @@
         "from": "foundation",
         "to": "security",
         "status": "locked",
-        "requirement": "Understand where your money goes",
+        "requirement": "Track a full month of spending and confirm your $100 monthly surplus.",
         "requiredStepIds": [
-          "foundation.understand-spending"
+          "foundation.see-your-money",
+          "foundation.protect-the-surplus"
         ],
-        "relationship": "Knowing your spending tells you exactly how big your buffer needs to be.",
-        "why": "A buffer target is just your monthly expenses multiplied — you need the first number to get the second."
+        "relationship": "Knowing your numbers is what makes a buffer target realistic",
+        "why": "You can't build a $2,200 buffer on a surplus you haven't confirmed. Once you've watched a month of the $1,100 in real life, you'll know whether $100 is the true figure or an optimistic one. That honesty makes the next stage work."
       },
       {
         "id": "security->growth",
         "from": "security",
         "to": "growth",
         "status": "locked",
-        "requirement": "Build your emergency buffer",
+        "requirement": "Emergency buffer reaches $2,200 (currently $300).",
         "requiredStepIds": [
-          "security.emergency-buffer"
+          "security.close-the-gap"
         ],
-        "relationship": "With a buffer in place, your savings can stay pointed at goals instead of being raided for surprises.",
-        "why": "Saving for goals before you have a buffer usually means un-saving them at the first emergency."
+        "relationship": "A buffer is what stops a setback from eating your savings habit",
+        "why": "Right now $1,900 stands between you and a full 2-month buffer. Until that gap closes, any surprise cost would come straight out of whatever else you're building. Closing it first protects everything after it."
       },
       {
         "id": "growth->goal-g-japan",
         "from": "growth",
         "to": "goal-g-japan",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Have an automatic monthly saving habit running.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.automate-the-habit"
         ],
-        "relationship": "Every dollar you automate is a dollar closer to Trip to Japan.",
-        "why": "A goal without a saving habit behind it is a wish."
-      },
-      {
-        "id": "goal-g-japan->freedom_city",
-        "from": "goal-g-japan",
-        "to": "freedom_city",
-        "status": "locked",
-        "requirement": "Reach your Trip to Japan target",
-        "requiredStepIds": [
-          "goal-g-japan.save"
-        ],
-        "relationship": "Trip to Japan is one of the pillars of your Freedom City.",
-        "why": "Your definition of freedom is made of the goals you named."
+        "relationship": "The habit is the engine that fills the Japan fund",
+        "why": "The Japan projection of 40 months assumes $100 arrives every single month without fail. A habit that runs on its own is what makes that projection real rather than hopeful. Set the engine, then point it at the trip."
       },
       {
         "id": "growth->markets",
         "from": "growth",
         "to": "markets",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Have an automatic monthly saving habit running.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.automate-the-habit"
         ],
-        "relationship": "Investing only works with money you won't need soon — your saving habit is what feeds it.",
-        "why": "Markets reward time and consistency; the habit has to exist first."
+        "relationship": "Money that grows has to exist first",
+        "why": "Your spare savings figure is $0, so there's nothing here to work with yet. Building the habit is what eventually creates money that isn't already committed. Until then, this branch is reading, not doing."
       },
       {
         "id": "growth->property",
         "from": "growth",
         "to": "property",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Have an automatic monthly saving habit running.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.automate-the-habit"
         ],
-        "relationship": "A deposit is a very large saving goal with a deadline — the same habit, bigger numbers.",
-        "why": "Deposit progress is almost entirely a function of monthly saving and time."
+        "relationship": "Property sits at the far end of the same saving habit",
+        "why": "With $300 saved, property is a long way off, and that's completely normal at 19. The same monthly habit is the only path that ever leads here. Understanding it now costs nothing."
       },
       {
         "id": "growth->business",
         "from": "growth",
         "to": "business",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Have an automatic monthly saving habit running.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.automate-the-habit"
         ],
-        "relationship": "Extra income raises your capacity for every other goal on this map.",
-        "why": "More income is the one input that makes every other target arrive sooner."
+        "relationship": "Extra income makes every other region move faster",
+        "why": "Your surplus of $100 is the bottleneck in every projection on this map. Raising income is the branch with the biggest effect on your 40-month Japan timeline. It deserves your attention early."
       },
       {
         "id": "growth->digital_assets",
         "from": "growth",
         "to": "digital_assets",
         "status": "locked",
-        "requirement": "Set a saving target and learn what investing is",
+        "requirement": "Have an automatic monthly saving habit running.",
         "requiredStepIds": [
-          "growth.saving-target",
-          "markets.what-is-investing"
+          "growth.automate-the-habit"
         ],
-        "relationship": "Digital assets amplify everything about markets — understand the ordinary version first.",
-        "why": "Volatility is only survivable when it's a small part of a plan you already understand."
+        "relationship": "Volatile assets sit beyond a settled buffer and habit",
+        "why": "With $0 spare savings, this branch is purely educational for you today. The habit and the buffer come first because they're what absorbs a bad month. Learn the ideas while the stakes are zero."
+      },
+      {
+        "id": "business->goal-g-japan",
+        "from": "business",
+        "to": "goal-g-japan",
+        "status": "locked",
+        "requirement": "Explore at least one realistic extra-income option.",
+        "requiredStepIds": [
+          "business.explore-extra-income"
+        ],
+        "relationship": "Every extra dollar earned shortens the 40-month timeline",
+        "why": "Japan needs $4,000 and you're at $0 funded. Extra income is the most direct lever you have on that number as a student. This bridge exists because the two are tied together."
+      },
+      {
+        "id": "goal-g-japan->freedom_city",
+        "from": "goal-g-japan",
+        "to": "freedom_city",
+        "status": "locked",
+        "requirement": "Japan fund reaches $4,000.",
+        "requiredStepIds": [
+          "goal-g-japan.set-the-number"
+        ],
+        "relationship": "The trip is the literal version of your freedom statement",
+        "why": "You said freedom is saying yes to a trip without checking your balance first. Funding this goal is that sentence coming true. It's the last stretch of road into the city."
       },
       {
         "id": "markets->freedom_city",
         "from": "markets",
         "to": "freedom_city",
         "status": "locked",
-        "requirement": "Complete the Markets District",
-        "requiredStepIds": [],
-        "relationship": "Long-term investing is how your Freedom City keeps being funded after the first goals are met.",
-        "why": "Freedom that lasts needs money that grows without you working for every dollar of it."
+        "requirement": "Complete the investing basics learning step.",
+        "requiredStepIds": [
+          "markets.learn-the-basics"
+        ],
+        "relationship": "Understanding compounding extends freedom beyond one trip",
+        "why": "One trip is the first version of freedom; knowing how money grows is what makes later versions cheaper. At 19, time is the resource you have most of. Learning now is the highest-value thing on this branch."
       }
     ],
     "steps": [
       {
-        "id": "foundation.understand-spending",
+        "id": "foundation.see-your-money",
         "regionId": "foundation",
-        "order": 1,
-        "status": "todo",
         "kind": "learn",
-        "title": "Understand where your money goes",
-        "description": "Track one month of spending and sort it into needs, wants and savings.",
-        "why": "You spend about $1,100 a month against $1,200 coming in. Knowing where it goes is the first lever you control."
-      },
-      {
-        "id": "foundation.build-budget",
-        "regionId": "foundation",
-        "order": 2,
+        "title": "Watch one full month of spending",
+        "description": "Record every dollar of the roughly $1,100 you spend for one month, without changing anything yet.",
+        "why": "Your surplus of $100 is the difference between $1,200 in and $1,100 out — a thin margin where small leaks matter. Watching a month without judging it shows you which parts of the $1,100 are fixed and which are choices. You can't plan around numbers you haven't seen.",
         "status": "todo",
-        "kind": "action",
-        "title": "Set a simple budget",
-        "description": "Decide, in advance, how much goes to essentials, to enjoying life, and to your goals each month.",
-        "why": "A budget turns your $100 monthly surplus from an accident into a decision."
+        "order": 1
       },
       {
-        "id": "security.emergency-buffer",
+        "id": "foundation.name-your-freedom-number",
+        "regionId": "foundation",
+        "kind": "learn",
+        "title": "Put a number on your freedom statement",
+        "description": "Write down what 'saying yes to a trip without checking my balance' would cost in dollars.",
+        "why": "You already know the Japan trip is $4,000, but freedom for you is broader than one trip. Naming the number turns a feeling into a target you can actually track. It also makes the 40-month projection feel like information rather than bad news.",
+        "status": "todo",
+        "order": 2
+      },
+      {
+        "id": "foundation.protect-the-surplus",
+        "regionId": "foundation",
+        "kind": "action",
+        "title": "Confirm and ring-fence the $100",
+        "description": "Decide the amount you can reliably keep each month and separate it from your everyday spending money.",
+        "why": "A surplus that stays in your spending account tends to disappear into the $1,100. Keeping it apart is the simplest structural change available to you. It costs nothing and makes every later step possible.",
+        "status": "todo",
+        "order": 3
+      },
+      {
+        "id": "security.close-the-gap",
         "regionId": "security",
-        "order": 1,
-        "status": "in_progress",
         "kind": "save",
-        "title": "Build a 2-month emergency buffer",
-        "description": "Set aside $2,200 — 2 months of your expenses — somewhere you can reach it but won't touch it.",
-        "why": "You have $300 saved, which covers 0.3 months of expenses. A 2-month buffer means a surprise bill doesn't derail your goals.",
+        "title": "Build the $2,200 buffer",
+        "description": "Grow your savings from $300 towards the two-month target of $2,200.",
+        "why": "You're at 13.6% of your buffer and covered for about 0.27 months, which means one unexpected bill lands straight on your plans. Two months of expenses is the target because your income as a student can be irregular. Closing the $1,900 gap is the single biggest reduction in stress on this map.",
         "metric": {
           "label": "Emergency buffer",
           "current": 300,
           "target": 2200,
           "unit": "AUD"
-        }
+        },
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "growth.saving-target",
-        "regionId": "growth",
-        "order": 1,
-        "status": "todo",
+        "id": "security.pick-a-monthly-amount",
+        "regionId": "security",
         "kind": "action",
-        "title": "Set a monthly saving target",
-        "description": "Pick a number you can hit every month and automate it on payday.",
-        "why": "You have about $100 a month left after expenses — a 8% saving rate. Automating it is the difference between hoping and doing."
+        "title": "Choose a repeatable monthly amount",
+        "description": "Pick an amount you can move to savings every month even in a bad month, and start with that.",
+        "why": "Your capacity is tight, so an ambitious number you abandon is worse than a small number you keep. A figure that survives a quiet month is the one that actually closes the $1,900 gap. Momentum beats intensity here.",
+        "status": "todo",
+        "order": 2
       },
       {
-        "id": "growth.grow-income",
+        "id": "growth.automate-the-habit",
         "regionId": "growth",
-        "order": 2,
+        "kind": "action",
+        "title": "Make the saving automatic",
+        "description": "Set the monthly transfer to happen on its own, right after income arrives.",
+        "why": "With only $100 of room, relying on willpower at the end of the month rarely works. Moving the money first means the rest of the budget adjusts around it. This one change is what makes every projection on this map credible.",
         "status": "todo",
-        "kind": "learn",
-        "title": "Find one way to grow your income",
-        "description": "More income is the fastest way to more capacity: a raise, extra hours, a new skill, or a small side project.",
-        "why": "Every extra dollar you earn can go straight to a goal without cutting anything you enjoy."
+        "order": 1
       },
       {
-        "id": "goal-g-japan.save",
-        "regionId": "goal-g-japan",
-        "order": 1,
+        "id": "growth.grow-the-gap",
+        "regionId": "growth",
+        "kind": "review",
+        "title": "Review the gap between income and expenses",
+        "description": "Every few months, check whether the $100 gap has widened, narrowed or held steady.",
+        "why": "Your savings rate is 8.3%, and at 19 that number will move a lot as study and work change. Reviewing it keeps the plan matched to reality instead of to an old snapshot. It also shows you progress you might otherwise miss.",
         "status": "todo",
+        "order": 2
+      },
+      {
+        "id": "goal-g-japan.set-the-number",
+        "regionId": "goal-g-japan",
         "kind": "save",
-        "title": "Save for Trip to Japan",
-        "description": "Build towards $4,000, one automatic transfer at a time.",
-        "why": "At your current pace this takes about 40 months.",
+        "title": "Fund the $4,000 Japan trip",
+        "description": "Track the Japan fund from $0 towards the $4,000 target.",
+        "why": "The projection says about 40 months at your current surplus, and $0 is funded so far. Seeing the balance climb is what keeps a long goal alive. This is the goal you named first, so it gets its own tracker.",
         "metric": {
           "label": "Trip to Japan",
           "current": 0,
           "target": 4000,
           "unit": "AUD"
-        }
-      },
-      {
-        "id": "markets.what-is-investing",
-        "regionId": "markets",
-        "order": 1,
+        },
         "status": "todo",
-        "kind": "learn",
-        "title": "Learn what investing actually is",
-        "description": "Shares, funds, returns and time — the vocabulary before the decisions.",
-        "why": "Understanding is free; mistakes are not. Learn the mechanics before any money moves."
+        "order": 1
       },
       {
-        "id": "markets.risk-and-diversification",
-        "regionId": "markets",
-        "order": 2,
+        "id": "goal-g-japan.shorten-the-timeline",
+        "regionId": "goal-g-japan",
+        "kind": "review",
+        "title": "Test a shorter version of the trip",
+        "description": "Work out what a shorter or cheaper first trip would cost and how many months that version takes.",
+        "why": "Forty months is a long wait when you're 19, and $4,000 is your estimate rather than a fixed price. A smaller first trip might arrive years sooner and still be the thing you wanted. Reviewing the target is as valid as chasing it.",
         "status": "todo",
-        "kind": "learn",
-        "title": "Understand risk and diversification",
-        "description": "Why prices move, what you can and can't control, and how spreading money reduces the damage of being wrong.",
-        "why": "You described your risk preference as moderate. Knowing what that means in practice keeps you from being surprised later."
+        "order": 2
       },
       {
-        "id": "property.learn-deposit",
+        "id": "markets.learn-the-basics",
+        "regionId": "markets",
+        "kind": "learn",
+        "title": "Learn how investing differs from saving",
+        "description": "Work through the basics of what investing is, what risk means, and how compounding builds over time.",
+        "why": "Your spare savings are $0, so this region is about understanding rather than committing anything. Learning the vocabulary now means that when money is free, the decisions feel familiar instead of intimidating. Time is the advantage you have at 19, and it's worth knowing why.",
+        "status": "todo",
+        "order": 1
+      },
+      {
+        "id": "property.understand-what-it-takes",
         "regionId": "property",
-        "order": 1,
-        "status": "todo",
         "kind": "learn",
-        "title": "Understand what a deposit takes",
-        "description": "How much a deposit is, what lenders look at, and the costs beyond the price.",
-        "why": "Property is a very large goal; knowing the real numbers early tells you whether and when it fits your plan."
+        "title": "See what a deposit actually requires",
+        "description": "Learn how home deposits are sized and what timeline they imply at different saving rates.",
+        "why": "With $300 saved and $100 a month spare, property is far away, and it's healthier to know that clearly than to wonder. Understanding the maths removes the pressure you might feel from other people's timelines. If it ever becomes a goal, you'll start informed.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "business.side-income",
+        "id": "business.explore-extra-income",
         "regionId": "business",
-        "order": 1,
-        "status": "todo",
         "kind": "action",
-        "title": "Test one small income idea",
-        "description": "Pick something you could sell, make or do this month. Small and real beats big and imaginary.",
-        "why": "Extra income is the one lever that raises your capacity for every other goal at once."
+        "title": "Find one way to add income",
+        "description": "Identify a realistic option that fits around study and could add to your $1,200 monthly income.",
+        "why": "Your expenses of $1,100 are mostly fixed, so cutting further has limited room. Adding income is the lever that moves the $2,200 buffer and the $4,000 trip at the same time. Even a modest increase reshapes the 40-month projection.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "digital_assets.understand-volatility",
+        "id": "digital_assets.learn-before-anything",
         "regionId": "digital_assets",
-        "order": 1,
-        "status": "todo",
         "kind": "learn",
         "title": "Understand volatility before anything else",
-        "description": "Why digital assets swing so hard, what that does to a plan, and how to size any exposure so it can't hurt your goals.",
-        "why": "This is the highest-volatility area on the map. Understanding comes first, and for many plans understanding is enough."
+        "description": "Learn what drives the large price swings in digital assets and how that risk is usually described.",
+        "why": "You have $0 in spare savings and a moderate risk preference, so this sits outside what your situation can currently absorb. Understanding it protects you from decisions made on hype rather than information. There's no cost to learning while you have nothing at risk.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "freedom_city.define-freedom",
+        "id": "freedom_city.review-the-map",
         "regionId": "freedom_city",
-        "order": 1,
-        "status": "todo",
         "kind": "review",
-        "title": "Revisit what freedom means to you",
-        "description": "Once a quarter, re-read your freedom statement and check the map still points at it.",
-        "why": "You said: \"Being able to say yes to a trip without checking my bank balance first.\" The whole map exists to get you there."
+        "title": "Revisit your freedom statement",
+        "description": "Once the buffer and the trip are funded, rewrite what freedom means to you next.",
+        "why": "Your current statement is about saying yes to a trip without checking your balance. When that's true, the definition usually grows into something bigger. Rewriting it keeps the map yours rather than a leftover from age 19.",
+        "status": "todo",
+        "order": 1
       }
     ],
     "freedomCity": {
@@ -478,11 +518,20 @@
         "Trip to Japan",
         "Financial security"
       ],
-      "narrative": "Your freedom is made of Trip to Japan and Financial security. Every step on this map moves you closer to it."
+      "narrative": "Freedom City is the day \"being able to say yes to a trip without checking my bank balance first\" is simply true. It's built on a $2,200 buffer behind you and a $4,000 trip fully funded in front of you."
     },
     "disclaimers": [
       "Free Me provides general financial education, not personal financial advice. It doesn't know your full circumstances — consider them, and seek licensed advice for decisions that matter to you."
-    ]
+    ],
+    "version": 1,
+    "source": "ai",
+    "generatedAt": "2026-09-01T00:00:00.000Z"
   },
-  "attempts": 0
+  "usage": {
+    "inputTokens": 1038,
+    "outputTokens": 12280,
+    "cacheReadTokens": 9922,
+    "cacheWriteTokens": 0
+  },
+  "attempts": 2
 }

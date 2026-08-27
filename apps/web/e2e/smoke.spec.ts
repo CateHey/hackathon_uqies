@@ -101,7 +101,7 @@ test.describe("Free Me — hackathon MVP flow", () => {
   });
 
   test("onboarding with Sarah's numbers builds a map", async ({ page }) => {
-    test.setTimeout(150_000); // model generation can take 30–60 s in AI mode
+    test.setTimeout(360_000); // a full model generation at high effort can take 1–3 minutes
     await page.goto("/onboarding/freedom");
     await page.getByPlaceholder("For me, freedom means…").fill("I want to be able to travel without worrying about money.");
     await page.getByRole("button", { name: /Continue/ }).click();
@@ -125,7 +125,7 @@ test.describe("Free Me — hackathon MVP flow", () => {
     await shot(page, "08-onboarding-final");
     await page.getByRole("button", { name: /Create my Freedom Profile/ }).click();
 
-    await expect(page).toHaveURL(/\/map$/, { timeout: 120_000 });
+    await expect(page).toHaveURL(/\/map$/, { timeout: 300_000 });
     await expect(page.getByRole("img", { name: /Your Freedom Map/ })).toBeVisible();
     await expect(page.getByText("Your next step")).toBeVisible();
     const plan = await currentPlan(page);
@@ -135,7 +135,7 @@ test.describe("Free Me — hackathon MVP flow", () => {
   });
 
   test("lesson personalisation streams and allocation keeps the total", async ({ page }) => {
-    test.setTimeout(150_000);
+    test.setTimeout(300_000);
     await loadSarah(page);
 
     await page.goto("/lessons/emergency-fund");

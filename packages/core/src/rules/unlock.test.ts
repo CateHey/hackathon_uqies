@@ -150,6 +150,16 @@ describe("region progress counts partial saving steps", () => {
 });
 
 describe("recomputePlanState", () => {
+  it("promotes a partially funded saving step from todo to in_progress", () => {
+    const base = sarahPlan();
+    const forced: FreedomPlan = {
+      ...base,
+      steps: base.steps.map((s) => (s.id === "security.emergency-buffer" ? { ...s, status: "todo" } : s)),
+    };
+    const { plan } = recomputePlanState(forced);
+    expect(step(plan, "security.emergency-buffer").status).toBe("in_progress");
+  });
+
   it("picks a new priority when the current one is missing", () => {
     const plan = { ...sarahPlan(), currentPriorityRegionId: "ghost" };
     const { plan: fixed } = recomputePlanState(plan);

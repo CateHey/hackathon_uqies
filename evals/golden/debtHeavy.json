@@ -1,7 +1,7 @@
 {
   "name": "debtHeavy",
-  "source": "template",
-  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "source": "ai",
+  "generatedAt": "2026-08-27T21:32:52.509Z",
   "profile": {
     "freedomStatement": "Not feeling a knot in my stomach every time I open my banking app.",
     "age": 26,
@@ -57,160 +57,164 @@
     ]
   },
   "plan": {
-    "version": 1,
-    "source": "template",
-    "generatedAt": "2026-09-01T00:00:00.000Z",
     "profileSummary": {
-      "headline": "Security-focused early-career saver building security",
+      "headline": "Steady income, heavy debt, buffer to build",
       "tags": [
-        "🚀 Early career",
-        "🛡️ Security-focused",
-        "💰 Steady saver",
-        "📚 Beginner knowledge",
-        "⚖️ Conservative risk preference"
+        "🌱 Early career",
+        "🛡️ Security-focused goal",
+        "💵 Steady capacity: $400/month",
+        "📘 Beginner",
+        "🧊 Conservative"
       ]
     },
     "currentPriorityRegionId": "security",
-    "nextStepId": "security.emergency-buffer",
+    "nextStepId": "security.know-your-debt",
     "regions": [
       {
-        "status": "available",
-        "progress": 0,
-        "stepIds": [
-          "foundation.understand-spending",
-          "foundation.build-budget"
-        ],
         "id": "foundation",
         "type": "foundation",
         "exploreTitle": "Foundation Village",
-        "proTitle": "Financial foundations",
-        "summary": "Know where your money goes and put a simple budget in place.",
-        "why": "Everything else on your map gets easier once you can see your money clearly — this is where every journey starts.",
+        "proTitle": "Foundation",
+        "summary": "See exactly where your $4,000 a month goes before changing anything.",
+        "why": "You open your banking app with a knot in your stomach, and that knot usually comes from not knowing the numbers rather than from the numbers themselves. Right now $3,600 of your $4,000 income leaves each month, so only $400 is genuinely yours to direct. Seeing that clearly is the first thing that makes the app feel calmer.",
         "relevance": 5,
+        "status": "available",
+        "progress": 0,
+        "stepIds": [
+          "foundation.track-one-month",
+          "foundation.learn-budgeting",
+          "foundation.name-your-numbers"
+        ],
         "lessonIds": [
           "budgeting-basics"
         ]
       },
       {
-        "status": "active",
-        "progress": 0.069,
-        "stepIds": [
-          "security.emergency-buffer",
-          "security.debt-plan"
-        ],
         "id": "security",
         "type": "security",
         "exploreTitle": "Security Harbour",
-        "proTitle": "Financial security",
-        "summary": "Build a buffer against surprises and get on top of any debt.",
-        "why": "Your debt of $60,000 is the biggest thing between you and your goals, so this is where the map focuses first.",
+        "proTitle": "Security",
+        "summary": "Handle $60,000 of debt and grow a buffer from $1,500 towards $10,800.",
+        "why": "Your debt is 1.25 times your annual income, and at your current $400 monthly surplus it would take about 150 months to clear — that is the single biggest thing standing between you and a calm banking app. You also hold $1,500, about 0.42 months of expenses, against a 3-month target of $10,800. This is your priority region because security is literally the goal you named.",
         "relevance": 5,
-        "lessonIds": [
-          "emergency-fund",
-          "understanding-debt"
-        ]
-      },
-      {
-        "status": "locked",
-        "progress": 0,
+        "status": "active",
+        "progress": 0.046,
         "stepIds": [
-          "growth.saving-target",
-          "growth.grow-income"
+          "security.know-your-debt",
+          "security.build-buffer",
+          "security.choose-a-split"
         ],
-        "id": "growth",
-        "type": "growth",
-        "exploreTitle": "Savings Garden",
-        "proTitle": "Saving & growth",
-        "summary": "Turn saving into a habit and grow what you earn.",
-        "why": "Consistent saving is the engine for every goal on this map. This is where the habit gets built.",
-        "relevance": 5,
         "lessonIds": [
+          "understanding-debt",
+          "emergency-fund",
           "compound-interest"
         ]
       },
       {
+        "id": "growth",
+        "type": "growth",
+        "exploreTitle": "Savings Garden",
+        "proTitle": "Growth",
+        "summary": "Turn a steady $400 surplus into a habit that keeps working without you.",
+        "why": "Once the debt is under control and your buffer is real, that same $400 a month stops being defence and starts being progress. Growth here is not about clever moves — it is about making the habit automatic so it survives busy months. You reach this region after Security Harbour, not before.",
+        "relevance": 4,
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "markets.what-is-investing",
-          "markets.risk-and-diversification"
+          "growth.automate-the-surplus",
+          "growth.learn-compounding",
+          "growth.quarterly-review"
         ],
-        "id": "markets",
-        "type": "markets",
-        "exploreTitle": "Markets District",
-        "proTitle": "Investing & markets",
-        "summary": "Understand shares, funds, risk and diversification before you commit money.",
-        "why": "Investing matters eventually, but right now your buffer and capacity come first — learn here, commit later.",
-        "relevance": 2,
         "lessonIds": [
-          "what-is-investing",
-          "understanding-risk",
-          "diversification",
-          "etfs-explained"
+          "compound-interest",
+          "understanding-risk"
         ]
       },
       {
+        "id": "markets",
+        "type": "markets",
+        "exploreTitle": "Markets District",
+        "proTitle": "Markets",
+        "summary": "Learn how investing works long before any of your money goes near it.",
+        "why": "Markets matter to you eventually, but with $9,300 still missing from your buffer and $60,000 of debt, money committed here would be money you might need back at the worst moment. A relevance of 3 means: learn it now, commit later. As a beginner with a conservative preference, understanding risk first is worth more than any early start.",
+        "relevance": 3,
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "property.learn-deposit"
+          "markets.what-investing-is",
+          "markets.risk-you-can-live-with"
         ],
+        "lessonIds": [
+          "what-is-investing",
+          "understanding-risk",
+          "diversification"
+        ]
+      },
+      {
         "id": "property",
         "type": "property",
         "exploreTitle": "Property Quarter",
         "proTitle": "Property",
-        "summary": "What a deposit takes, how borrowing works, and whether property fits your plan.",
-        "why": "Not a priority yet because of the capital involved — it stays on the map so you can learn what it would take.",
-        "relevance": 1,
+        "summary": "Understand what a deposit really costs before it becomes a plan.",
+        "why": "You have not named a home goal, and with $1,500 saved against $60,000 of debt the capital a deposit needs is a long way off — that is why this rates a 2. It is not closed to you, just distant. Knowing how deposits actually work now means you will not be guessing if this becomes something you want.",
+        "relevance": 2,
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "property.deposit-reality-check"
+        ],
         "lessonIds": [
           "saving-for-a-deposit"
         ]
       },
       {
-        "status": "locked",
-        "progress": 0,
-        "stepIds": [
-          "business.side-income"
-        ],
         "id": "business",
         "type": "business",
         "exploreTitle": "Enterprise Workshop",
-        "proTitle": "Business & extra income",
-        "summary": "Side income, entrepreneurship and what it takes to build something of your own.",
-        "why": "Not a must, but extra income is the fastest way to raise your saving capacity.",
+        "proTitle": "Business",
+        "summary": "Extra income is the lever that shortens a 150-month debt timeline.",
+        "why": "You have not said you want to run a business, so this rates a 2 — but there is one honest reason to look here. Your surplus is $400 a month, and anything that raises income moves your debt timeline far faster than trimming expenses can. Explore it as a side income idea rather than a leap.",
         "relevance": 2,
-        "lessonIds": []
-      },
-      {
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "digital_assets.understand-volatility"
+          "business.explore-extra-income"
         ],
+        "lessonIds": [
+          "budgeting-basics"
+        ]
+      },
+      {
         "id": "digital_assets",
         "type": "digital_assets",
         "exploreTitle": "Digital Frontier",
         "proTitle": "Digital assets",
-        "summary": "How cryptocurrency works, why it swings so much, and how to think about the risk.",
-        "why": "Higher volatility than your stated preference — worth understanding, unlikely to be a priority.",
+        "summary": "High volatility sits directly against your conservative preference.",
+        "why": "You described yourself as conservative, and your freedom statement is about not feeling a knot in your stomach — digital assets can move sharply in both directions, which is the opposite of that feeling. With no emergency buffer behind you, a swing here would hit money you cannot afford to lose. Relevance 1: worth understanding, not worth your dollars right now.",
         "relevance": 1,
-        "lessonIds": [
-          "crypto-and-volatility"
-        ]
-      },
-      {
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "freedom_city.define-freedom"
+          "digital_assets.understand-the-swings"
         ],
+        "lessonIds": [
+          "crypto-and-volatility",
+          "understanding-risk"
+        ]
+      },
+      {
         "id": "freedom_city",
         "type": "freedom_city",
-        "exploreTitle": "🕊️ Freedom City",
-        "proTitle": "Your definition of freedom",
-        "summary": "Feel financially secure · Financial security",
-        "why": "This is the destination — your version of freedom, not a number someone else picked.",
+        "exploreTitle": "🕊️ City of Calm Mornings",
+        "proTitle": "Freedom City",
+        "summary": "Opening your banking app and feeling nothing at all.",
+        "why": "This is the destination you described yourself: no knot in your stomach when the app loads. It is built from a shrinking debt balance, a real buffer, and a habit that runs without your attention. Every region before this one is a piece of that feeling.",
         "relevance": 5,
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "freedom_city.check-the-feeling"
+        ],
         "lessonIds": []
       }
     ],
@@ -220,224 +224,286 @@
         "from": "foundation",
         "to": "security",
         "status": "unlocked",
-        "requirement": "Understand where your money goes",
+        "requirement": "Track one month of spending, complete the budgeting lesson, and write down your four core numbers.",
         "requiredStepIds": [
-          "foundation.understand-spending"
+          "foundation.track-one-month",
+          "foundation.learn-budgeting",
+          "foundation.name-your-numbers"
         ],
-        "relationship": "Knowing your spending tells you exactly how big your buffer needs to be.",
-        "why": "A buffer target is just your monthly expenses multiplied — you need the first number to get the second."
+        "relationship": "Knowing your numbers is what makes a debt and buffer plan realistic",
+        "why": "You cannot decide how to split $400 a month until you know it is genuinely $400 and not $150 in a bad week. Foundation gives you that certainty. Then Security Harbour becomes a plan instead of a hope."
       },
       {
         "id": "security->growth",
         "from": "security",
         "to": "growth",
         "status": "locked",
-        "requirement": "Build your emergency buffer",
+        "requirement": "Understand your debt terms, build the buffer towards $10,800, and set your debt-versus-buffer split.",
         "requiredStepIds": [
-          "security.emergency-buffer"
+          "security.know-your-debt",
+          "security.build-buffer",
+          "security.choose-a-split"
         ],
-        "relationship": "With a buffer in place, your savings can stay pointed at goals instead of being raided for surprises.",
-        "why": "Saving for goals before you have a buffer usually means un-saving them at the first emergency."
+        "relationship": "A buffer is what stops an emergency from becoming more debt",
+        "why": "With $9,300 still missing from your 3-month target, any surprise cost would land straight back on your $60,000 debt. Growth only holds when there is something underneath it. That is why this bridge stays shut until the harbour is built."
       },
       {
         "id": "growth->markets",
         "from": "growth",
         "to": "markets",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Automate your surplus and complete the compounding lesson.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.automate-the-surplus",
+          "growth.learn-compounding"
         ],
-        "relationship": "Investing only works with money you won't need soon — your saving habit is what feeds it.",
-        "why": "Markets reward time and consistency; the habit has to exist first."
+        "relationship": "A reliable monthly surplus is the raw material investing needs",
+        "why": "Markets reward money you can leave alone, and money you can leave alone comes from a habit that already runs itself. Your $400 surplus is that habit in waiting. Once it is automatic, learning about markets stops being abstract."
       },
       {
         "id": "growth->property",
         "from": "growth",
         "to": "property",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Automate your surplus and complete a quarterly review.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.automate-the-surplus",
+          "growth.quarterly-review"
         ],
-        "relationship": "A deposit is a very large saving goal with a deadline — the same habit, bigger numbers.",
-        "why": "Deposit progress is almost entirely a function of monthly saving and time."
+        "relationship": "Deposits are built from years of consistent surplus",
+        "why": "A deposit is simply a saving habit run for a long time, so there is no point sizing one before the habit exists. Your quarterly review is where you would notice your capacity changing. That is the honest entry point to Property Quarter."
       },
       {
         "id": "growth->business",
         "from": "growth",
         "to": "business",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Automate your surplus and complete a quarterly review.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.automate-the-surplus",
+          "growth.quarterly-review"
         ],
-        "relationship": "Extra income raises your capacity for every other goal on this map.",
-        "why": "More income is the one input that makes every other target arrive sooner."
+        "relationship": "Spare attention only exists once your base money runs itself",
+        "why": "Building extra income takes energy, and right now that energy is going into a $60,000 debt and an empty buffer. Once the basics are automatic, you have room to try something. Then the workshop is worth opening."
       },
       {
         "id": "growth->digital_assets",
         "from": "growth",
         "to": "digital_assets",
         "status": "locked",
-        "requirement": "Set a saving target and learn what investing is",
+        "requirement": "Automate your surplus and complete the compounding lesson.",
         "requiredStepIds": [
-          "growth.saving-target",
-          "markets.what-is-investing"
+          "growth.automate-the-surplus",
+          "growth.learn-compounding"
         ],
-        "relationship": "Digital assets amplify everything about markets — understand the ordinary version first.",
-        "why": "Volatility is only survivable when it's a small part of a plan you already understand."
+        "relationship": "Volatile assets are only ever for money you could lose entirely",
+        "why": "You are conservative and currently hold 0.42 months of expenses, so there is no money here you could afford to see fall by half. This bridge stays locked until there is genuine slack. Learning about volatility costs you nothing in the meantime."
+      },
+      {
+        "id": "markets->property",
+        "from": "markets",
+        "to": "property",
+        "status": "locked",
+        "requirement": "Complete the two Markets District lessons.",
+        "requiredStepIds": [
+          "markets.what-investing-is",
+          "markets.risk-you-can-live-with"
+        ],
+        "relationship": "Money put into investments is money not in a property deposit",
+        "why": "If both of these ever become live for you, they will draw on the same $400 a month — you cannot fund each fully. Seeing that trade-off early stops it feeling like a failure later. Choose deliberately rather than by accident."
       },
       {
         "id": "markets->freedom_city",
         "from": "markets",
         "to": "freedom_city",
         "status": "locked",
-        "requirement": "Complete the Markets District",
-        "requiredStepIds": [],
-        "relationship": "Long-term investing is how your Freedom City keeps being funded after the first goals are met.",
-        "why": "Freedom that lasts needs money that grows without you working for every dollar of it."
+        "requirement": "Complete the two Markets District lessons.",
+        "requiredStepIds": [
+          "markets.what-investing-is",
+          "markets.risk-you-can-live-with"
+        ],
+        "relationship": "Understanding your money is what removes the fear of checking it",
+        "why": "The knot in your stomach fades when nothing in your finances is a mystery to you. Knowing how markets work — even if you never use them yet — is part of that. This is the last stretch into the city."
       }
     ],
     "steps": [
       {
-        "id": "foundation.understand-spending",
+        "id": "foundation.track-one-month",
         "regionId": "foundation",
-        "order": 1,
-        "status": "todo",
-        "kind": "learn",
-        "title": "Understand where your money goes",
-        "description": "Track one month of spending and sort it into needs, wants and savings.",
-        "why": "You spend about $3,600 a month against $4,000 coming in. Knowing where it goes is the first lever you control."
-      },
-      {
-        "id": "foundation.build-budget",
-        "regionId": "foundation",
-        "order": 2,
-        "status": "todo",
         "kind": "action",
-        "title": "Set a simple budget",
-        "description": "Decide, in advance, how much goes to essentials, to enjoying life, and to your goals each month.",
-        "why": "A budget turns your $400 monthly surplus from an accident into a decision."
+        "title": "Track one full month of spending",
+        "description": "Record every dollar that leaves your account for one month, without changing any of your habits.",
+        "why": "Your expenses come to $3,600 a month, but that is a total — you have not yet seen it broken into pieces. Tracking without judging turns a scary number into a list. Most of the dread of opening the app comes from not knowing what is inside it.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "security.emergency-buffer",
+        "id": "foundation.learn-budgeting",
+        "regionId": "foundation",
+        "kind": "learn",
+        "title": "Learn how a simple budget works",
+        "description": "Work through the budgeting basics lesson and build a plain monthly plan for your $4,000 income.",
+        "why": "A budget is just a plan for money you already have, not a restriction on what you enjoy. With $400 left over each month, a plan is how you make sure that $400 actually survives to the end of the month. This is the beginner groundwork everything else sits on.",
+        "status": "todo",
+        "order": 2
+      },
+      {
+        "id": "foundation.name-your-numbers",
+        "regionId": "foundation",
+        "kind": "review",
+        "title": "Write down your four core numbers",
+        "description": "Note your income, expenses, savings and debt in one place so you can see all four at once.",
+        "why": "Your four numbers are $4,000 in, $3,600 out, $1,500 saved and $60,000 owed. Written down together, they stop being a vague worry and become something you can work on. You will come back to this page every few months.",
+        "status": "todo",
+        "order": 3
+      },
+      {
+        "id": "security.know-your-debt",
         "regionId": "security",
-        "order": 1,
-        "status": "in_progress",
+        "kind": "learn",
+        "title": "Understand the $60,000 you owe",
+        "description": "List each debt with its interest rate, minimum payment and term, then complete the understanding-debt lesson.",
+        "why": "Your debt is 1.25 times your annual income and would take around 150 months to clear at your current $400 surplus — but that headline hides which parts cost the most. Interest rates decide the order everything else happens in. This is the first thing to do because nothing here can be planned without it.",
+        "status": "todo",
+        "order": 1
+      },
+      {
+        "id": "security.build-buffer",
+        "regionId": "security",
         "kind": "save",
-        "title": "Build a 3-month emergency buffer",
-        "description": "Set aside $10,800 — 3 months of your expenses — somewhere you can reach it but won't touch it.",
-        "why": "You have $1,500 saved, which covers 0.4 months of expenses. A 3-month buffer means a surprise bill doesn't derail your goals.",
+        "title": "Grow your emergency buffer",
+        "description": "Move money towards a separate buffer account until it can cover three months of your expenses.",
+        "why": "You currently hold $1,500, about 0.42 months of expenses, against a 3-month target of $10,800 — a gap of $9,300. A buffer is what stops the next car repair or gap in work from being added to your debt. Even the first $1,000 changes how the app feels.",
         "metric": {
           "label": "Emergency buffer",
           "current": 1500,
           "target": 10800,
           "unit": "AUD"
-        }
+        },
+        "status": "todo",
+        "order": 2
       },
       {
-        "id": "security.debt-plan",
+        "id": "security.choose-a-split",
         "regionId": "security",
-        "order": 2,
-        "status": "todo",
         "kind": "action",
-        "title": "Make a plan for your debt",
-        "description": "List every debt with its interest rate and minimum payment. Pay the minimums on all of them, then put anything extra towards the most expensive one.",
-        "why": "You owe $60,000. At your current $400 monthly surplus it would take about 150 months to clear — a plan can shorten that."
+        "title": "Decide how to split your $400",
+        "description": "Choose, in writing, how much of your monthly surplus goes to extra debt repayment and how much to the buffer.",
+        "why": "You have $400 a month and two jobs for it, so the split has to be a decision rather than whatever is left over. Writing it down means you are not renegotiating with yourself every payday. There is no single right answer — there is only the one you will actually stick to.",
+        "status": "todo",
+        "order": 3
       },
       {
-        "id": "growth.saving-target",
+        "id": "growth.automate-the-surplus",
         "regionId": "growth",
-        "order": 1,
-        "status": "todo",
         "kind": "action",
-        "title": "Set a monthly saving target",
-        "description": "Pick a number you can hit every month and automate it on payday.",
-        "why": "You have about $400 a month left after expenses — a 10% saving rate. Automating it is the difference between hoping and doing."
+        "title": "Make your surplus automatic",
+        "description": "Set your chosen split to move on payday, before the money reaches your everyday spending.",
+        "why": "Your $400 surplus survives far better when it leaves the account before you see it. Automation removes the monthly decision, which is where most plans quietly die. This is what turns a good month into a steady year.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "growth.grow-income",
+        "id": "growth.learn-compounding",
         "regionId": "growth",
-        "order": 2,
-        "status": "todo",
         "kind": "learn",
-        "title": "Find one way to grow your income",
-        "description": "More income is the fastest way to more capacity: a raise, extra hours, a new skill, or a small side project.",
-        "why": "Every extra dollar you earn can go straight to a goal without cutting anything you enjoy."
+        "title": "Learn how compounding works both ways",
+        "description": "Complete the compound interest lesson and note how the same maths applies to your debt.",
+        "why": "Compounding is why $400 a month becomes something meaningful over years, and it is also why $60,000 of debt grows if left alone. Understanding one number explains both sides of your situation. At 26, time is genuinely on your side here.",
+        "status": "todo",
+        "order": 2
       },
       {
-        "id": "markets.what-is-investing",
-        "regionId": "markets",
-        "order": 1,
+        "id": "growth.quarterly-review",
+        "regionId": "growth",
+        "kind": "review",
+        "title": "Review your numbers every quarter",
+        "description": "Every three months, update your four core numbers and check whether your split still fits.",
+        "why": "Your capacity is steady rather than fixed — a pay rise or a debt cleared changes what $400 can become. A short check every quarter catches that without you having to think about money daily. It is also the moment you get to see the debt number shrinking.",
         "status": "todo",
+        "order": 3
+      },
+      {
+        "id": "markets.what-investing-is",
+        "regionId": "markets",
         "kind": "learn",
         "title": "Learn what investing actually is",
-        "description": "Shares, funds, returns and time — the vocabulary before the decisions.",
-        "why": "Understanding is free; mistakes are not. Learn the mechanics before any money moves."
+        "description": "Work through the beginner lesson on the difference between saving and investing.",
+        "why": "Investing gets talked about as if everyone already knows the words, which makes it easy to feel behind. It is simply putting money into things that may grow, accepting that they can also fall. Knowing the difference from saving means you will never be sold a story you do not understand.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "markets.risk-and-diversification",
+        "id": "markets.risk-you-can-live-with",
         "regionId": "markets",
-        "order": 2,
-        "status": "todo",
         "kind": "learn",
-        "title": "Understand risk and diversification",
-        "description": "Why prices move, what you can and can't control, and how spreading money reduces the damage of being wrong.",
-        "why": "You described your risk preference as conservative. Knowing what that means in practice keeps you from being surprised later."
+        "title": "Find the risk you can actually live with",
+        "description": "Complete the understanding-risk lesson and write down how much of a fall you could sit through calmly.",
+        "why": "You have described yourself as conservative, and your goal is literally about not feeling anxious when you check your money. Any future decision has to respect that, not fight it. Knowing your own limit in advance is what stops panic decisions later.",
+        "status": "todo",
+        "order": 2
       },
       {
-        "id": "property.learn-deposit",
+        "id": "property.deposit-reality-check",
         "regionId": "property",
-        "order": 1,
-        "status": "todo",
         "kind": "learn",
-        "title": "Understand what a deposit takes",
-        "description": "How much a deposit is, what lenders look at, and the costs beyond the price.",
-        "why": "Property is a very large goal; knowing the real numbers early tells you whether and when it fits your plan."
+        "title": "See what a deposit really involves",
+        "description": "Complete the deposit lesson and write down an honest number and timeline for your situation.",
+        "why": "You have no home goal set today, so this is about information rather than action. Seeing the real capital and timeline involved lets you decide whether you want it, instead of feeling vaguely behind. That clarity is worth having even if the answer is not yet.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "business.side-income",
+        "id": "business.explore-extra-income",
         "regionId": "business",
-        "order": 1,
-        "status": "todo",
         "kind": "action",
-        "title": "Test one small income idea",
-        "description": "Pick something you could sell, make or do this month. Small and real beats big and imaginary.",
-        "why": "Extra income is the one lever that raises your capacity for every other goal at once."
+        "title": "Write down three ways to add income",
+        "description": "List three realistic ways you could add income using skills you already have, with rough hours and earnings.",
+        "why": "Your surplus is $400 a month, and cutting expenses can only go so far when they are $3,600. An extra few hundred a month would change your 150-month debt timeline more than anything else available to you. This is a list, not a commitment.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "digital_assets.understand-volatility",
+        "id": "digital_assets.understand-the-swings",
         "regionId": "digital_assets",
-        "order": 1,
-        "status": "todo",
         "kind": "learn",
-        "title": "Understand volatility before anything else",
-        "description": "Why digital assets swing so hard, what that does to a plan, and how to size any exposure so it can't hurt your goals.",
-        "why": "This is the highest-volatility area on the map. Understanding comes first, and for many plans understanding is enough."
+        "title": "Understand why prices swing so hard",
+        "description": "Complete the crypto and volatility lesson so you can judge the claims you hear rather than react to them.",
+        "why": "You will hear plenty about digital assets, and knowing the mechanics makes you harder to pressure. With a conservative preference and a $9,300 buffer gap, this is education only for now. There is no step here that involves your money.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "freedom_city.define-freedom",
+        "id": "freedom_city.check-the-feeling",
         "regionId": "freedom_city",
-        "order": 1,
-        "status": "todo",
         "kind": "review",
-        "title": "Revisit what freedom means to you",
-        "description": "Once a quarter, re-read your freedom statement and check the map still points at it.",
-        "why": "You said: \"Not feeling a knot in my stomach every time I open my banking app.\" The whole map exists to get you there."
+        "title": "Check the feeling, not just the numbers",
+        "description": "Twice a year, open your banking app and note honestly how it felt before looking at anything else.",
+        "why": "You defined freedom as not feeling a knot in your stomach when you open the app, so that feeling is the real measure. Balances will move up and down; the calm is what you are actually building. This is how you know the map is working.",
+        "status": "todo",
+        "order": 1
       }
     ],
     "freedomCity": {
-      "title": "🕊️ Freedom City",
+      "title": "🕊️ City of Calm Mornings",
       "pillars": [
         "Feel financially secure",
         "Financial security"
       ],
-      "narrative": "Your freedom is made of Feel financially secure and Financial security. Every step on this map moves you closer to it."
+      "narrative": "Your city is the day you open your banking app and feel nothing — no knot in your stomach, just information. It is built from a shrinking $60,000 debt, a $10,800 buffer behind you, and a $400 monthly habit that runs without being asked."
     },
     "disclaimers": [
       "Free Me provides general financial education, not personal financial advice. It doesn't know your full circumstances — consider them, and seek licensed advice for decisions that matter to you."
-    ]
+    ],
+    "version": 1,
+    "source": "ai",
+    "generatedAt": "2026-09-01T00:00:00.000Z"
   },
-  "attempts": 0
+  "usage": {
+    "inputTokens": 471,
+    "outputTokens": 7479,
+    "cacheReadTokens": 4961,
+    "cacheWriteTokens": 0
+  },
+  "attempts": 1
 }

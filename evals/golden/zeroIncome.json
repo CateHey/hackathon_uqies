@@ -1,7 +1,7 @@
 {
   "name": "zeroIncome",
-  "source": "template",
-  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "source": "ai",
+  "generatedAt": "2026-08-27T21:36:08.174Z",
   "profile": {
     "freedomStatement": "Finishing my degree without money stress getting in the way.",
     "age": 20,
@@ -58,174 +58,182 @@
     ]
   },
   "plan": {
-    "version": 1,
-    "source": "template",
-    "generatedAt": "2026-09-01T00:00:00.000Z",
     "profileSummary": {
-      "headline": "Education-focused student building a foundation",
+      "headline": "Student building calm money habits before exchange",
       "tags": [
-        "🎓 Student",
-        "📚 Education-focused",
-        "💰 Building capacity",
-        "📚 Beginner knowledge",
-        "⚖️ Conservative risk preference"
+        "🎓 Full-time student",
+        "✈️ Exchange semester fund",
+        "🪙 No monthly surplus yet",
+        "🌱 Beginner learner",
+        "🛡️ Conservative by choice"
       ]
     },
     "currentPriorityRegionId": "foundation",
-    "nextStepId": "foundation.understand-spending",
+    "nextStepId": "foundation.see-your-money",
     "regions": [
       {
-        "status": "active",
-        "progress": 0,
-        "stepIds": [
-          "foundation.understand-spending",
-          "foundation.build-budget"
-        ],
         "id": "foundation",
         "type": "foundation",
         "exploreTitle": "Foundation Village",
-        "proTitle": "Financial foundations",
-        "summary": "Know where your money goes and put a simple budget in place.",
-        "why": "Everything else on your map gets easier once you can see your money clearly — this is where every journey starts.",
+        "proTitle": "Foundation",
+        "summary": "See exactly where your $900 a month goes and how long your $2,500 lasts.",
+        "why": "You have no income right now and $900 of monthly expenses, so every dollar of your $2,500 is doing real work. Seeing that clearly is the single most useful thing you can do before anything else. It turns 'money stress' into a number you can watch.",
         "relevance": 5,
+        "status": "active",
+        "progress": 0,
+        "stepIds": [
+          "foundation.see-your-money",
+          "foundation.name-your-runway",
+          "foundation.plan-the-gap"
+        ],
         "lessonIds": [
+          "budgeting-basics",
+          "understanding-debt"
+        ]
+      },
+      {
+        "id": "security",
+        "type": "security",
+        "exploreTitle": "Security Harbour",
+        "proTitle": "Security",
+        "summary": "Your 2-month buffer of $1,800 is already fully covered, and you carry no debt.",
+        "why": "Your savings cover 2.78 months of expenses, so your $1,800 emergency buffer is already met and your emergency gap is $0. With no debt either, this region is mostly about protecting what you've built rather than constructing it. The job now is keeping that buffer untouched while you study.",
+        "relevance": 5,
+        "status": "locked",
+        "progress": 0.5,
+        "stepIds": [
+          "security.confirm-your-buffer",
+          "security.ring-fence-it"
+        ],
+        "lessonIds": [
+          "emergency-fund",
+          "understanding-debt"
+        ]
+      },
+      {
+        "id": "growth",
+        "type": "growth",
+        "exploreTitle": "Savings Garden",
+        "proTitle": "Growth",
+        "summary": "Grow the $700 you have spare beyond the buffer, mostly by finding inflow.",
+        "why": "Beyond your $1,800 buffer you have $700 spare, and your surplus is currently -$900 a month, so growth for you means creating inflow rather than picking anything clever. Even small, irregular income changes the shape of your year. This is where the exchange semester becomes realistic.",
+        "relevance": 4,
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "growth.find-some-inflow",
+          "growth.learn-how-money-compounds"
+        ],
+        "lessonIds": [
+          "compound-interest",
           "budgeting-basics"
         ]
       },
       {
-        "status": "complete",
-        "progress": 1,
-        "stepIds": [
-          "security.emergency-buffer"
-        ],
-        "id": "security",
-        "type": "security",
-        "exploreTitle": "Security Harbour",
-        "proTitle": "Financial security",
-        "summary": "Build a buffer against surprises and get on top of any debt.",
-        "why": "Your buffer is already in place — this region is about keeping it that way.",
+        "id": "goal-g-course",
+        "type": "personal_goal",
+        "exploreTitle": "Exchange Semester Academy",
+        "proTitle": "Exchange semester",
+        "summary": "$700 of the $3,000 is already funded; $2,300 to go.",
+        "why": "Your exchange semester needs $3,000 and your spare savings already cover $700 of it, leaving $2,300. With no monthly surplus yet, this gap closes through new income rather than tighter spending. Naming the number makes it a plan instead of a wish.",
         "relevance": 5,
+        "status": "locked",
+        "progress": 0.117,
+        "stepIds": [
+          "goal-g-course.size-the-real-cost",
+          "goal-g-course.fund-the-gap"
+        ],
         "lessonIds": [
-          "emergency-fund"
-        ]
+          "budgeting-basics",
+          "compound-interest"
+        ],
+        "goalId": "g-course"
       },
       {
-        "status": "available",
+        "id": "markets",
+        "type": "markets",
+        "exploreTitle": "Markets District",
+        "proTitle": "Markets",
+        "summary": "Worth understanding now, worth acting on later.",
+        "why": "Markets can fall as well as rise over short periods, and your $700 spare is earmarked for an exchange semester rather than a long horizon, so this is a learning region for you today. Understanding it now costs nothing and removes the mystery. Relevance is 3: real, but not urgent.",
+        "relevance": 3,
+        "status": "locked",
         "progress": 0,
         "stepIds": [
-          "growth.saving-target",
-          "growth.grow-income"
+          "markets.learn-the-language",
+          "markets.check-your-risk-comfort"
         ],
-        "id": "growth",
-        "type": "growth",
-        "exploreTitle": "Savings Garden",
-        "proTitle": "Saving & growth",
-        "summary": "Turn saving into a habit and grow what you earn.",
-        "why": "Your capacity to save is the constraint right now, so growing it — income up, habits in place — unlocks everything downstream.",
-        "relevance": 5,
         "lessonIds": [
+          "what-is-investing",
+          "understanding-risk",
           "compound-interest"
         ]
       },
       {
-        "status": "locked",
-        "progress": 0.233,
-        "stepIds": [
-          "goal-g-course.save"
-        ],
-        "id": "goal-g-course",
-        "type": "personal_goal",
-        "exploreTitle": "Exchange semester Academy",
-        "proTitle": "Exchange semester",
-        "summary": "Your goal: Exchange semester.",
-        "why": "You told us this is what freedom looks like — it gets its own place on the map so every saving habit has somewhere to go.",
-        "relevance": 5,
-        "lessonIds": [],
-        "goalId": "g-course"
-      },
-      {
-        "status": "locked",
-        "progress": 0,
-        "stepIds": [
-          "markets.what-is-investing",
-          "markets.risk-and-diversification"
-        ],
-        "id": "markets",
-        "type": "markets",
-        "exploreTitle": "Markets District",
-        "proTitle": "Investing & markets",
-        "summary": "Understand shares, funds, risk and diversification before you commit money.",
-        "why": "Investing matters eventually, but right now your buffer and capacity come first — learn here, commit later.",
-        "relevance": 1,
-        "lessonIds": [
-          "what-is-investing",
-          "understanding-risk",
-          "diversification",
-          "etfs-explained"
-        ]
-      },
-      {
-        "status": "locked",
-        "progress": 0,
-        "stepIds": [
-          "property.learn-deposit"
-        ],
         "id": "property",
         "type": "property",
         "exploreTitle": "Property Quarter",
         "proTitle": "Property",
-        "summary": "What a deposit takes, how borrowing works, and whether property fits your plan.",
-        "why": "Not a priority yet because of the capital involved — it stays on the map so you can learn what it would take.",
+        "summary": "Far off while you're studying with no income.",
+        "why": "Property involves deposits and ongoing costs measured in tens of thousands, which is a long way from your $2,500 and -$900 monthly surplus. Nothing here is wrong for you, it's simply years away. Relevance is 1 so it doesn't distract from your degree.",
         "relevance": 1,
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "property.understand-the-numbers"
+        ],
         "lessonIds": [
           "saving-for-a-deposit"
         ]
       },
       {
-        "status": "locked",
-        "progress": 0,
-        "stepIds": [
-          "business.side-income"
-        ],
         "id": "business",
         "type": "business",
         "exploreTitle": "Enterprise Workshop",
-        "proTitle": "Business & extra income",
-        "summary": "Side income, entrepreneurship and what it takes to build something of your own.",
-        "why": "Not a must, but extra income is the fastest way to raise your saving capacity.",
+        "proTitle": "Business or side income",
+        "summary": "The most practical way for you to turn skills into inflow.",
+        "why": "With income at $0 a month, anything that creates cash flow matters more to you than anything that grows a balance. Small skill-based work around study hours is the realistic version of this region. Relevance is 2 because study comes first, but it's the branch most likely to move your numbers.",
         "relevance": 2,
-        "lessonIds": []
-      },
-      {
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "digital_assets.understand-volatility"
+          "business.list-what-you-can-offer"
         ],
+        "lessonIds": [
+          "budgeting-basics"
+        ]
+      },
+      {
         "id": "digital_assets",
         "type": "digital_assets",
         "exploreTitle": "Digital Frontier",
         "proTitle": "Digital assets",
-        "summary": "How cryptocurrency works, why it swings so much, and how to think about the risk.",
-        "why": "Higher volatility than your stated preference — worth understanding, unlikely to be a priority.",
+        "summary": "High volatility sits well outside your conservative preference.",
+        "why": "You've described yourself as conservative, and digital assets can move sharply in both directions over days. With money you may need for an exchange semester, that mismatch is the whole story. Relevance is 1: understand it, keep your distance for now.",
         "relevance": 1,
-        "lessonIds": [
-          "crypto-and-volatility"
-        ]
-      },
-      {
         "status": "locked",
         "progress": 0,
         "stepIds": [
-          "freedom_city.define-freedom"
+          "digital_assets.understand-the-swings"
         ],
+        "lessonIds": [
+          "crypto-and-volatility",
+          "understanding-risk"
+        ]
+      },
+      {
         "id": "freedom_city",
         "type": "freedom_city",
-        "exploreTitle": "🕊️ Freedom City",
-        "proTitle": "Your definition of freedom",
-        "summary": "Exchange semester · Financial security",
-        "why": "This is the destination — your version of freedom, not a number someone else picked.",
+        "exploreTitle": "🕊️ City of a Clear Head",
+        "proTitle": "Freedom City",
+        "summary": "Finishing your degree with money never being the thing that decides for you.",
+        "why": "You said freedom is finishing your degree without money stress getting in the way, and your buffer already covers 2.78 months, which is a real head start. This city is what it looks like when the exchange semester is funded and the buffer is still intact. Everything on the map points here.",
         "relevance": 5,
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "freedom_city.review-the-year"
+        ],
         "lessonIds": []
       }
     ],
@@ -235,254 +243,309 @@
         "from": "foundation",
         "to": "security",
         "status": "locked",
-        "requirement": "Understand where your money goes",
+        "requirement": "Track one month of spending and write down your runway.",
         "requiredStepIds": [
-          "foundation.understand-spending"
+          "foundation.see-your-money",
+          "foundation.name-your-runway"
         ],
-        "relationship": "Knowing your spending tells you exactly how big your buffer needs to be.",
-        "why": "A buffer target is just your monthly expenses multiplied — you need the first number to get the second."
+        "relationship": "Knowing your monthly outflow is what makes a buffer meaningful",
+        "why": "Your $1,800 buffer target only means something once you've confirmed $900 a month is really your outflow. Track it, and the harbour behind this bridge is already built. Skip it, and the number is just a guess."
       },
       {
         "id": "security->growth",
         "from": "security",
         "to": "growth",
-        "status": "unlocked",
-        "requirement": "Build your emergency buffer",
+        "status": "locked",
+        "requirement": "Confirm your buffer is intact and set it aside.",
         "requiredStepIds": [
-          "security.emergency-buffer"
+          "security.confirm-your-buffer",
+          "security.ring-fence-it"
         ],
-        "relationship": "With a buffer in place, your savings can stay pointed at goals instead of being raided for surprises.",
-        "why": "Saving for goals before you have a buffer usually means un-saving them at the first emergency."
+        "relationship": "Only money above the buffer is genuinely free to grow",
+        "why": "Your emergency gap is $0, so the buffer part is done — the remaining work is keeping it separate from the $700 spare. Once that line is drawn you can look at growth without risking your safety net."
       },
       {
         "id": "growth->goal-g-course",
         "from": "growth",
         "to": "goal-g-course",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Create some inflow, however small or irregular.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.find-some-inflow"
         ],
-        "relationship": "Every dollar you automate is a dollar closer to Exchange semester.",
-        "why": "A goal without a saving habit behind it is a wish."
-      },
-      {
-        "id": "goal-g-course->freedom_city",
-        "from": "goal-g-course",
-        "to": "freedom_city",
-        "status": "locked",
-        "requirement": "Reach your Exchange semester target",
-        "requiredStepIds": [
-          "goal-g-course.save"
-        ],
-        "relationship": "Exchange semester is one of the pillars of your Freedom City.",
-        "why": "Your definition of freedom is made of the goals you named."
+        "relationship": "The $2,300 gap closes with new income, not tighter spending",
+        "why": "With a -$900 monthly surplus there's nothing to redirect toward the exchange semester yet. Any inflow at all is what turns $700 funded into $3,000 funded over time."
       },
       {
         "id": "growth->markets",
         "from": "growth",
         "to": "markets",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Understand how compounding works before exploring markets.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.learn-how-money-compounds"
         ],
-        "relationship": "Investing only works with money you won't need soon — your saving habit is what feeds it.",
-        "why": "Markets reward time and consistency; the habit has to exist first."
+        "relationship": "Compounding is the idea markets rest on",
+        "why": "At 20, time is the biggest advantage you have, and compounding explains why. Learning it first makes everything in the markets district make sense rather than feel like noise."
       },
       {
         "id": "growth->property",
         "from": "growth",
         "to": "property",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Have income and savings well beyond your $1,800 buffer.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "growth.find-some-inflow"
         ],
-        "relationship": "A deposit is a very large saving goal with a deadline — the same habit, bigger numbers.",
-        "why": "Deposit progress is almost entirely a function of monthly saving and time."
+        "relationship": "Property needs steady income before it needs anything else",
+        "why": "Deposits are built from surplus, and yours is -$900 a month while you study. This bridge stays closed for now, and that's an honest reflection of where you are."
       },
       {
         "id": "growth->business",
         "from": "growth",
         "to": "business",
         "status": "locked",
-        "requirement": "Set a monthly saving target",
+        "requirement": "Know your runway so you can judge how much time you can give.",
         "requiredStepIds": [
-          "growth.saving-target"
+          "foundation.name-your-runway"
         ],
-        "relationship": "Extra income raises your capacity for every other goal on this map.",
-        "why": "More income is the one input that makes every other target arrive sooner."
+        "relationship": "Your time is the capital here, and study has first call on it",
+        "why": "Because your income is $0, side income is the fastest lever you have. Knowing your runway tells you how many hours a week you can spare without hurting your degree."
       },
       {
         "id": "growth->digital_assets",
         "from": "growth",
         "to": "digital_assets",
         "status": "locked",
-        "requirement": "Set a saving target and learn what investing is",
+        "requirement": "Complete the risk and volatility learning first.",
         "requiredStepIds": [
-          "growth.saving-target",
-          "markets.what-is-investing"
+          "markets.check-your-risk-comfort"
         ],
-        "relationship": "Digital assets amplify everything about markets — understand the ordinary version first.",
-        "why": "Volatility is only survivable when it's a small part of a plan you already understand."
+        "relationship": "Volatility is the entire question in this branch",
+        "why": "You've said you're conservative, so this branch only makes sense after you can describe volatility in your own words. Understanding comes before anything else here."
+      },
+      {
+        "id": "markets->goal-g-course",
+        "from": "markets",
+        "to": "goal-g-course",
+        "status": "locked",
+        "requirement": "Decide which money is for the exchange and which is long-term.",
+        "requiredStepIds": [
+          "goal-g-course.size-the-real-cost"
+        ],
+        "relationship": "Money committed to markets is money not available for the semester",
+        "why": "Your $700 spare can serve one purpose at a time, and the exchange semester has a date attached while markets need years. Naming which dollars belong to which purpose prevents an awkward decision later."
+      },
+      {
+        "id": "goal-g-course->freedom_city",
+        "from": "goal-g-course",
+        "to": "freedom_city",
+        "status": "locked",
+        "requirement": "Fund the full $3,000 without touching the $1,800 buffer.",
+        "requiredStepIds": [
+          "goal-g-course.fund-the-gap"
+        ],
+        "relationship": "The semester funded and the buffer intact is your definition of freedom",
+        "why": "You're $2,300 short today, and closing that gap while the buffer stays whole is exactly 'no money stress getting in the way'. That's what waits on the other side."
       },
       {
         "id": "markets->freedom_city",
         "from": "markets",
         "to": "freedom_city",
         "status": "locked",
-        "requirement": "Complete the Markets District",
-        "requiredStepIds": [],
-        "relationship": "Long-term investing is how your Freedom City keeps being funded after the first goals are met.",
-        "why": "Freedom that lasts needs money that grows without you working for every dollar of it."
+        "requirement": "Be able to explain risk, compounding and diversification in your own words.",
+        "requiredStepIds": [
+          "markets.learn-the-language",
+          "markets.check-your-risk-comfort"
+        ],
+        "relationship": "Understanding markets is a lifelong asset, even before any money is involved",
+        "why": "You may finish your degree before you ever have long-term money to think about, and that's fine. Carrying the knowledge into that moment is worth as much as the money itself."
       }
     ],
     "steps": [
       {
-        "id": "foundation.understand-spending",
+        "id": "foundation.see-your-money",
         "regionId": "foundation",
-        "order": 1,
-        "status": "todo",
         "kind": "learn",
-        "title": "Understand where your money goes",
-        "description": "Track one month of spending and sort it into needs, wants and savings.",
-        "why": "You spend about $900 a month against $0 coming in. Knowing where it goes is the first lever you control."
-      },
-      {
-        "id": "foundation.build-budget",
-        "regionId": "foundation",
-        "order": 2,
+        "title": "See where the $900 goes",
+        "description": "List every outgoing for one month and group it into a handful of categories.",
+        "why": "You spend around $900 a month with no income coming in, so each category is a decision your past self already made. Seeing them written down is usually calmer than imagining them.",
         "status": "todo",
-        "kind": "action",
-        "title": "Set a simple budget",
-        "description": "Decide, in advance, how much goes to essentials, to enjoying life, and to your goals each month.",
-        "why": "You currently spend at least as much as you earn; a budget shows exactly where to close the gap."
+        "order": 1
       },
       {
-        "id": "security.emergency-buffer",
+        "id": "foundation.name-your-runway",
+        "regionId": "foundation",
+        "kind": "action",
+        "title": "Write down your runway",
+        "description": "Divide your savings by your monthly outflow and write the number of months somewhere you'll see it.",
+        "why": "Your $2,500 covers about 2.78 months of $900 expenses — that's your runway, and it's a fact rather than a fear. Knowing the number lets you plan around it instead of worrying about it.",
+        "status": "todo",
+        "order": 2
+      },
+      {
+        "id": "foundation.plan-the-gap",
+        "regionId": "foundation",
+        "kind": "review",
+        "title": "Look at the -$900 honestly",
+        "description": "Note what could change the monthly gap: study income, support, scholarships, term-break work.",
+        "why": "A surplus of -$900 isn't a failure, it's what studying with no income looks like. Listing the levers that could change it turns a scary number into a short to-do list.",
+        "status": "todo",
+        "order": 3
+      },
+      {
+        "id": "security.confirm-your-buffer",
         "regionId": "security",
-        "order": 1,
-        "status": "done",
         "kind": "save",
-        "title": "Build a 2-month emergency buffer",
-        "description": "Set aside $1,800 — 2 months of your expenses — somewhere you can reach it but won't touch it.",
-        "why": "Your $2,500 already covers a 2-month buffer. Every dollar above it is free to work on your goals.",
+        "title": "Confirm your 2-month buffer",
+        "description": "Check that at least $1,800 of your savings is set aside for emergencies only.",
+        "why": "Your emergency gap is $0 — the buffer is already there, which is genuinely uncommon at 20. This step is confirmation, not construction.",
         "metric": {
           "label": "Emergency buffer",
           "current": 1800,
           "target": 1800,
           "unit": "AUD"
-        }
+        },
+        "status": "done",
+        "order": 1
       },
       {
-        "id": "growth.saving-target",
-        "regionId": "growth",
-        "order": 1,
-        "status": "todo",
+        "id": "security.ring-fence-it",
+        "regionId": "security",
         "kind": "action",
-        "title": "Set a monthly saving target",
-        "description": "Pick a number you can hit every month and automate it on payday.",
-        "why": "Right now nothing is left at the end of the month, so this step is about finding the first $50. The habit matters more than the amount."
-      },
-      {
-        "id": "growth.grow-income",
-        "regionId": "growth",
-        "order": 2,
+        "title": "Keep the buffer separate",
+        "description": "Hold the $1,800 apart from the $700 you might spend, so the two never blur.",
+        "why": "With no income arriving, a blurred line is how buffers quietly disappear. Keeping them separate means the exchange semester never accidentally eats your safety net.",
         "status": "todo",
-        "kind": "learn",
-        "title": "Find one way to grow your income",
-        "description": "More income is the fastest way to more capacity: a raise, extra hours, a new skill, or a small side project.",
-        "why": "Every extra dollar you earn can go straight to a goal without cutting anything you enjoy."
+        "order": 2
       },
       {
-        "id": "goal-g-course.save",
+        "id": "growth.find-some-inflow",
+        "regionId": "growth",
+        "kind": "action",
+        "title": "Create some inflow",
+        "description": "Identify one realistic source of money that fits around your study timetable.",
+        "why": "Your surplus is -$900 a month, so nothing on this map moves much until some money comes in. Even irregular inflow shortens the distance to your $2,300 gap.",
+        "status": "todo",
+        "order": 1
+      },
+      {
+        "id": "growth.learn-how-money-compounds",
+        "regionId": "growth",
+        "kind": "learn",
+        "title": "Learn how compounding works",
+        "description": "Understand how growth builds on previous growth over long periods.",
+        "why": "You're 20, which means time is the one resource you have more of than almost anyone. Understanding compounding now shapes decisions you'll make for decades.",
+        "status": "todo",
+        "order": 2
+      },
+      {
+        "id": "goal-g-course.size-the-real-cost",
         "regionId": "goal-g-course",
-        "order": 1,
-        "status": "in_progress",
+        "kind": "learn",
+        "title": "Size the real cost",
+        "description": "Break the $3,000 into its parts — fees, flights, insurance, living costs — and check nothing is missing.",
+        "why": "You've set $3,000 as the target and $700 is already funded, so the accuracy of that number matters. A target that's honest is one you can actually hit.",
+        "status": "todo",
+        "order": 1
+      },
+      {
+        "id": "goal-g-course.fund-the-gap",
+        "regionId": "goal-g-course",
         "kind": "save",
-        "title": "Save for Exchange semester",
-        "description": "Build towards $3,000, one automatic transfer at a time.",
-        "why": "You have $700 towards this already but no monthly surplus yet — growing your capacity is what unlocks it.",
+        "title": "Close the $2,300 gap",
+        "description": "Track the exchange fund separately and watch it move from $700 toward $3,000.",
+        "why": "$700 of your $3,000 is funded from spare savings, leaving $2,300 to find. Watching one number climb is far less stressful than watching a whole balance.",
         "metric": {
-          "label": "Exchange semester",
+          "label": "Exchange semester fund",
           "current": 700,
           "target": 3000,
           "unit": "AUD"
-        }
+        },
+        "status": "todo",
+        "order": 2
       },
       {
-        "id": "markets.what-is-investing",
+        "id": "markets.learn-the-language",
         "regionId": "markets",
-        "order": 1,
-        "status": "todo",
         "kind": "learn",
-        "title": "Learn what investing actually is",
-        "description": "Shares, funds, returns and time — the vocabulary before the decisions.",
-        "why": "Understanding is free; mistakes are not. Learn the mechanics before any money moves."
+        "title": "Learn the language of markets",
+        "description": "Get clear on what shares, funds and returns actually are, without any money involved.",
+        "why": "Learning how markets work costs you nothing while your income is $0, and it removes a lot of the intimidation. When you do have long-term money, you'll already understand the terms.",
+        "status": "todo",
+        "order": 1
       },
       {
-        "id": "markets.risk-and-diversification",
+        "id": "markets.check-your-risk-comfort",
         "regionId": "markets",
-        "order": 2,
-        "status": "todo",
-        "kind": "learn",
-        "title": "Understand risk and diversification",
-        "description": "Why prices move, what you can and can't control, and how spreading money reduces the damage of being wrong.",
-        "why": "You described your risk preference as conservative. Knowing what that means in practice keeps you from being surprised later."
-      },
-      {
-        "id": "property.learn-deposit",
-        "regionId": "property",
-        "order": 1,
-        "status": "todo",
-        "kind": "learn",
-        "title": "Understand what a deposit takes",
-        "description": "How much a deposit is, what lenders look at, and the costs beyond the price.",
-        "why": "Property is a very large goal; knowing the real numbers early tells you whether and when it fits your plan."
-      },
-      {
-        "id": "business.side-income",
-        "regionId": "business",
-        "order": 1,
-        "status": "todo",
-        "kind": "action",
-        "title": "Test one small income idea",
-        "description": "Pick something you could sell, make or do this month. Small and real beats big and imaginary.",
-        "why": "Extra income is the one lever that raises your capacity for every other goal at once."
-      },
-      {
-        "id": "digital_assets.understand-volatility",
-        "regionId": "digital_assets",
-        "order": 1,
-        "status": "todo",
-        "kind": "learn",
-        "title": "Understand volatility before anything else",
-        "description": "Why digital assets swing so hard, what that does to a plan, and how to size any exposure so it can't hurt your goals.",
-        "why": "This is the highest-volatility area on the map. Understanding comes first, and for many plans understanding is enough."
-      },
-      {
-        "id": "freedom_city.define-freedom",
-        "regionId": "freedom_city",
-        "order": 1,
-        "status": "todo",
         "kind": "review",
-        "title": "Revisit what freedom means to you",
-        "description": "Once a quarter, re-read your freedom statement and check the map still points at it.",
-        "why": "You said: \"Finishing my degree without money stress getting in the way.\" The whole map exists to get you there."
+        "title": "Test your conservative preference",
+        "description": "Think through how you'd feel if money set aside for years fell in value for a while.",
+        "why": "You've described yourself as conservative, and that's worth examining rather than assuming. Knowing your honest answer protects you from decisions that don't suit you.",
+        "status": "todo",
+        "order": 2
+      },
+      {
+        "id": "property.understand-the-numbers",
+        "regionId": "property",
+        "kind": "learn",
+        "title": "Understand what a deposit involves",
+        "description": "Learn how deposits, ongoing costs and timelines fit together, purely as background.",
+        "why": "Property is years away from $2,500 in savings and a -$900 monthly surplus, so this is context rather than a task. Understanding it early stops it feeling like a mystery later.",
+        "status": "todo",
+        "order": 1
+      },
+      {
+        "id": "business.list-what-you-can-offer",
+        "regionId": "business",
+        "kind": "action",
+        "title": "List what you can offer",
+        "description": "Write down skills from your degree or life that someone else would pay for.",
+        "why": "With income at $0, your skills are the most liquid thing you own. A short honest list is often the fastest route from -$900 toward a smaller gap.",
+        "status": "todo",
+        "order": 1
+      },
+      {
+        "id": "digital_assets.understand-the-swings",
+        "regionId": "digital_assets",
+        "kind": "learn",
+        "title": "Understand the volatility",
+        "description": "Learn why digital asset prices move so sharply and what that means for money with a deadline.",
+        "why": "Your exchange semester has a date and your buffer has a job, and neither suits large price swings. Understanding why is more useful to you than any opinion on the asset itself.",
+        "status": "todo",
+        "order": 1
+      },
+      {
+        "id": "freedom_city.review-the-year",
+        "regionId": "freedom_city",
+        "kind": "review",
+        "title": "Review your freedom statement",
+        "description": "Once a semester, check whether money is still getting in the way of your degree.",
+        "why": "Your definition of freedom is finishing your degree without money stress, so that's the only scoreboard that counts. A short honest review each semester keeps the map pointed at it.",
+        "status": "todo",
+        "order": 1
       }
     ],
     "freedomCity": {
-      "title": "🕊️ Freedom City",
+      "title": "🕊️ City of a Clear Head",
       "pillars": [
         "Exchange semester",
         "Financial security"
       ],
-      "narrative": "Your freedom is made of Exchange semester and Financial security. Every step on this map moves you closer to it."
+      "narrative": "Your freedom is \"finishing my degree without money stress getting in the way\" — a $1,800 buffer that stays untouched and a $3,000 exchange semester that's fully funded. That's the whole city, and you're already partway in."
     },
     "disclaimers": [
       "Free Me provides general financial education, not personal financial advice. It doesn't know your full circumstances — consider them, and seek licensed advice for decisions that matter to you."
-    ]
+    ],
+    "version": 1,
+    "source": "ai",
+    "generatedAt": "2026-09-01T00:00:00.000Z"
   },
-  "attempts": 0
+  "usage": {
+    "inputTokens": 999,
+    "outputTokens": 15289,
+    "cacheReadTokens": 9922,
+    "cacheWriteTokens": 0
+  },
+  "attempts": 2
 }

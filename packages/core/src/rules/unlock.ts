@@ -39,7 +39,16 @@ export function applyProgress(plan: FreedomPlan, event: ProgressEvent): ApplyRes
  * Recompute region progress/status, bridge status, the current priority and the next step
  * from the steps alone. Deterministic — no AI involved in unlocking anything.
  */
-export function recomputePlanState(plan: FreedomPlan, previous: FreedomPlan = plan): ApplyResult {
+export function recomputePlanState(input: FreedomPlan, previous: FreedomPlan = input): ApplyResult {
+  // A saving step with money already in it is in progress, whatever the source said.
+  const plan: FreedomPlan = {
+    ...input,
+    steps: input.steps.map((s) =>
+      s.status === "todo" && s.metric && s.metric.current > 0 && s.metric.current < s.metric.target
+        ? { ...s, status: "in_progress" }
+        : s,
+    ),
+  };
   const stepsByRegion = new Map<string, Step[]>();
   for (const s of plan.steps) {
     const list = stepsByRegion.get(s.regionId) ?? [];
