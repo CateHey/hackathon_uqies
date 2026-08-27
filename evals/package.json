@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
-    "golden": "tsx --env-file-if-exists=.env scripts/generate-golden.ts",
+    "golden": "tsx --env-file-if-exists=.env --env-file-if-exists=../apps/web/.env.local scripts/generate-golden.ts",
     "template": "tsx scripts/generate-template.ts",
     "typecheck": "tsc --noEmit"
   },
