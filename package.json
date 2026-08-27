@@ -1,0 +1,26 @@
+{
+  "name": "free-me",
+  "private": true,
+  "packageManager": "pnpm@11.24.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "lint": "turbo lint",
+    "eval": "pnpm --filter evals test",
+    "eval:golden": "pnpm --filter evals golden",
+    "eval:template": "pnpm --filter evals template",
+    "mobile": "echo \"apps/mobile is scaffolded in Phase 6 (see FREE_ME_DEVELOPMENT_PLAN.md)\"",
+    "db:reset": "supabase db reset",
+    "db:types": "supabase gen types typescript --local > packages/core/src/db.types.ts",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "turbo": "^2.10.12"
+  }
+}

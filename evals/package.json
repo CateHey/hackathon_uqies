@@ -1,0 +1,25 @@
+{
+  "name": "evals",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "golden": "tsx --env-file-if-exists=.env scripts/generate-golden.ts",
+    "template": "tsx scripts/generate-template.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@free-me/ai": "workspace:*",
+    "@free-me/content": "workspace:*",
+    "@free-me/core": "workspace:*",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@free-me/config": "workspace:*",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.11"
+  }
+}

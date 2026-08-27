@@ -1,0 +1,1 @@
+{ "extends": "@free-me/config/tsconfig.base.json", "include": ["src"] }

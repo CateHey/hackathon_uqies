@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install)",
+      "Bash(pnpm typecheck*)",
+      "Bash(pnpm test*)",
+      "Bash(pnpm lint*)",
+      "Bash(pnpm build*)",
+      "Bash(pnpm --filter *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ],
+    "deny": [
+      "Read(./**/.env*)",
+      "Bash(pnpm eval:golden*)",
+      "Bash(git push*)",
+      "Bash(supabase db push*)",
+      "Bash(eas submit*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pnpm -s typecheck || { echo 'typecheck failed — fix before finishing' >&2; exit 2; }"
+          }
+        ]
+      }
+    ]
+  }
+}
