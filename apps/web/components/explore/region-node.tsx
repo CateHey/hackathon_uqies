@@ -50,6 +50,9 @@ export function RegionNode({
         }
       }}
     >
+      {region.type === "freedom_city" && (
+        <circle cx={box.cx} cy={box.cy} r={box.w * 0.85} fill="url(#fm-city-glow)" pointerEvents="none" />
+      )}
       {active && (
         <rect x={box.x - 8} y={box.y - 8} width={box.w + 16} height={box.h + 16} rx={22} fill={color} opacity={0.35} filter="url(#fm-glow)" />
       )}
@@ -84,7 +87,8 @@ export function RegionNode({
       ))}
       {locked ? (
         <text x={box.x + 16} y={box.y + box.h - 16} fontSize={11} fill="#94A3B8">
-          🔒 Locked
+          🔒 Locked · {"★".repeat(region.relevance)}
+          <tspan fill="#3b4757">{"★".repeat(5 - region.relevance)}</tspan>
         </text>
       ) : complete ? (
         <text x={box.x + 16} y={box.y + box.h - 16} fontSize={11} fill="#6B8F71" fontWeight={600}>

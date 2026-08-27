@@ -31,8 +31,9 @@ export function ModeToggle() {
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
-            <span className="mr-1.5">{o.icon}</span>
-            {o.label}
+            <span className="sm:mr-1.5" aria-hidden>{o.icon}</span>
+            <span className="hidden sm:inline">{o.label}</span>
+            <span className="sr-only">{o.label}</span>
           </button>
         );
       })}

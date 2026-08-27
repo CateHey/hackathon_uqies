@@ -17,7 +17,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-20 border-b border-white/5 bg-ink/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="font-display text-xl tracking-wide text-parchment">
+        <Link href="/" className="whitespace-nowrap font-display text-xl tracking-wide text-parchment">
           🕊️ Free Me
         </Link>
         {!inOnboarding && (

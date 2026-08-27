@@ -17,7 +17,8 @@
     "mobile": "echo \"apps/mobile is scaffolded in Phase 6 (see FREE_ME_DEVELOPMENT_PLAN.md)\"",
     "db:reset": "supabase db reset",
     "db:types": "supabase gen types typescript --local > packages/core/src/db.types.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "e2e": "pnpm --filter web e2e"
   },
   "devDependencies": {
     "prettier": "^3.9.6",

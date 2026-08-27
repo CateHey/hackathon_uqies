@@ -588,7 +588,7 @@ export function templatePlan(profile: FreedomProfile, metrics: Metrics, opts: { 
   const freedomCity = {
     title: cityTitle,
     pillars,
-    narrative: `Your freedom looks like ${pillars.join(", ").toLowerCase()}. Every step on this map moves you closer to it.`,
+    narrative: `Your freedom is made of ${pillars.slice(0, -1).join(", ")}${pillars.length > 1 ? " and " : ""}${pillars[pillars.length - 1]}. Every step on this map moves you closer to it.`,
   };
 
   const draft: FreedomPlan = {

@@ -15,6 +15,7 @@ pnpm dev                web app on http://localhost:3000
 pnpm typecheck          tsc across all packages
 pnpm test               vitest across all packages
 pnpm lint               eslint (web)
+pnpm e2e                Playwright browser tests (needs `pnpm dev` running, or boots its own)
 pnpm eval               AI evals against golden profiles (no API calls)
 pnpm eval:golden        regenerate golden plans — calls the Claude API, costs money
 pnpm eval:template      write template (no-AI) golden plans for local/demo use
