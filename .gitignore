@@ -21,3 +21,8 @@ Thumbs.db
 
 # rendered demo maps
 /*.svg
+
+# playwright
+apps/web/test-results
+apps/web/playwright-report
+apps/web/e2e/screenshots

@@ -1,8 +1,13 @@
 /**
  * Free Me design tokens — shared by the web app (Tailwind theme + SVG) and the
  * mobile app (NativeWind + react-native-svg). Elegant, minimal, premium: a deep
- * ink ground, warm parchment surfaces, one gold accent, and a muted colour per
- * region type so the map reads as one world rather than a rainbow.
+ * ink ground, warm parchment surfaces, one gold accent, and one hue per region
+ * type so the map reads as one world rather than a rainbow.
+ *
+ * The region hues were validated with the data-viz palette checker against the ink
+ * surface (#0f1720): lightness band, chroma floor, contrast ≥ 3:1, and adjacent-pair
+ * separation for colour-vision deficiency in the order regions appear on the map.
+ * Every region also carries an emoji + title, so identity never rests on hue alone.
  */
 export const colors = {
   ink: "#0F1720",
@@ -15,21 +20,23 @@ export const colors = {
   mist: "#94A3B8",
   fog: "#0B1118",
   white: "#FFFFFF",
-  success: "#6B8F71",
-  warning: "#D08C3C",
-  danger: "#B5533C",
+  /** Status colours are reserved for state and always ship with an icon or label. */
+  success: "#0CA30C",
+  warning: "#FAB219",
+  danger: "#D03B3B",
 } as const;
 
-/** One colour per region type; keys mirror `RegionType` in @free-me/core. */
+/** One colour per region type; keys mirror `RegionType` in @free-me/core. Order = map order. */
 export const regionColors = {
-  foundation: "#B08968",
-  security: "#5B8DEF",
-  growth: "#6B8F71",
-  markets: "#7C5CBF",
-  property: "#C96A3D",
-  business: "#D9A441",
-  digital_assets: "#3FA7A0",
-  personal_goal: "#E07A9A",
+  foundation: "#C98500",
+  security: "#3987E5",
+  growth: "#008300",
+  personal_goal: "#D45B95",
+  markets: "#9085E9",
+  property: "#D95926",
+  business: "#199E70",
+  digital_assets: "#E05C5C",
+  /** The destination — the gold accent, not a series colour. */
   freedom_city: "#C9A227",
 } as const;
 

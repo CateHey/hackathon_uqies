@@ -134,6 +134,21 @@ describe("applyProgress", () => {
   });
 });
 
+describe("region progress counts partial saving steps", () => {
+  it("a 27%-funded buffer shows as 27% of a one-step region", () => {
+    const plan = sarahPlan();
+    // sarah: $800 of a $3,000 target, in_progress
+    expect(region(plan, "security").progress).toBeCloseTo(0.267, 2);
+    const { plan: half } = applyProgress(plan, { type: "step_metric", stepId: "security.emergency-buffer", current: 1500 });
+    expect(region(half, "security").progress).toBe(0.5);
+  });
+
+  it("an in-progress step without a metric counts as half", () => {
+    const { plan } = applyProgress(sarahPlan(), { type: "step_status", stepId: "foundation.build-budget", status: "in_progress" });
+    expect(region(plan, "foundation").progress).toBe(0.25);
+  });
+});
+
 describe("recomputePlanState", () => {
   it("picks a new priority when the current one is missing", () => {
     const plan = { ...sarahPlan(), currentPriorityRegionId: "ghost" };

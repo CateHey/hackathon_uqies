@@ -25,7 +25,7 @@ describe("Explore and Professional render the same plan", () => {
     const explore = decode(renderToString(<FreedomMapSvg plan={b.plan} orientation="horizontal" />));
     const pro = decode(renderToString(<ProfessionalPlan bundle={b} />));
     for (const r of b.plan.regions) {
-      for (const line of wrapTitle(r.exploreTitle)) expect(explore, `explore: ${r.id}`).toContain(line.replace(/…$/, ""));
+      for (const line of wrapTitle(r.exploreTitle, 16)) expect(explore, `explore: ${r.id}`).toContain(line.replace(/…$/, ""));
       expect(pro, `pro: ${r.id}`).toContain(r.proTitle);
       expect(pro).toContain(r.why.slice(0, 40));
     }

@@ -29,7 +29,7 @@ export function RegionNode({
   const locked = region.status === "locked";
   const active = region.status === "active";
   const complete = region.status === "complete";
-  const lines = wrapTitle(region.exploreTitle);
+  const lines = wrapTitle(region.exploreTitle, 16);
   const ringX = box.x + box.w - 22;
   const ringY = box.y + box.h - 22;
 
@@ -74,7 +74,7 @@ export function RegionNode({
           key={line}
           x={box.x + 44}
           y={box.y + 26 + i * 16}
-          fontSize={13}
+          fontSize={12.5}
           fontWeight={600}
           fill={locked ? "#94A3B8" : "#F6F1E7"}
           style={{ fontFamily: "var(--font-display)" }}

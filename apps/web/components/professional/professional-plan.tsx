@@ -35,14 +35,19 @@ export function ProfessionalPlan({ bundle }: { bundle: PlanBundle }) {
 
       <section>
         <SectionTitle eyebrow="Current position">Where you are</SectionTitle>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <StatTile label="Savings" value={money(metrics.savings)} hint={metrics.spareSavings > 0 ? `${money(metrics.spareSavings)} beyond your buffer` : undefined} />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <StatTile
+            hero
             label="Emergency fund"
             value={metrics.emergencyMonths === null ? "—" : `${metrics.emergencyMonths.toFixed(1)} months`}
-            hint={`Target ${metrics.emergencyTargetMonths} months (${money(metrics.emergencyTarget)})`}
+            hint={
+              metrics.emergencyGap === 0
+                ? `Covers your ${metrics.emergencyTargetMonths}-month target (${money(metrics.emergencyTarget)})`
+                : `${money(metrics.emergencyGap)} short of a ${metrics.emergencyTargetMonths}-month target (${money(metrics.emergencyTarget)})`
+            }
             tone={metrics.emergencyGap === 0 ? "good" : "warn"}
           />
+          <StatTile label="Savings" value={money(metrics.savings)} hint={metrics.spareSavings > 0 ? `${money(metrics.spareSavings)} beyond your buffer` : "All of it counts towards your buffer"} tone={metrics.spareSavings > 0 ? "good" : "neutral"} />
           <StatTile
             label="Monthly surplus"
             value={money(metrics.surplus)}

@@ -94,7 +94,7 @@
       },
       {
         "status": "locked",
-        "progress": 0,
+        "progress": 0.136,
         "stepIds": [
           "security.emergency-buffer"
         ],

@@ -93,7 +93,7 @@
       },
       {
         "status": "active",
-        "progress": 0,
+        "progress": 0.069,
         "stepIds": [
           "security.emergency-buffer",
           "security.debt-plan"

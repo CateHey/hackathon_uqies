@@ -48,11 +48,13 @@ export function recomputePlanState(plan: FreedomPlan, previous: FreedomPlan = pl
   }
   const doneStep = new Set(plan.steps.filter((s) => s.status === "done").map((s) => s.id));
 
-  // 1. Progress and completion from steps.
+  // 1. Progress and completion from steps. A saving step counts partially (current ÷ target),
+  //    so a half-built buffer shows as half a region, not zero.
   let regions: Region[] = plan.regions.map((r) => {
     const rs = stepsByRegion.get(r.id) ?? [];
     const done = rs.filter((s) => s.status === "done").length;
-    const progress = rs.length ? Math.round((done / rs.length) * 1000) / 1000 : 0;
+    const fraction = rs.reduce((sum, s) => sum + stepFraction(s), 0);
+    const progress = rs.length ? Math.round((fraction / rs.length) * 1000) / 1000 : 0;
     const complete = rs.length > 0 && done === rs.length;
     const status: Region["status"] = complete ? "complete" : r.status === "complete" ? "available" : r.status;
     return { ...r, progress, status };
@@ -112,6 +114,13 @@ export function recomputePlanState(plan: FreedomPlan, previous: FreedomPlan = pl
     unlockedBridgeIds: bridges.filter((b) => b.status === "unlocked" && !prevUnlocked.has(b.id)).map((b) => b.id),
     completedRegionIds: regions.filter((r) => r.status === "complete" && !prevComplete.has(r.id)).map((r) => r.id),
   };
+}
+
+/** How complete one step is: done = 1, a saving step = current ÷ target, in progress = ½, else 0. */
+export function stepFraction(step: Step): number {
+  if (step.status === "done") return 1;
+  if (step.metric && step.metric.target > 0) return Math.min(1, Math.max(0, step.metric.current / step.metric.target));
+  return step.status === "in_progress" ? 0.5 : 0;
 }
 
 function isReachable(r: Region, bridges: Bridge[], byId: Map<string, Region>, doneStep: Set<string>): boolean {

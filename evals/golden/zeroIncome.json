@@ -129,7 +129,7 @@
       },
       {
         "status": "locked",
-        "progress": 0,
+        "progress": 0.233,
         "stepIds": [
           "goal-g-course.save"
         ],

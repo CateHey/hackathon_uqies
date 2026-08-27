@@ -32,11 +32,11 @@ export interface MapLayout {
   bridges: BridgePath[];
 }
 
-export const BOX_W = 150;
+export const BOX_W = 164;
 export const BOX_H = 96;
 
 const SPINE_START = 120;
-const SPINE_GAP = 190;
+const SPINE_GAP = 200;
 
 /**
  * Deterministic positions for the Freedom Map in an abstract coordinate space.
@@ -67,7 +67,7 @@ export function layoutFreedomMap(plan: FreedomPlan, opts: { orientation: Orienta
     );
     cityA = branchStart + 230;
   } else {
-    const colGap = 190;
+    const colGap = 200;
     const rowGap = 124;
     const rows = Math.ceil(branches.length / 2);
     branches.forEach((r, i) => {

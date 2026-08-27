@@ -52,6 +52,17 @@ function Field({ label, hint, children }: { label: string; hint?: string; childr
   );
 }
 
+/** For groups of buttons: a <label> would hand its text to the first button, so use a fieldset. */
+function Fieldset({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
+  return (
+    <fieldset className="space-y-2 border-0 p-0">
+      <legend className="text-sm font-medium text-parchment">{label}</legend>
+      {hint && <p className="text-xs text-mist">{hint}</p>}
+      {children}
+    </fieldset>
+  );
+}
+
 function Choice<T extends string>({
   options,
   value,
@@ -62,11 +73,13 @@ function Choice<T extends string>({
   onChange: (v: T) => void;
 }) {
   return (
-    <div className="grid gap-2 sm:grid-cols-3">
+    <div role="radiogroup" className="grid gap-2 sm:grid-cols-3">
       {options.map((o) => (
         <button
           type="button"
           key={o.value}
+          role="radio"
+          aria-checked={value === o.value}
           onClick={() => onChange(o.value)}
           className={`rounded-xl border p-3 text-left transition ${value === o.value ? "border-gold bg-gold/10" : "border-white/10 hover:border-white/30"}`}
         >
@@ -132,9 +145,9 @@ export default function SituationPage() {
           <Field label="Your age">
             <input type="number" inputMode="numeric" min={13} max={100} className={inputClass} value={str(draft.age)} onChange={(e) => setDraft({ age: num(e.target.value) })} />
           </Field>
-          <Field label="Life stage">
+          <Fieldset label="Life stage">
             <Choice options={lifeStages} value={draft.lifeStage} onChange={(v) => setDraft({ lifeStage: v })} />
-          </Field>
+          </Fieldset>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Country" hint="Two-letter code">
               <input className={inputClass} maxLength={2} value={draft.country ?? ""} onChange={(e) => setDraft({ country: e.target.value.toUpperCase() })} />
@@ -205,12 +218,12 @@ export default function SituationPage() {
 
       {step === 3 && (
         <div className="space-y-6">
-          <Field label="How would you describe your financial knowledge?">
+          <Fieldset label="How would you describe your financial knowledge?">
             <Choice options={knowledgeLevels} value={draft.knowledge} onChange={(v) => setDraft({ knowledge: v })} />
-          </Field>
-          <Field label="How do you feel about risk?">
+          </Fieldset>
+          <Fieldset label="How do you feel about risk?">
             <Choice options={risks} value={draft.risk} onChange={(v) => setDraft({ risk: v })} />
-          </Field>
+          </Fieldset>
           <Field label="Anything else that matters?" hint="Optional — e.g. “security before risk”, “I want to enjoy my twenties”">
             <textarea rows={3} className={inputClass} value={draft.priorities ?? ""} onChange={(e) => setDraft({ priorities: e.target.value.slice(0, 500) || undefined })} />
           </Field>

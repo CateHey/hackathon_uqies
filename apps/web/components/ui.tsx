@@ -93,5 +93,9 @@ export function Spinner({ label = "Loading" }: { label?: string }) {
 }
 
 export function ErrorNote({ children }: { children: ReactNode }) {
-  return <p className="rounded-xl border border-danger/40 bg-danger/10 p-3 text-sm text-parchment">{children}</p>;
+  return (
+    <div role="alert" className="rounded-xl border border-danger/40 bg-danger/10 p-3 text-sm text-parchment">
+      {children}
+    </div>
+  );
 }

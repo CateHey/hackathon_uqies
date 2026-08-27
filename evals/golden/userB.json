@@ -172,7 +172,7 @@
       },
       {
         "status": "locked",
-        "progress": 0,
+        "progress": 0.304,
         "stepIds": [
           "property.deposit"
         ],
