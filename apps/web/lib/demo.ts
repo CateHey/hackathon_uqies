@@ -7,30 +7,39 @@ import {
   PlanBundle,
   templatePlan,
   type DemoName,
+  type FreedomPlan,
   type PlanBundle as PlanBundleT,
-  type ProgressEvent,
 } from "@free-me/core";
 
-/** A little history so the demo profiles don't all start at square one. */
-const DEMO_EVENTS: Partial<Record<DemoName, ProgressEvent[]>> = {
-  sarah: [
-    { type: "step_status", stepId: "foundation.understand-spending", status: "done" },
-    { type: "step_status", stepId: "foundation.build-budget", status: "done" },
-  ],
-  userA: [{ type: "step_status", stepId: "foundation.understand-spending", status: "done" }],
+/**
+ * A little history so the demo personas don't all start at square one: regions
+ * listed here have every step marked done. Works for template and AI plans alike
+ * because it goes by region type, not step ids (the model names its own steps).
+ */
+const DEMO_COMPLETED_REGIONS: Partial<Record<DemoName, string[]>> = {
+  sarah: ["foundation"],
 };
 
 /** Prefer a real AI golden plan when one has been generated; otherwise build a template plan on the fly. */
 export function demoBundle(name: DemoName): { bundle: PlanBundleT; source: "ai" | "template" } {
   const golden = loadGolden(name);
-  if (golden) return { bundle: golden, source: "ai" };
+  if (golden) return { bundle: { ...golden, plan: withDemoHistory(name, golden.plan) }, source: "ai" };
 
   const profile = fixtures[name];
   const now = new Date();
   const metrics = computeMetrics(profile, { now });
-  let plan = templatePlan(profile, metrics, { now });
-  for (const event of DEMO_EVENTS[name] ?? []) plan = applyProgress(plan, event).plan;
+  const plan = withDemoHistory(name, templatePlan(profile, metrics, { now }));
   return { bundle: { profile, plan, metrics }, source: "template" };
+}
+
+function withDemoHistory(name: DemoName, plan: FreedomPlan): FreedomPlan {
+  let out = plan;
+  for (const regionType of DEMO_COMPLETED_REGIONS[name] ?? []) {
+    for (const step of out.steps.filter((s) => s.regionId === regionType && s.status !== "done")) {
+      out = applyProgress(out, { type: "step_status", stepId: step.id, status: "done" }).plan;
+    }
+  }
+  return out;
 }
 
 function loadGolden(name: DemoName): PlanBundleT | null {

@@ -358,7 +358,7 @@ On failure, retry once with the validation errors appended to the prompt; on sec
 
 | Call | Approx. tokens (in / out) | Approx. cost on Opus 5 | Latency |
 |---|---|---|---|
-| Plan generation | 5k / 4k | ~$0.13 (less with cache hits on the 3–4k cached prefix) | 10–30 s |
+| Plan generation | 5k / 8–15k *(measured)* | ~$0.20–0.40 at effort `high` (the 5k system+catalogue prefix is cache-read after the first call) | 100–200 s *(measured at effort `high`; use `medium` for a faster first map)* |
 | "Why?" (deep) | 2k / 0.3k | ~$0.02 | 2–5 s |
 | Allocation | 2.5k / 0.4k | ~$0.02 | 3–6 s |
 | Lesson rewrite | 3k / 1k | ~$0.04 | streamed |
