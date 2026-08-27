@@ -21,7 +21,7 @@ const body = inner.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="${w}" height="${h}" font-family="Inter, Segoe UI, system-ui, sans-serif">
   <style>svg { --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; }</style>
   <rect width="${w}" height="${h}" fill="#0f1720"/>
-  <text x="24" y="34" font-size="20" fill="#F6F1E7" style="font-family: var(--font-display)">🕊️ ${name}'s Freedom Map</text>
+  <text x="24" y="34" font-size="20" fill="#F6F1E7" style="font-family: var(--font-display)">🚀 ${name}'s Freedom Map</text>
   <text x="24" y="54" font-size="11" fill="#94A3B8">${bundle.plan.profileSummary.headline} · ${source} plan · next: ${bundle.plan.steps.find((s) => s.id === bundle.plan.nextStepId)?.title ?? ""}</text>
   ${body}
 </svg>`;

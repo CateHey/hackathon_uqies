@@ -34,7 +34,7 @@ export function BridgePath({
           key={`${bridge.id}-unlocked`}
           d={path.path}
           fill="none"
-          stroke="#C9A227"
+          stroke="#FF7A1A"
           strokeWidth={3}
           strokeLinecap="round"
           initial={staticRender ? false : { pathLength: 0, opacity: 0.4 }}

@@ -1,27 +1,52 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0f1720;
-  --color-ink-soft: #1b2430;
-  --color-ink-muted: #2a3542;
-  --color-parchment: #f6f1e7;
-  --color-parchment-soft: #efe7d8;
-  --color-gold: #c9a227;
-  --color-gold-soft: #e4cb6e;
-  --color-mist: #94a3b8;
-  --color-fog: #0b1118;
+  --color-ink: #0b1014;
+  --color-ink-soft: #141b22;
+  --color-ink-muted: #1f2a33;
+  --color-parchment: #f4f6f5;
+  --color-parchment-soft: #e6ebe8;
+  --color-accent: #ff7a1a;
+  --color-accent-soft: #ffa25c;
+  --color-accent-2: #3ddc84;
+  --color-accent-2-soft: #8cf0b6;
+  --color-mist: #8b97a6;
+  --color-fog: #070a0d;
   --color-success: #0ca30c;
   --color-warning: #fab219;
   --color-danger: #d03b3b;
 
-  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-  --font-body: Inter, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-space-grotesk), "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --font-body: var(--font-inter), "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
 html,
 body {
-  background: var(--color-ink);
+  background-color: var(--color-ink);
   color: var(--color-parchment);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Energetic ground: two soft brand glows, fixed so they don't scroll with content. */
+body {
+  background-image:
+    radial-gradient(60% 40% at 12% -5%, rgba(255, 122, 26, 0.16), transparent 62%),
+    radial-gradient(45% 35% at 92% 8%, rgba(61, 220, 132, 0.11), transparent 60%);
+  background-attachment: fixed;
+}
+
+.font-display {
+  letter-spacing: -0.02em;
+}
+
+/* Brand gradient helpers */
+.text-brand {
+  background: linear-gradient(92deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bg-brand {
+  background-image: linear-gradient(92deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
 }

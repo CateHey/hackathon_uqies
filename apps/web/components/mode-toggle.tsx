@@ -27,7 +27,7 @@ export function ModeToggle() {
             {selected && (
               <motion.span
                 layoutId="mode-pill"
-                className="absolute inset-0 -z-10 rounded-full bg-gold"
+                className="absolute inset-0 -z-10 rounded-full bg-accent"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}

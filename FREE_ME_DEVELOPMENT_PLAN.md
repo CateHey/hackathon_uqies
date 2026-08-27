@@ -1,4 +1,4 @@
-# 🕊️ Free Me — Development Plan with Claude Code
+# 🚀 Free Me — Development Plan with Claude Code
 
 **How to build the full solution — web + iOS / Android — phase by phase, using Claude Code as the implementation partner.**
 

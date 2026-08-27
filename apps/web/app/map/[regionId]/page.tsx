@@ -31,7 +31,7 @@ export default function RegionPage() {
     return (
       <div className="py-16 text-center">
         <p className="text-mist">That place isn&apos;t on your map.</p>
-        <Link href="/map" className="text-gold hover:underline">Back to the map</Link>
+        <Link href="/map" className="text-accent hover:underline">Back to the map</Link>
       </div>
     );
   }
@@ -69,7 +69,7 @@ export default function RegionPage() {
       </header>
 
       {toast && (
-        <div role="status" className="rounded-2xl border border-gold/40 bg-gold/10 p-3 text-sm text-parchment">
+        <div role="status" className="rounded-2xl border border-accent/40 bg-accent/10 p-3 text-sm text-parchment">
           {toast}
           <button onClick={() => setToast(null)} className="ml-3 text-xs text-mist hover:text-parchment">dismiss</button>
         </div>
@@ -109,7 +109,7 @@ export default function RegionPage() {
           <ul className="grid gap-3 sm:grid-cols-2">
             {regionLessons.map((l) => (
               <li key={l.id}>
-                <Link href={`/lessons/${l.id}`} className="block rounded-2xl border border-white/10 p-4 hover:border-gold/50">
+                <Link href={`/lessons/${l.id}`} className="block rounded-2xl border border-white/10 p-4 hover:border-accent/50">
                   <p className="text-xs uppercase tracking-wider text-mist">📚 {l.level} · {l.readingMinutes} min</p>
                   <p className="mt-1 font-medium">{l.title}</p>
                   <p className="mt-1 text-sm text-mist">{l.summary}</p>
@@ -128,9 +128,9 @@ export default function RegionPage() {
               <li key={b.id} className="rounded-2xl border border-white/10 p-4 text-sm">
                 <p className="flex flex-wrap items-center gap-2 font-medium">
                   <span>{b.status === "unlocked" ? "🌉" : "🔒"}</span>
-                  <Link href={`/map/${b.from}`} className="hover:text-gold">{name(b.from)}</Link>
+                  <Link href={`/map/${b.from}`} className="hover:text-accent">{name(b.from)}</Link>
                   <span className="text-mist">→</span>
-                  <Link href={`/map/${b.to}`} className="hover:text-gold">{name(b.to)}</Link>
+                  <Link href={`/map/${b.to}`} className="hover:text-accent">{name(b.to)}</Link>
                   <Badge status={b.status} />
                 </p>
                 <p className="mt-1 text-parchment/90">{b.relationship}</p>
@@ -152,7 +152,7 @@ function StepCard({ step, currency, busy, onStatus, onMetric }: { step: Step; cu
   return (
     <div className={`rounded-2xl border p-4 ${done ? "border-success/30 bg-success/5" : "border-white/10 bg-ink-soft/50"}`}>
       <div className="flex items-start gap-3">
-        <input type="checkbox" checked={done} disabled={busy} onChange={(e) => onStatus(e.target.checked ? "done" : "todo")} aria-label={`Mark ${step.title} ${done ? "not done" : "done"}`} className="mt-1 h-5 w-5 accent-[#C9A227]" />
+        <input type="checkbox" checked={done} disabled={busy} onChange={(e) => onStatus(e.target.checked ? "done" : "todo")} aria-label={`Mark ${step.title} ${done ? "not done" : "done"}`} className="mt-1 h-5 w-5 accent-[#FF7A1A]" />
         <div className="flex-1">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className={`font-medium ${done ? "text-mist line-through" : "text-parchment"}`}>{step.title}</p>

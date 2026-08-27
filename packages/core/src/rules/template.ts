@@ -477,8 +477,8 @@ export function templatePlan(profile: FreedomProfile, metrics: Metrics, opts: { 
     : has("home")
       ? "🏡 Freedom City"
       : has("business")
-        ? "🚀 Freedom City"
-        : "🕊️ Freedom City";
+        ? "🏗️ Freedom City"
+        : "🚀 Freedom City";
   addStep("freedom_city", "define-freedom", {
     kind: "review",
     title: "Revisit what freedom means to you",

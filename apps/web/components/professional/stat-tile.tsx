@@ -43,8 +43,8 @@ export function StatTile({
 
 export function ProgressBar({ value, label, tone = "accent" }: { value: number; label?: string; tone?: "accent" | "good" }) {
   const pct = Math.round(Math.max(0, Math.min(1, value)) * 100);
-  const fill = tone === "good" ? "bg-success" : "bg-gold";
-  const track = tone === "good" ? "bg-success/20" : "bg-gold/20";
+  const fill = tone === "good" ? "bg-success" : "bg-brand";
+  const track = tone === "good" ? "bg-success/20" : "bg-accent/20";
   return (
     <div className="space-y-1" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100} aria-label={label}>
       <div className={`h-2 overflow-hidden rounded-full ${track}`}>

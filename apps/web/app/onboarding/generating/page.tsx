@@ -57,7 +57,7 @@ export default function GeneratingPage() {
       {!generate.isError && (
         <>
           <div className="h-1 w-48 overflow-hidden rounded-full bg-white/10">
-            <div className="h-full w-1/2 animate-[slide_1.4s_ease-in-out_infinite] rounded-full bg-gold" />
+            <div className="h-full w-1/2 animate-[slide_1.4s_ease-in-out_infinite] rounded-full bg-accent" />
           </div>
           <p aria-live="polite" className="text-mist">{lines[line]}</p>
         </>

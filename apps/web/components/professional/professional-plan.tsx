@@ -72,7 +72,7 @@ export function ProfessionalPlan({ bundle }: { bundle: PlanBundle }) {
           <div className="mt-3">
             <ProgressBar value={priority.progress} label="Progress" />
           </div>
-          <Link href={`/map/${priority.id}`} className="mt-3 inline-block text-sm text-gold hover:underline">Open this priority →</Link>
+          <Link href={`/map/${priority.id}`} className="mt-3 inline-block text-sm text-accent hover:underline">Open this priority →</Link>
         </Card>
       )}
 
@@ -104,7 +104,7 @@ export function ProfessionalPlan({ bundle }: { bundle: PlanBundle }) {
               {ordered.map((r) => (
                 <tr key={r.id} className="border-t border-white/5 align-top">
                   <td className="whitespace-nowrap px-4 py-3">
-                    <Link href={`/map/${r.id}`} className="font-medium text-parchment hover:text-gold">
+                    <Link href={`/map/${r.id}`} className="font-medium text-parchment hover:text-accent">
                       {regionEmoji[r.type]} {r.proTitle}
                     </Link>
                   </td>
@@ -124,7 +124,7 @@ export function ProfessionalPlan({ bundle }: { bundle: PlanBundle }) {
           <ul className="grid gap-3 sm:grid-cols-2">
             {activeLessons.map((l) => (
               <li key={l.id}>
-                <Link href={`/lessons/${l.id}`} className="block rounded-2xl border border-white/10 p-4 hover:border-gold/50">
+                <Link href={`/lessons/${l.id}`} className="block rounded-2xl border border-white/10 p-4 hover:border-accent/50">
                   <p className="text-xs uppercase tracking-wider text-mist">📚 {l.level} · {l.readingMinutes} min</p>
                   <p className="mt-1 font-medium text-parchment">{l.title}</p>
                   <p className="mt-1 text-sm text-mist">{l.summary}</p>
@@ -139,7 +139,7 @@ export function ProfessionalPlan({ bundle }: { bundle: PlanBundle }) {
         <SectionTitle eyebrow="Your definition of freedom">{plan.freedomCity.title}</SectionTitle>
         <ul className="flex flex-wrap gap-2">
           {plan.freedomCity.pillars.map((p) => (
-            <li key={p} className="rounded-full bg-gold/15 px-3 py-1 text-sm text-gold">{p}</li>
+            <li key={p} className="rounded-full bg-accent/15 px-3 py-1 text-sm text-accent">{p}</li>
           ))}
         </ul>
         <p className="mt-3 text-sm text-parchment/90">{plan.freedomCity.narrative}</p>

@@ -46,9 +46,9 @@ export function FreedomMapSvg({
           </feMerge>
         </filter>
         <radialGradient id="fm-city-glow">
-          <stop offset="0%" stopColor="#C9A227" stopOpacity="0.22" />
-          <stop offset="60%" stopColor="#C9A227" stopOpacity="0.05" />
-          <stop offset="100%" stopColor="#C9A227" stopOpacity="0" />
+          <stop offset="0%" stopColor="#FF7A1A" stopOpacity="0.22" />
+          <stop offset="60%" stopColor="#FF7A1A" stopOpacity="0.05" />
+          <stop offset="100%" stopColor="#FF7A1A" stopOpacity="0" />
         </radialGradient>
         <pattern id="fm-grid" width="40" height="40" patternUnits="userSpaceOnUse">
           <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" strokeOpacity="0.035" strokeWidth="1" />

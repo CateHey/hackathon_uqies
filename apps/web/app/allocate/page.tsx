@@ -21,7 +21,7 @@ export default function AllocatePage() {
     return (
       <div className="py-16 text-center">
         <p className="text-mist">Build your map first, then come back with money to allocate.</p>
-        <Link href="/onboarding/freedom" className="text-gold hover:underline">Start your journey</Link>
+        <Link href="/onboarding/freedom" className="text-accent hover:underline">Start your journey</Link>
       </div>
     );
   }
@@ -91,17 +91,17 @@ export default function AllocatePage() {
             <div key={b.key} className="rounded-2xl border border-white/10 bg-ink-soft/50 p-4">
               <div className="flex items-center justify-between gap-3">
                 <p className="font-medium text-parchment">{b.label}</p>
-                <p className="font-display text-xl text-gold">{money(b.amount)}</p>
+                <p className="font-display text-xl text-accent">{money(b.amount)}</p>
               </div>
               <p className="mt-1 text-sm text-mist">{b.reason}</p>
               {b.key !== FLEX && (
-                <input type="range" min={0} max={total} step={10} value={b.amount} onChange={(e) => setBucket(b.key, Number(e.target.value))} className="mt-3 w-full accent-[#C9A227]" aria-label={`Amount for ${b.label}`} />
+                <input type="range" min={0} max={total} step={10} value={b.amount} onChange={(e) => setBucket(b.key, Number(e.target.value))} className="mt-3 w-full accent-[#FF7A1A]" aria-label={`Amount for ${b.label}`} />
               )}
             </div>
           ))}
           <div className="flex flex-wrap items-center gap-3">
             <Button onClick={save} disabled={progress.isPending || saved}>{saved ? "Saved ✓" : progress.isPending ? "Saving…" : "Save to my plan"}</Button>
-            {saved && <Link href="/map" className="text-sm text-gold hover:underline">See your map update →</Link>}
+            {saved && <Link href="/map" className="text-sm text-accent hover:underline">See your map update →</Link>}
           </div>
           {progress.isError && <ErrorNote>{progress.error.message}</ErrorNote>}
         </section>

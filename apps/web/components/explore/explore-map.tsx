@@ -19,7 +19,7 @@ export function ExploreMap({ bundle }: { bundle: PlanBundle }) {
   return (
     <div className="space-y-4">
       <NextStepBanner plan={plan} />
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(ellipse_at_top,#1b2430_0%,#0f1720_65%)]">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(ellipse_at_top,#141b22_0%,#0b1014_65%)]">
         <TransformWrapper minScale={0.6} maxScale={2.5} centerOnInit wheel={{ step: 0.08 }} doubleClick={{ disabled: true }}>
           {({ resetTransform, zoomIn, zoomOut }) => (
             <>
@@ -29,7 +29,7 @@ export function ExploreMap({ bundle }: { bundle: PlanBundle }) {
                 <button className="rounded-full px-3 py-1 hover:bg-white/10" onClick={() => resetTransform()}>Recentre</button>
               </div>
               {hover && (
-                <div className="absolute left-3 top-3 z-10 max-w-sm rounded-xl border border-gold/30 bg-ink/90 p-3 text-sm text-parchment shadow-lg">
+                <div className="absolute left-3 top-3 z-10 max-w-sm rounded-xl border border-accent/30 bg-ink/90 p-3 text-sm text-parchment shadow-lg">
                   <span className="mr-1">🌉</span>
                   {hover.relationship}
                   {hover.status === "locked" && <span className="mt-1 block text-xs text-mist">Unlocks when you: {hover.requirement}</span>}
@@ -74,7 +74,7 @@ function Legend() {
           {label}
         </li>
       ))}
-      <li className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4 bg-gold" /> Bridge open</li>
+      <li className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4 bg-accent" /> Bridge open</li>
       <li className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4 border-t border-dashed border-mist" /> Bridge locked</li>
     </ul>
   );

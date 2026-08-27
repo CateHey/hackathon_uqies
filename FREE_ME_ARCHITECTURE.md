@@ -1,4 +1,4 @@
-# 🕊️ Free Me — Technical Architecture
+# 🚀 Free Me — Technical Architecture
 
 **Web app + iOS / Android app**
 

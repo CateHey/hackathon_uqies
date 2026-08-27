@@ -4,7 +4,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 type Variant = "primary" | "secondary" | "ghost";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-gold text-ink hover:bg-gold-soft shadow-[0_0_0_1px_rgba(201,162,39,0.4)]",
+  primary: "bg-accent font-semibold text-ink hover:bg-accent-soft shadow-[0_0_24px_rgba(255,122,26,0.35)]",
   secondary: "border border-white/15 text-parchment hover:bg-white/5",
   ghost: "text-mist hover:text-parchment hover:bg-white/5",
 };
@@ -58,7 +58,7 @@ export function SectionTitle({ children, eyebrow }: { children: ReactNode; eyebr
 export function Stars({ value }: { value: number }) {
   const v = Math.max(0, Math.min(5, Math.round(value)));
   return (
-    <span className="tracking-wider text-gold" aria-label={`${v} out of 5`}>
+    <span className="tracking-wider text-accent" aria-label={`${v} out of 5`}>
       {"★".repeat(v)}
       <span className="text-white/20">{"☆".repeat(5 - v)}</span>
     </span>
@@ -68,10 +68,10 @@ export function Stars({ value }: { value: number }) {
 const badgeColors: Record<string, string> = {
   locked: "bg-white/5 text-mist",
   available: "bg-white/10 text-parchment",
-  active: "bg-gold/20 text-gold",
+  active: "bg-accent/20 text-accent",
   complete: "bg-success/20 text-success",
   todo: "bg-white/5 text-mist",
-  in_progress: "bg-gold/20 text-gold",
+  in_progress: "bg-accent/20 text-accent",
   done: "bg-success/20 text-success",
 };
 
@@ -86,7 +86,7 @@ export function Badge({ status }: { status: string }) {
 export function Spinner({ label = "Loading" }: { label?: string }) {
   return (
     <span role="status" aria-live="polite" className="inline-flex items-center gap-2 text-sm text-mist">
-      <span className="h-4 w-4 animate-spin rounded-full border-2 border-mist/40 border-t-gold" />
+      <span className="h-4 w-4 animate-spin rounded-full border-2 border-mist/40 border-t-accent" />
       {label}
     </span>
   );

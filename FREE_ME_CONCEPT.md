@@ -1,4 +1,4 @@
-# 🕊️ FREE ME
+# 🚀 FREE ME
 
 ## *Discover your path to financial freedom.*
 
@@ -68,7 +68,7 @@ Free Me aims to answer that question.
 
 ## 2. The Tagline
 
-> ### 🕊️ Discover your path to financial freedom.
+> ### 🚀 Discover your path to financial freedom.
 
 The important word is **YOUR.**
 
@@ -248,7 +248,7 @@ The bridge visually connects the two paths.
 
 ## 8. The Freedom City
 
-🕊️ The ultimate destination is not necessarily a single financial number. It is:
+🚀 The ultimate destination is not necessarily a single financial number. It is:
 
 > ### YOUR VERSION OF FREEDOM.
 
@@ -495,7 +495,7 @@ Free Me is not trying to be simply:
 
 Instead:
 
-> ### 🕊️ Free Me is a personalised financial journey.
+> ### 🚀 Free Me is a personalised financial journey.
 
 ---
 
@@ -534,7 +534,7 @@ Do **not** build the entire product. The MVP should demonstrate the magic.
 
 | Screen | Content |
 |---|---|
-| **1. 🕊️ What does freedom mean to you?** | User enters their goal. |
+| **1. 🚀 What does freedom mean to you?** | User enters their goal. |
 | **2. Tell us about yourself.** | Income, savings, expenses, main goal, financial knowledge, risk preference. |
 | **3. AI generates your Freedom Profile.** | Profile summary. |
 | **4. 🗺️ Your Freedom Map.** | **The WOW moment.** The user sees their current position, their goals, different paths, bridges, and the next step. |
@@ -597,7 +597,7 @@ And you say:
 
 > Financial freedom doesn't look the same for everyone. So why should the path to it?
 >
-> ### 🕊️ FREE ME — Discover your path to financial freedom.
+> ### 🚀 FREE ME — Discover your path to financial freedom.
 
 ---
 

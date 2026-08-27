@@ -45,7 +45,7 @@ function Block({ block }: { block: string }) {
     );
   }
   if (/^>\s?/.test(first)) {
-    return <blockquote className="border-l-2 border-gold/60 pl-4 italic text-parchment/80">{inline(lines.map((l) => l.replace(/^>\s?/, "")).join(" "))}</blockquote>;
+    return <blockquote className="border-l-2 border-accent/60 pl-4 italic text-parchment/80">{inline(lines.map((l) => l.replace(/^>\s?/, "")).join(" "))}</blockquote>;
   }
   return <p className="leading-relaxed">{inline(lines.join(" "))}</p>;
 }

@@ -24,7 +24,7 @@ export default function FreedomPage() {
     <div className="mx-auto max-w-2xl space-y-8 py-8">
       <div>
         <p className="text-xs uppercase tracking-[0.3em] text-mist">Step 1 of 3</p>
-        <h1 className="mt-2 font-display text-4xl">🕊️ What does freedom mean to you?</h1>
+        <h1 className="mt-2 font-display text-4xl">🚀 What does freedom mean to you?</h1>
         <p className="mt-2 text-mist">There is no universal path. Yours starts with your answer.</p>
       </div>
 
@@ -33,7 +33,7 @@ export default function FreedomPage() {
         onChange={(e) => setValue(e.target.value.slice(0, 500))}
         rows={4}
         placeholder="For me, freedom means…"
-        className="w-full rounded-2xl border border-white/10 bg-ink-soft p-4 text-lg text-parchment outline-none placeholder:text-mist/60 focus:border-gold/60"
+        className="w-full rounded-2xl border border-white/10 bg-ink-soft p-4 text-lg text-parchment outline-none placeholder:text-mist/60 focus:border-accent/60"
       />
 
       <div className="flex flex-wrap gap-2">
@@ -42,7 +42,7 @@ export default function FreedomPage() {
             key={e}
             type="button"
             onClick={() => setValue(e)}
-            className="rounded-full border border-white/10 px-3 py-1.5 text-left text-sm text-mist hover:border-gold/50 hover:text-parchment"
+            className="rounded-full border border-white/10 px-3 py-1.5 text-left text-sm text-mist hover:border-accent/50 hover:text-parchment"
           >
             {e}
           </button>

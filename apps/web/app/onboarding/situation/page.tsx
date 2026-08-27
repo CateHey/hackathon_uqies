@@ -40,7 +40,7 @@ const risks: { value: RiskPreference; label: string; hint: string }[] = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-white/10 bg-ink-soft px-3 py-2 text-parchment outline-none placeholder:text-mist/50 focus:border-gold/60";
+  "w-full rounded-xl border border-white/10 bg-ink-soft px-3 py-2 text-parchment outline-none placeholder:text-mist/50 focus:border-accent/60";
 
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
@@ -81,7 +81,7 @@ function Choice<T extends string>({
           role="radio"
           aria-checked={value === o.value}
           onClick={() => onChange(o.value)}
-          className={`rounded-xl border p-3 text-left transition ${value === o.value ? "border-gold bg-gold/10" : "border-white/10 hover:border-white/30"}`}
+          className={`rounded-xl border p-3 text-left transition ${value === o.value ? "border-accent bg-accent/10" : "border-white/10 hover:border-white/30"}`}
         >
           <span className="block text-sm font-medium text-parchment">{o.label}</span>
           {o.hint && <span className="block text-xs text-mist">{o.hint}</span>}
@@ -134,7 +134,7 @@ export default function SituationPage() {
 
       <ol className="flex gap-2 text-xs text-mist">
         {steps.map((s, i) => (
-          <li key={s} className={`flex-1 border-t-2 pt-1 ${i <= step ? "border-gold text-parchment" : "border-white/10"}`}>
+          <li key={s} className={`flex-1 border-t-2 pt-1 ${i <= step ? "border-accent text-parchment" : "border-white/10"}`}>
             {s}
           </li>
         ))}

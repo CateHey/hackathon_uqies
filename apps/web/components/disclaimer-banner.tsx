@@ -8,7 +8,7 @@ export function DisclaimerBanner() {
   const dismiss = useUiStore((s) => s.setDisclaimerSeen);
   if (seen) return null;
   return (
-    <div role="note" className="mb-4 flex items-start justify-between gap-4 rounded-2xl border border-gold/30 bg-gold/10 p-4 text-sm text-parchment">
+    <div role="note" className="mb-4 flex items-start justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-parchment">
       <p>
         <span className="mr-2">ℹ️</span>
         {DISCLAIMER}

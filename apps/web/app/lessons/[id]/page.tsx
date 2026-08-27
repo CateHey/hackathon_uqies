@@ -49,7 +49,7 @@ export default function LessonPage() {
         <p className="mt-2 text-mist">{l.summary}</p>
       </header>
 
-      <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-gold/30 bg-gold/10 p-4">
+      <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-accent/30 bg-accent/10 p-4">
         <p className="flex-1 text-sm text-parchment">Read this as written, or have it rewritten around your goals and level.</p>
         <Button onClick={personalise} disabled={streaming}>{streaming ? "Personalising…" : personal === null ? "Personalise for me" : "Personalise again"}</Button>
         {personal !== null && !streaming && (

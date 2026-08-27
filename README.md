@@ -1,4 +1,4 @@
-# 🕊️ Free Me
+# 🚀 Free Me
 
 **Discover your path to financial freedom.** A personalised financial-freedom journey: one AI-generated plan, two ways to experience it — 🎮 Explore (a world map) and 📊 Professional (a dashboard).
 

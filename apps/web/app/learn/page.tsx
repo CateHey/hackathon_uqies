@@ -12,7 +12,7 @@ export default function LearnPage() {
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {lessons.map((l) => (
           <li key={l.id}>
-            <Link href={`/lessons/${l.id}`} className="block h-full rounded-2xl border border-white/10 bg-ink-soft/60 p-4 hover:border-gold/50">
+            <Link href={`/lessons/${l.id}`} className="block h-full rounded-2xl border border-white/10 bg-ink-soft/60 p-4 hover:border-accent/50">
               <p className="text-xs uppercase tracking-wider text-mist">📚 {l.level} · {l.readingMinutes} min</p>
               <p className="mt-1 font-medium text-parchment">{l.title}</p>
               <p className="mt-1 text-sm text-mist">{l.summary}</p>

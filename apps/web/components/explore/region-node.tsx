@@ -25,7 +25,8 @@ export function RegionNode({
   staticRender?: boolean;
 }) {
   const color = regionColors[region.type];
-  const emoji = regionEmoji[region.type];
+  // Titles like "🌴 Freedom City" bring their own emoji — don't draw the type emoji twice.
+  const emoji = /^\p{Extended_Pictographic}/u.test(region.exploreTitle) ? "" : regionEmoji[region.type];
   const locked = region.status === "locked";
   const active = region.status === "active";
   const complete = region.status === "complete";
@@ -62,8 +63,8 @@ export function RegionNode({
         width={box.w}
         height={box.h}
         rx={16}
-        fill={locked ? "#121a24" : "#1b2430"}
-        stroke={active ? "#C9A227" : selected ? "#F6F1E7" : color}
+        fill={locked ? "#0f151b" : "#141b22"}
+        stroke={active ? "#FF7A1A" : selected ? "#F4F6F5" : color}
         strokeWidth={active || selected ? 2.5 : 1.25}
         strokeDasharray={locked ? "5 4" : undefined}
         opacity={locked ? 0.75 : 1}
@@ -75,11 +76,11 @@ export function RegionNode({
       {lines.map((line, i) => (
         <text
           key={line}
-          x={box.x + 44}
+          x={box.x + (emoji ? 44 : 16)}
           y={box.y + 26 + i * 16}
           fontSize={12.5}
           fontWeight={600}
-          fill={locked ? "#94A3B8" : "#F6F1E7"}
+          fill={locked ? "#8B97A6" : "#F4F6F5"}
           style={{ fontFamily: "var(--font-display)" }}
         >
           {line}
@@ -91,7 +92,7 @@ export function RegionNode({
           <tspan fill="#3b4757">{"★".repeat(5 - region.relevance)}</tspan>
         </text>
       ) : complete ? (
-        <text x={box.x + 16} y={box.y + box.h - 16} fontSize={11} fill="#6B8F71" fontWeight={600}>
+        <text x={box.x + 16} y={box.y + box.h - 16} fontSize={11} fill="#3DDC84" fontWeight={600}>
           ✓ Complete
         </text>
       ) : (
@@ -99,7 +100,7 @@ export function RegionNode({
           <text x={box.x + 16} y={box.y + box.h - 16} fontSize={11} fill="#94A3B8">
             {Math.round(region.progress * 100)}% · {"★".repeat(region.relevance)}
           </text>
-          <circle cx={ringX} cy={ringY} r={RING_R} fill="none" stroke="#2A3542" strokeWidth={4} />
+          <circle cx={ringX} cy={ringY} r={RING_R} fill="none" stroke="#1F2A33" strokeWidth={4} />
           <motion.circle
             cx={ringX}
             cy={ringY}

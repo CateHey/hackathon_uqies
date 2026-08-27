@@ -125,7 +125,7 @@ describe("templatePlan — personalisation", () => {
     const plan = templatePlan(profile, computeMetrics(profile, { now: FIXTURE_NOW }), { now: FIXTURE_NOW });
     expect(plan.steps.find((s) => s.id === "goal-g-x.define")?.title).toBe("Put a number on A boat");
     expect(region(plan, "goal-g-x").exploreTitle).toBe("A boat Landmark");
-    expect(plan.freedomCity.title).toBe("🕊️ Freedom City");
+    expect(plan.freedomCity.title).toBe("🚀 Freedom City");
   });
 
   it("business goals and high risk raise business and digital relevance", () => {
@@ -141,7 +141,7 @@ describe("templatePlan — personalisation", () => {
     expect(region(plan, "digital_assets").relevance).toBe(3);
     expect(region(plan, "markets").relevance).toBe(5);
     expect(region(plan, "property").why).toMatch(/capacity/);
-    expect(plan.freedomCity.title).toBe("🚀 Freedom City");
+    expect(plan.freedomCity.title).toBe("🏗️ Freedom City");
   });
 
   it("a home goal without a target amount still gets a learning step", () => {
