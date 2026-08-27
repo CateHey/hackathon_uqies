@@ -9,7 +9,7 @@ import {
   type Metrics,
 } from "@free-me/core";
 import type { LessonSummary } from "@free-me/content";
-import { addUsage, zeroUsage, type AiClient, type Usage } from "./client";
+import { addUsage, zeroUsage, type AiClient, type Effort, type Usage } from "./client";
 import { getCatalogue, planSystemBlocks } from "./catalogue";
 import { postValidate } from "./validate";
 
@@ -20,6 +20,8 @@ export interface GenerateOptions {
   catalogue?: LessonSummary[];
   /** Model attempts before falling back to the template plan. Default 2. */
   maxAttempts?: number;
+  /** Reasoning effort. "high" (default) measured at 100–200 s per plan; "medium" is the faster choice for a live user. */
+  effort?: Effort;
 }
 
 export interface GenerateResult {
@@ -59,7 +61,7 @@ export async function generatePlan(profile: FreedomProfile, opts: GenerateOption
       system,
       user,
       schema: PlanOutput,
-      effort: "high",
+      effort: opts.effort ?? "high",
       maxTokens: 16000,
     });
     addUsage(usage, result.usage);

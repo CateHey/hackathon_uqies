@@ -9,6 +9,7 @@ import {
   HealthResponse,
   LessonPayload,
   PlanBundle,
+  PlanStatusResponse,
   ProfileResponse,
   ProgressResponse,
   WhyApiResponse,
@@ -67,6 +68,8 @@ export function createApi(opts: ApiOptions = {}) {
     getProfile: () => request("/profile", ProfileResponse),
     generatePlan: (opts?: { force?: "template" }) => request("/plan/generate", GenerateResponse, post(opts ?? {})),
     getPlan: () => request("/plan", PlanBundle),
+    planStatus: () => request("/plan/status", PlanStatusResponse),
+    applyUpgrade: () => request("/plan/upgrade", PlanBundle, post()),
     why: (req: WhyRequest) => request("/plan/why", WhyApiResponse, post(req)),
     allocate: (req: AllocationRequest) => request("/allocate", AllocateApiResponse, post(req)),
     progress: (event: ProgressEvent) => request("/progress", ProgressResponse, post(event)),
@@ -168,6 +171,32 @@ export function useProgress() {
       qc.setQueryData(planKey, (prev: PlanBundle | undefined) =>
         prev ? { ...prev, plan: data.plan, metrics: data.metrics } : prev,
       );
+    },
+  });
+}
+
+export const planStatusKey = ["plan", "status"] as const;
+
+/** Polls while a personalised plan is being built in the background. */
+export function usePlanStatus(opts: { enabled?: boolean } = {}) {
+  const api = useApi();
+  return useQuery({
+    queryKey: planStatusKey,
+    queryFn: () => api.planStatus(),
+    enabled: opts.enabled ?? true,
+    refetchInterval: (query) => (query.state.data?.pending ? 4000 : false),
+    staleTime: 0,
+  });
+}
+
+export function useApplyUpgrade() {
+  const api = useApi();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: () => api.applyUpgrade(),
+    onSuccess: (bundle) => {
+      qc.setQueryData(planKey, bundle);
+      void qc.invalidateQueries({ queryKey: planStatusKey });
     },
   });
 }

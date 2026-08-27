@@ -27,6 +27,13 @@ pnpm eval:template      write template (no-AI) golden plans for local/demo use
 2. `cp apps/web/.env.example apps/web/.env.local` and fill in `ANTHROPIC_API_KEY` (or set `DEMO_MODE=true` to run from cached plans).
 3. `pnpm dev`
 
+## How a plan is made
+
+Creating a profile always returns a map **instantly** from the rules engine. With an API key, the model then
+builds the personalised plan in the background (`PLAN_EFFORT`, default `medium`; goldens use `high`) and the map
+shows a "Personalising your map…" pill until it swaps the upgrade in — automatically if you haven't ticked anything
+yet, otherwise with a button so your progress isn't lost.
+
 ## Layout
 
 ```

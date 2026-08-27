@@ -1,9 +1,27 @@
-import type { Allocation, FreedomPlan, FreedomProfile, Metrics, PlanMode, ProgressEvent } from "@free-me/core";
+import type {
+  Allocation,
+  FreedomPlan,
+  FreedomProfile,
+  Metrics,
+  PlanMode,
+  PlanSource,
+  ProgressEvent,
+} from "@free-me/core";
 
 /**
  * Persistence behind the API. In-memory for the hackathon; Phase 4 swaps in a
  * Supabase implementation of the same interface without touching the routes.
  */
+
+/** A personalised plan built in the background, waiting to replace the current one. */
+export interface PlanUpgrade {
+  plan: FreedomPlan;
+  metrics: Metrics;
+  source: PlanSource;
+  attempts: number;
+  startedAt: string;
+  finishedAt: string;
+}
 
 export interface StoredSession {
   id: string;
@@ -13,6 +31,10 @@ export interface StoredSession {
   planMode: PlanMode | null;
   events: ProgressEvent[];
   allocations: Allocation[];
+  /** Set while the model is building a personalised plan for this session. */
+  pendingUpgrade: { startedAt: string } | null;
+  upgrade: PlanUpgrade | null;
+  upgradeError: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -32,6 +54,9 @@ export function emptySession(id: string): StoredSession {
     planMode: null,
     events: [],
     allocations: [],
+    pendingUpgrade: null,
+    upgrade: null,
+    upgradeError: null,
     createdAt: now,
     updatedAt: now,
   };

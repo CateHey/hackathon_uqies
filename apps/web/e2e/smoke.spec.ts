@@ -125,13 +125,25 @@ test.describe("Free Me — hackathon MVP flow", () => {
     await shot(page, "08-onboarding-final");
     await page.getByRole("button", { name: /Create my Freedom Profile/ }).click();
 
-    await expect(page).toHaveURL(/\/map$/, { timeout: 300_000 });
+    // The map is instant (rules engine) whatever the mode.
+    await expect(page).toHaveURL(/\/map$/, { timeout: 30_000 });
     await expect(page.getByRole("img", { name: /Your Freedom Map/ })).toBeVisible();
     await expect(page.getByText("Your next step")).toBeVisible();
     const plan = await currentPlan(page);
     expect(plan.regions.some((r) => r.exploreTitle.includes("Japan"))).toBe(true);
     await page.waitForTimeout(1200);
     await shot(page, "09-map-from-onboarding");
+
+    // In AI mode the personalised plan arrives in the background and swaps itself in.
+    const status = (await (await page.request.get("/api/plan/status")).json()) as { pending: boolean };
+    if (status.pending) {
+      await expect(page.getByText(/Personalising your map/)).toBeVisible();
+      await expect(page.getByText(/Your personalised map is ready/)).toBeVisible({ timeout: 300_000 });
+      const upgraded = (await (await page.request.get("/api/plan")).json()) as { plan: { source: string } };
+      expect(upgraded.plan.source).toBe("ai");
+      await page.waitForTimeout(1200);
+      await shot(page, "09b-map-personalised");
+    }
   });
 
   test("lesson personalisation streams and allocation keeps the total", async ({ page }) => {

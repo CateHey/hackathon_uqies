@@ -18,7 +18,10 @@ export const POST = handle<Ctx>(async (_req, { params }) => {
   session.metrics = bundle.metrics;
   session.planMode = "demo";
   session.events = [];
+  session.pendingUpgrade = null;
+  session.upgrade = null;
+  session.upgradeError = null;
   await saveSession(session);
 
-  return json({ ...bundle, source, attempts: 0, mode: "demo" });
+  return json({ ...bundle, source, attempts: 0, mode: "demo", pending: false });
 });

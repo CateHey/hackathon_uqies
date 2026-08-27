@@ -64,8 +64,21 @@ export const GenerateResponse = PlanBundle.extend({
   source: PlanSource,
   attempts: z.number().int(),
   mode: PlanMode,
+  /** true when a personalised (AI) plan is being built in the background and will replace this one. */
+  pending: z.boolean(),
 });
 export type GenerateResponse = z.infer<typeof GenerateResponse>;
+
+/** Progress of the background personalisation started by /plan/generate. */
+export const PlanStatusResponse = z.object({
+  pending: z.boolean(),
+  upgradeReady: z.boolean(),
+  /** Progress events the user has made since the current plan was created. */
+  eventsSince: z.number().int(),
+  startedAt: z.string().nullable(),
+  error: z.string().nullable(),
+});
+export type PlanStatusResponse = z.infer<typeof PlanStatusResponse>;
 
 export const ProfileResponse = z.object({ ok: z.literal(true), profile: FreedomProfile });
 export type ProfileResponse = z.infer<typeof ProfileResponse>;

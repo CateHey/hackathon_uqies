@@ -3,6 +3,7 @@
 import { ApiClientError, usePlan } from "@free-me/api-client";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { PlanView } from "@/components/plan-view";
+import { UpgradeWatcher } from "@/components/upgrade-watcher";
 import { LinkButton, Spinner } from "@/components/ui";
 
 export default function MapPage() {
@@ -28,6 +29,7 @@ export default function MapPage() {
   return (
     <div>
       <DisclaimerBanner />
+      <UpgradeWatcher />
       <PlanView bundle={plan.data} />
     </div>
   );
