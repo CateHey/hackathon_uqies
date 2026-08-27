@@ -10,7 +10,7 @@ import type {
   StepStatus,
 } from "../schema/plan";
 import type { FreedomProfile, Goal, GoalType } from "../schema/profile";
-import type { Capacity, GoalProjection, Metrics } from "./metrics";
+import type { Capacity, GoalProjection, Metrics } from "../schema/metrics";
 import { recomputePlanState } from "./unlock";
 import { clamp, formatMoney } from "../utils/money";
 
