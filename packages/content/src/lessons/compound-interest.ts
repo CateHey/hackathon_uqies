@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "compound-interest",
   title: "Compound interest",
   level: "beginner",
   topics: ["saving", "investing", "compounding"],
-  readingMinutes: 4,
   summary:
     "Explain how compounding makes money grow on itself and why starting early matters more than starting big.",
   body: `Compound interest is what happens when the interest you earn starts earning interest of its own. In the first year it barely shows. Over ten or twenty years it becomes the biggest reason that people who started early end up with far more than people who started late, even when the late starters put in more money.

@@ -16,8 +16,16 @@ const features: { icon: string; title: string; text: string; href: string; mode?
   { icon: "📈", title: "Markets, property, crypto", text: "Every path is on your map with an honest ★ rating for you — and the reason behind it.", href: "/map/markets", cta: "See the paths" },
   { icon: "📚", title: "Lessons, personalised", text: "Ten lessons that rewrite themselves around your goals and level.", href: "/learn", cta: "Browse lessons" },
   { icon: "💰", title: "I have money to allocate", text: "Type an amount, get a split with reasons, adjust it, save it to your plan.", href: "/allocate", cta: "Try an allocation" },
-  { icon: "⚡", title: "Instant map, AI upgrade", text: "Your map appears in a second; the personalised version arrives in the background.", href: "/onboarding/freedom", cta: "Build your own" },
 ];
+
+/** Kept out of the grid: six cards tile cleanly in three columns, and this one is the CTA. */
+const buildYourOwn = {
+  icon: "⚡",
+  title: "Instant map, AI upgrade",
+  text: "Your map appears in a second; the personalised version arrives in the background.",
+  href: "/onboarding/freedom",
+  cta: "Build your own",
+};
 
 const cardClass =
   "group block h-full w-full rounded-2xl border p-6 text-left transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)]";
@@ -69,18 +77,23 @@ export default function Home() {
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
             <li key={f.title} className="h-full">
-              {f.mode === undefined && f.href.startsWith("/onboarding") ? (
-                <Link href={f.href} className={`${cardClass} border-white/10 bg-ink-soft/70 hover:border-white/25`}>
-                  <FeatureBody {...f} />
-                </Link>
-              ) : (
-                <TryLink href={f.href} mode={f.mode} className={`${cardClass} border-white/10 bg-ink-soft/70 hover:border-white/25`}>
-                  <FeatureBody {...f} />
-                </TryLink>
-              )}
+              <TryLink href={f.href} mode={f.mode} className={`${cardClass} border-white/10 bg-ink-soft/70 hover:border-white/25`}>
+                <FeatureBody {...f} />
+              </TryLink>
             </li>
           ))}
         </ul>
+        <Link
+          href={buildYourOwn.href}
+          className="group flex flex-col items-start gap-3 rounded-2xl border border-brand/30 bg-brand/5 p-6 text-left transition hover:border-brand/60 hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)] sm:flex-row sm:items-center sm:gap-6"
+        >
+          <p className="text-3xl" aria-hidden>{buildYourOwn.icon}</p>
+          <div className="flex-1">
+            <h3 className="font-display text-lg font-semibold">{buildYourOwn.title}</h3>
+            <p className="mt-1 text-sm text-mist">{buildYourOwn.text}</p>
+          </div>
+          <p className="shrink-0 text-sm font-semibold text-brand group-hover:underline">{buildYourOwn.cta} →</p>
+        </Link>
       </section>
 
       <section className="grid w-full max-w-4xl gap-4 sm:grid-cols-3">

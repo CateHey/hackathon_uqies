@@ -5,7 +5,7 @@ mkdirSync("e2e/screenshots", { recursive: true });
 
 test("phone: the map lays out vertically and the toggle still works", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "See Sarah's journey" }).click();
+  await page.getByRole("button", { name: "See Vinuy's journey" }).click();
   await expect(page).toHaveURL(/\/map$/);
   const map = page.getByRole("img", { name: /Your Freedom Map/ });
   await expect(map).toBeVisible();

@@ -38,6 +38,8 @@ export interface StoredSession {
   pendingUpgrade: { startedAt: string } | null;
   upgrade: PlanUpgrade | null;
   upgradeError: string | null;
+  /** The profile was edited after this plan was built, so the map no longer matches the numbers. */
+  planStale: boolean;
   createdAt: string;
   updatedAt: string;
 }
@@ -74,6 +76,7 @@ export function emptySession(id: string): StoredSession {
     pendingUpgrade: null,
     upgrade: null,
     upgradeError: null,
+    planStale: false,
     createdAt: now,
     updatedAt: now,
   };

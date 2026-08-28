@@ -32,11 +32,16 @@ export interface MapLayout {
   bridges: BridgePath[];
 }
 
-export const BOX_W = 164;
+/**
+ * Node size in map units. The width has to hold the longest plain-language caption
+ * ("Side income & business") at its drawn size without the renderer having to truncate it.
+ */
+export const BOX_W = 184;
 export const BOX_H = 96;
 
 const SPINE_START = 120;
-const SPINE_GAP = 200;
+/** Centre-to-centre along the spine — BOX_W plus a gutter wide enough for the bridges. */
+const SPINE_GAP = 216;
 
 /**
  * Deterministic positions for the Freedom Map in an abstract coordinate space.
@@ -67,7 +72,7 @@ export function layoutFreedomMap(plan: FreedomPlan, opts: { orientation: Orienta
     );
     cityA = branchStart + 230;
   } else {
-    const colGap = 200;
+    const colGap = 212;
     const rowGap = 124;
     const rows = Math.ceil(branches.length / 2);
     branches.forEach((r, i) => {

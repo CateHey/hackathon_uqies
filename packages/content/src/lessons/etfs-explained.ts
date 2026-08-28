@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "etfs-explained",
   title: "ETFs explained",
   level: "intermediate",
   topics: ["investing", "etfs", "markets"],
-  readingMinutes: 4,
   summary:
     "Understand what an exchange-traded fund is, how it works, and what to check before deciding whether one fits your plan.",
   body: `An exchange-traded fund, or ETF, is a basket of investments that you can buy and sell on a share market in a single trade. You buy one unit of the fund, and that unit is a small slice of everything the fund holds, which might be hundreds of companies or a collection of bonds.

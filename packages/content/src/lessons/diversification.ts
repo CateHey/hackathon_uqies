@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "diversification",
   title: "Diversification",
   level: "intermediate",
   topics: ["investing", "risk", "diversification"],
-  readingMinutes: 4,
   summary:
     "Explain how spreading your money across different investments limits the damage any single one can do.",
   body: `Diversification means not putting all your money in one place. It is the closest thing investing has to a free lunch: spreading your money across many investments lowers how much any single bad outcome can hurt, without giving up much in long-term returns.

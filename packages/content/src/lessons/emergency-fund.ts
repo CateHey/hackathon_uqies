@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "emergency-fund",
   title: "Your emergency buffer",
   level: "beginner",
   topics: ["saving", "security", "emergency fund"],
-  readingMinutes: 4,
   summary:
     "Work out how big your emergency buffer needs to be and build it a little at a time without it feeling impossible.",
   body: `An emergency buffer is money you set aside and do not touch unless something goes wrong. The car needs a repair, your hours get cut, your laptop dies the week before an assignment is due. Without a buffer, these moments turn into debt or a scramble to borrow. With one, they are just an annoying week.

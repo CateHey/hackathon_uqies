@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "understanding-risk",
   title: "Understanding risk",
   level: "beginner",
   topics: ["risk", "investing", "volatility"],
-  readingMinutes: 4,
   summary:
     "Recognise the different kinds of risk in investing and work out how much you can actually live with.",
   body: `Risk, in money terms, is the chance that things do not go the way you planned. Cash in a savings account is safe from market falls but slowly loses buying power to inflation, while shares can grow well over decades but can drop sharply in a week. There is no option with zero risk, only different kinds to choose between.

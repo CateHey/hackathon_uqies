@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "budgeting-basics",
   title: "Budgeting basics",
   level: "beginner",
   topics: ["budgeting", "spending"],
-  readingMinutes: 4,
   summary:
     "Build a simple monthly budget that shows where your money goes and makes room for the things you actually want.",
   body: `A budget is not a punishment. It is a plan for your money that you write down before the month starts, so you decide where it goes instead of finding out afterwards. Once you can see where it goes, the choices get much easier.

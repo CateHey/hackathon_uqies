@@ -10,12 +10,14 @@ import {
   LessonPayload,
   PlanBundle,
   PlanStatusResponse,
+  ProfilePatchResponse,
   ProfileResponse,
   ProgressResponse,
   WhyApiResponse,
   type AllocationRequest,
   type DemoName,
   type FreedomProfile,
+  type ProfilePatch,
   type ProgressEvent,
   type WhyRequest,
 } from "@free-me/core";
@@ -66,6 +68,8 @@ export function createApi(opts: ApiOptions = {}) {
     health: () => request("/health", HealthResponse),
     saveProfile: (profile: FreedomProfile) => request("/profile", ProfileResponse, post(profile)),
     getProfile: () => request("/profile", ProfileResponse),
+    editProfile: (patch: ProfilePatch) =>
+      request("/profile", ProfilePatchResponse, { method: "PATCH", body: JSON.stringify(patch) }),
     generatePlan: (opts?: { force?: "template" }) => request("/plan/generate", GenerateResponse, post(opts ?? {})),
     getPlan: () => request("/plan", PlanBundle),
     planStatus: () => request("/plan/status", PlanStatusResponse),
@@ -134,12 +138,44 @@ export function useSaveProfile() {
   });
 }
 
+export const profileKey = ["profile"] as const;
+
+export function useProfile() {
+  const api = useApi();
+  return useQuery({
+    queryKey: profileKey,
+    queryFn: () => api.getProfile(),
+    retry: (count, err) => !(err instanceof ApiClientError && err.status === 404) && count < 2,
+  });
+}
+
+/** Edits an existing profile without losing the plan. */
+export function useEditProfile() {
+  const api = useApi();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (patch: ProfilePatch) => api.editProfile(patch),
+    onSuccess: (data) => {
+      qc.setQueryData(profileKey, { ok: true as const, profile: data.profile });
+      qc.setQueryData(planKey, (prev: PlanBundle | undefined) =>
+        prev ? { ...prev, profile: data.profile, metrics: data.metrics } : prev,
+      );
+      void qc.invalidateQueries({ queryKey: planStatusKey });
+    },
+  });
+}
+
 export function useGeneratePlan() {
   const api = useApi();
   const qc = useQueryClient();
   return useMutation({
     mutationFn: (opts?: { force?: "template" }) => api.generatePlan(opts),
-    onSuccess: (data) => qc.setQueryData(planKey, { profile: data.profile, plan: data.plan, metrics: data.metrics }),
+    onSuccess: (data) => {
+      qc.setQueryData(planKey, { profile: data.profile, plan: data.plan, metrics: data.metrics });
+      // The new plan clears `planStale` and may start a background upgrade — both live in status,
+      // so without this the "your numbers changed" banner would survive its own fix.
+      void qc.invalidateQueries({ queryKey: planStatusKey });
+    },
   });
 }
 

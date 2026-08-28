@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useApplyUpgrade, usePlanStatus } from "@free-me/api-client";
+import { useApplyUpgrade, useGeneratePlan, usePlanStatus } from "@free-me/api-client";
 import { Button } from "./ui";
 
 /**
@@ -12,6 +12,7 @@ import { Button } from "./ui";
 export function UpgradeWatcher() {
   const status = usePlanStatus();
   const apply = useApplyUpgrade();
+  const rebuild = useGeneratePlan();
   const [applied, setApplied] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const attempted = useRef(false);
@@ -30,6 +31,21 @@ export function UpgradeWatcher() {
     const t = setTimeout(() => setDismissed(true), 9000);
     return () => clearTimeout(t);
   }, [applied]);
+
+  // Edited numbers beat everything else: the map on screen is describing a situation that
+  // no longer exists, and rebuilding is one click.
+  if (data?.planStale) {
+    return (
+      <div role="status" className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-accent/40 bg-accent/10 px-4 py-3 text-sm text-parchment">
+        <span>
+          ✏️ <strong className="font-semibold">Your numbers changed.</strong> This map was built from the old ones.
+        </span>
+        <Button disabled={rebuild.isPending} onClick={() => rebuild.mutate(undefined)}>
+          {rebuild.isPending ? "Rebuilding…" : "Update my map"}
+        </Button>
+      </div>
+    );
+  }
 
   if (data?.pending) {
     return (

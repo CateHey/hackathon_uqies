@@ -46,6 +46,7 @@ export const POST = handle(async (req) => {
   session.upgrade = null;
   session.upgradeError = null;
   session.pendingUpgrade = pending ? { startedAt: now.toISOString() } : null;
+  session.planStale = false;
   await saveSession(session);
   await getRepository().recordPlan({ sessionId: session.id, plan, metrics, mode });
 

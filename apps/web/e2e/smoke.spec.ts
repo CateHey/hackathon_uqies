@@ -25,15 +25,15 @@ async function currentPlan(page: Page): Promise<Plan> {
   return ((await res.json()) as { plan: Plan }).plan;
 }
 
-async function loadSarah(page: Page) {
+async function loadPersona(page: Page) {
   await page.goto("/");
-  await page.getByRole("button", { name: "See Sarah's journey" }).click();
+  await page.getByRole("button", { name: "See Vinuy's journey" }).click();
   await expect(page).toHaveURL(/\/map$/);
   return currentPlan(page);
 }
 
 test.describe("Free Me — hackathon MVP flow", () => {
-  test("landing → Sarah demo → Explore map → Professional → region → progress unlocks", async ({ page }) => {
+  test("landing → demo person → Explore map → Professional → region → progress unlocks", async ({ page }) => {
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
     page.on("console", (m) => {
@@ -44,7 +44,7 @@ test.describe("Free Me — hackathon MVP flow", () => {
     await expect(page.getByRole("heading", { level: 1 })).toContainText("path to financial freedom");
     await shot(page, "01-landing");
 
-    const plan = await loadSarah(page);
+    const plan = await loadPersona(page);
     const active = plan.regions.find((r) => r.id === plan.currentPriorityRegionId)!;
     const next = plan.steps.find((s) => s.id === plan.nextStepId)!;
 
@@ -101,7 +101,7 @@ test.describe("Free Me — hackathon MVP flow", () => {
     expect(errors, `console/page errors: ${errors.join("\n")}`).toEqual([]);
   });
 
-  test("onboarding with Sarah's numbers builds a map", async ({ page }) => {
+  test("onboarding with a student's numbers builds a map", async ({ page }) => {
     test.setTimeout(360_000); // a full model generation at high effort can take 1–3 minutes
     await page.goto("/onboarding/freedom");
     await page.getByPlaceholder("For me, freedom means…").fill("I want to be able to travel without worrying about money.");
@@ -149,7 +149,7 @@ test.describe("Free Me — hackathon MVP flow", () => {
 
   test("lesson personalisation streams and allocation keeps the total", async ({ page }) => {
     test.setTimeout(300_000);
-    await loadSarah(page);
+    await loadPersona(page);
 
     await page.goto("/lessons/emergency-fund");
     await expect(page.getByRole("heading", { level: 1 })).toContainText("emergency buffer");

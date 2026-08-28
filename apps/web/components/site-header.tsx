@@ -7,6 +7,7 @@ import { AUTH_ENABLED, useUser } from "@/lib/use-user";
 
 const nav = [
   { href: "/map", label: "Map" },
+  { href: "/profile", label: "My numbers" },
   { href: "/learn", label: "Learn" },
   { href: "/allocate", label: "Allocate" },
   { href: "/demo", label: "Demo" },

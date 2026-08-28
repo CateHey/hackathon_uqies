@@ -8,12 +8,20 @@ import diversification from "./lessons/diversification";
 import etfsExplained from "./lessons/etfs-explained";
 import savingForADeposit from "./lessons/saving-for-a-deposit";
 import cryptoAndVolatility from "./lessons/crypto-and-volatility";
-import type { Lesson, LessonSummary } from "./types";
+import type { AuthoredLesson, Lesson, LessonSummary } from "./types";
 
 export type { Lesson, LessonLevel, LessonSummary, QuickCheck } from "./types";
 
+/**
+ * Reading time at ~200 words a minute, the usual figure for non-technical prose.
+ * Derived rather than authored so it stays true when a lesson is edited.
+ */
+function readingMinutes(body: string): number {
+  return Math.max(1, Math.round(body.trim().split(/\s+/).length / 200));
+}
+
 /** The lesson catalogue, in a sensible learning order. */
-export const lessons: Lesson[] = [
+const authored: AuthoredLesson[] = [
   budgetingBasics,
   emergencyFund,
   understandingDebt,
@@ -25,6 +33,8 @@ export const lessons: Lesson[] = [
   savingForADeposit,
   cryptoAndVolatility,
 ];
+
+export const lessons: Lesson[] = authored.map((l) => ({ ...l, readingMinutes: readingMinutes(l.body) }));
 
 export const lessonIds: string[] = lessons.map((l) => l.id);
 

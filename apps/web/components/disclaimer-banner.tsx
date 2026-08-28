@@ -20,10 +20,14 @@ export function DisclaimerBanner() {
   );
 }
 
+/**
+ * Always present, on every page. The banner above is dismissible, so the footer carries the
+ * full wording rather than a trimmed version — it is the copy that is guaranteed to be on screen.
+ */
 export function DisclaimerFooter() {
   return (
-    <footer className="mx-auto max-w-6xl px-4 py-8 text-center text-xs text-mist">
-      Free Me provides general financial education, not personal financial advice.
+    <footer className="mx-auto max-w-3xl px-4 py-8 text-center text-xs leading-relaxed text-mist">
+      {DISCLAIMER}
     </footer>
   );
 }

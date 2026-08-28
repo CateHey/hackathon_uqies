@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "understanding-debt",
   title: "Understanding debt",
   level: "beginner",
   topics: ["debt", "interest", "credit"],
-  readingMinutes: 4,
   summary:
     "Tell the difference between debt that builds something and debt that just costs you, and know what to check before borrowing.",
   body: `Debt is borrowing money now and paying it back later, usually with extra on top, and that extra is interest. Debt is not automatically good or bad. What matters is what it costs, what you get for it, and whether you can comfortably pay it back.

@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "crypto-and-volatility",
   title: "Crypto and volatility",
   level: "intermediate",
   topics: ["digital assets", "crypto", "risk"],
-  readingMinutes: 4,
   summary:
     "Understand what cryptocurrency is, why its price swings so much, and how to think clearly about the risk before any money is involved.",
   body: `Cryptocurrency is digital money that runs on a shared public ledger, called a blockchain, rather than through a bank. A network of computers around the world maintains the ledger and records who holds what, with no central organisation in charge. Some people see it as a genuine innovation and others as speculation; this lesson will not settle that argument.

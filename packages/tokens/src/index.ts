@@ -18,9 +18,9 @@ export const colors = {
   /** Brand accent — momentum. */
   accent: "#FF7A1A",
   accentSoft: "#FFA25C",
-  /** Second accent — progress, growth, "go". */
-  accent2: "#3DDC84",
-  accent2Soft: "#8CF0B6",
+  /** Second accent — progress and completion. Dark green: readable on the ink ground, and it does not read as neon. */
+  accent2: "#17A34A",
+  accent2Soft: "#34C46A",
   mist: "#8B97A6",
   fog: "#070A0D",
   white: "#FFFFFF",

@@ -8,8 +8,8 @@
   --color-parchment-soft: #e6ebe8;
   --color-accent: #ff7a1a;
   --color-accent-soft: #ffa25c;
-  --color-accent-2: #3ddc84;
-  --color-accent-2-soft: #8cf0b6;
+  --color-accent-2: #17a34a;
+  --color-accent-2-soft: #34c46a;
   --color-mist: #8b97a6;
   --color-fog: #070a0d;
   --color-success: #0ca30c;
@@ -32,7 +32,7 @@ body {
 body {
   background-image:
     radial-gradient(60% 40% at 12% -5%, rgba(255, 122, 26, 0.16), transparent 62%),
-    radial-gradient(45% 35% at 92% 8%, rgba(61, 220, 132, 0.11), transparent 60%);
+    radial-gradient(45% 35% at 92% 8%, rgba(23, 163, 74, 0.16), transparent 60%);
   background-attachment: fixed;
 }
 

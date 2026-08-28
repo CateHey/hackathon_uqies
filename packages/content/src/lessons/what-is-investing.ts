@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "what-is-investing",
   title: "What is investing?",
   level: "beginner",
   topics: ["investing", "markets"],
-  readingMinutes: 4,
   summary:
     "Describe what investing actually is, how it differs from saving, and what the main types of investment do.",
   body: `Investing means putting your money into something you expect to grow in value or pay you an income over time, in exchange for accepting that it might not. Saving keeps money where it stays put; investing puts it to work, and work involves some uncertainty.

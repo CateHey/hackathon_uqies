@@ -11,6 +11,7 @@ export interface Lesson {
   title: string;
   level: LessonLevel;
   topics: string[];
+  /** Derived from the body by the catalogue — see `lessons` in index.ts. Not authored. */
   readingMinutes: number;
   /** One sentence shown in lists. */
   summary: string;
@@ -26,3 +27,6 @@ export interface LessonSummary {
   topics: string[];
   summary: string;
 }
+
+/** What a lesson module exports: everything except the values the catalogue derives. */
+export type AuthoredLesson = Omit<Lesson, "readingMinutes">;

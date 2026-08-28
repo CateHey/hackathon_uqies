@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { personas as profiles } from "@free-me/core";
 import { DemoButton } from "@/components/demo-button";
 import { PERSONAS, personaFacts } from "@/lib/personas";
+
+export const metadata: Metadata = {
+  title: "Demo personas",
+  description: "Five finished journeys you can open without signing up.",
+};
 
 /** Five ready-made journeys — each opens a plan the model generated for that person. */
 export default function DemoPage() {

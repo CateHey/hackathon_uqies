@@ -40,7 +40,7 @@ vi.mock("@/lib/ai", async (importOriginal) => {
 });
 
 import { MemoryRepository, setRepository } from "./repository";
-import { POST as postProfile } from "@/app/api/profile/route";
+import { PATCH as patchProfile, POST as postProfile } from "@/app/api/profile/route";
 import { POST as generate } from "@/app/api/plan/generate/route";
 import { GET as getPlan } from "@/app/api/plan/route";
 import { POST as why } from "@/app/api/plan/why/route";
@@ -137,6 +137,58 @@ describe("API flow (template mode)", () => {
     const text = await stream.text();
     expect(text).toMatch(/Reading as:/);
     expect(text).toMatch(/## /);
+  });
+
+  it("editing your numbers keeps the plan, updates the metrics, and flags the map", async () => {
+    await postProfile(req(fixtures.sarah), {});
+    await generate(req(null), {});
+    const before = PlanBundle.parse(await (await getPlan(req(), {})).json());
+    expect(before.metrics.emergencyTarget).toBe(3000);
+    expect(before.plan.regions.length).toBeGreaterThan(0);
+
+    // Rent goes up: the buffer target moves with it.
+    const res = await patchProfile(req({ monthlyExpenses: 1800 }), {});
+    expect(res.status).toBe(200);
+    const patched = (await res.json()) as { profile: { monthlyExpenses: number }; metrics: { emergencyTarget: number }; planStale: boolean };
+    expect(patched.profile.monthlyExpenses).toBe(1800);
+    expect(patched.metrics.emergencyTarget).toBe(3600);
+    expect(patched.planStale).toBe(true);
+
+    // The plan itself survives — the whole point of the edit path.
+    const after = PlanBundle.parse(await (await getPlan(req(), {})).json());
+    expect(after.plan.regions.length).toBe(before.plan.regions.length);
+    expect(after.metrics.emergencyTarget).toBe(3600);
+    expect(after.profile.monthlyExpenses).toBe(1800);
+    expect(PlanStatusResponse.parse(await (await planStatus(req(), {})).json()).planStale).toBe(true);
+
+    // Rebuilding clears the flag.
+    await generate(req(null), {});
+    expect(PlanStatusResponse.parse(await (await planStatus(req(), {})).json()).planStale).toBe(false);
+  });
+
+  it("editing goals replaces the list and reprojects them", async () => {
+    await postProfile(req(fixtures.sarah), {});
+    await generate(req(null), {});
+    const res = await patchProfile(
+      req({ goals: [{ id: "g-car", type: "other", label: "A van", targetAmount: 20000, targetDate: "2029-01-01", priority: 1 }] }),
+      {},
+    );
+    const patched = (await res.json()) as { profile: { goals: { label: string }[] }; metrics: { goalProjections: { label: string }[] } };
+    expect(patched.profile.goals).toHaveLength(1);
+    expect(patched.profile.goals[0]!.label).toBe("A van");
+    expect(patched.metrics.goalProjections[0]!.label).toBe("A van");
+  });
+
+  it("rejects an edit that would make the profile invalid, and changes nothing", async () => {
+    await postProfile(req(fixtures.sarah), {});
+    const res = await patchProfile(req({ monthlyIncome: -5 }), {});
+    expect(res.status).toBe(400);
+    const profile = (await (await postProfile(req(fixtures.sarah), {})).json()) as { profile: { monthlyIncome: number } };
+    expect(profile.profile.monthlyIncome).toBe(1800);
+  });
+
+  it("cannot edit a profile that doesn't exist yet", async () => {
+    expect((await patchProfile(req({ savings: 100 }), {})).status).toBe(404);
   });
 
   it("unknown progress steps 404", async () => {

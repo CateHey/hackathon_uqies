@@ -146,8 +146,6 @@ export function ProfessionalPlan({ bundle }: { bundle: PlanBundle }) {
         </ul>
         <p className="mt-3 text-sm text-parchment/90">{plan.freedomCity.narrative}</p>
       </Card>
-
-      <p className="text-xs text-mist">{plan.disclaimers.join(" ")}</p>
     </div>
   );
 }

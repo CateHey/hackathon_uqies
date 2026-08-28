@@ -73,6 +73,8 @@ export type GenerateResponse = z.infer<typeof GenerateResponse>;
 export const PlanStatusResponse = z.object({
   pending: z.boolean(),
   upgradeReady: z.boolean(),
+  /** Set when the profile was edited after the plan was built. */
+  planStale: z.boolean(),
   /** Progress events the user has made since the current plan was created. */
   eventsSince: z.number().int(),
   startedAt: z.string().nullable(),
@@ -82,6 +84,22 @@ export type PlanStatusResponse = z.infer<typeof PlanStatusResponse>;
 
 export const ProfileResponse = z.object({ ok: z.literal(true), profile: FreedomProfile });
 export type ProfileResponse = z.infer<typeof ProfileResponse>;
+
+/**
+ * An edit to an existing profile. Every field is optional; `goals` replaces the whole list.
+ * Unlike saving a profile at onboarding, this keeps the plan — it just marks it out of date.
+ */
+export const ProfilePatch = FreedomProfile.partial();
+export type ProfilePatch = z.infer<typeof ProfilePatch>;
+
+export const ProfilePatchResponse = z.object({
+  ok: z.literal(true),
+  profile: FreedomProfile,
+  metrics: Metrics,
+  /** True when the plan on screen no longer matches these numbers. */
+  planStale: z.boolean(),
+});
+export type ProfilePatchResponse = z.infer<typeof ProfilePatchResponse>;
 
 export const WhyApiResponse = WhyResponse.extend({ source: z.enum(["ai", "plan"]) });
 export type WhyApiResponse = z.infer<typeof WhyApiResponse>;

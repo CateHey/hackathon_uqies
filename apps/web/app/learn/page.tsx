@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { lessons } from "@free-me/content";
+
+export const metadata: Metadata = {
+  title: "Learn",
+  description: "Ten lessons that rewrite themselves around your goals and level.",
+};
 
 export default function LearnPage() {
   return (

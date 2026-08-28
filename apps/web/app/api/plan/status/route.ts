@@ -8,6 +8,7 @@ export const GET = handle(async () => {
     {
       pending: Boolean(s.pendingUpgrade),
       upgradeReady: Boolean(s.upgrade),
+      planStale: Boolean(s.planStale),
       eventsSince: s.events.length,
       startedAt: s.pendingUpgrade?.startedAt ?? s.upgrade?.startedAt ?? null,
       error: s.upgradeError ?? null,

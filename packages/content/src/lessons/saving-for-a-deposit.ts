@@ -1,11 +1,10 @@
-import type { Lesson } from "../types";
+import type { AuthoredLesson } from "../types";
 
-const lesson: Lesson = {
+const lesson: AuthoredLesson = {
   id: "saving-for-a-deposit",
   title: "Saving for a home deposit",
   level: "intermediate",
   topics: ["property", "saving", "deposit"],
-  readingMinutes: 4,
   summary:
     "Turn a home deposit into a real number and an honest timeline, and know where the money should sit while you build it.",
   body: `A home deposit is the part of the purchase price you pay upfront, with a lender covering the rest through a mortgage. It is usually the largest sum most people ever save, and it feels impossible until you break it into a monthly number and a date.

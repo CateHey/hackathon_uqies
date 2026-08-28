@@ -4,10 +4,18 @@ import { motion } from "framer-motion";
 import { regionPlainLabel, type Region, type RegionBox } from "@free-me/core";
 import { regionColors, regionEmoji } from "@free-me/tokens";
 import { statusLabel } from "@/lib/status";
-import { wrapTitle } from "./map-text";
+import { fitText, wrapTitleToWidth } from "./map-text";
 
 const RING_R = 13;
 const CIRC = 2 * Math.PI * RING_R;
+
+/** Inner padding of a node box, in map units. The right pad clears the progress ring. */
+const PAD_L = 16;
+const PAD_R = 12;
+const TITLE_INDENT = 44; // where the title starts when an emoji is drawn before it
+const TITLE_SIZE = 12.5;
+const CAPTION_SIZE = 9.5;
+const CAPTION_TRACKING = 0.04;
 
 /**
  * A place on the map. Nothing is drawn as locked: a region the plan hasn't opened yet
@@ -36,7 +44,12 @@ export function RegionNode({
   const pending = region.status === "locked";
   const active = region.status === "active";
   const complete = region.status === "complete";
-  const lines = wrapTitle(region.exploreTitle, 16);
+  const titleX = box.x + (emoji ? TITLE_INDENT : PAD_L);
+  const lines = wrapTitleToWidth(region.exploreTitle, box.x + box.w - PAD_R - titleX, TITLE_SIZE);
+  const caption = fitText(regionPlainLabel(region.type).toUpperCase(), box.w - PAD_L - PAD_R, CAPTION_SIZE, {
+    upper: true,
+    letterSpacing: CAPTION_TRACKING,
+  });
   const ringX = box.x + box.w - 22;
   const ringY = box.y + box.h - 22;
   const percent = Math.round(region.progress * 100);
@@ -84,9 +97,9 @@ export function RegionNode({
       {lines.map((line, i) => (
         <text
           key={line}
-          x={box.x + (emoji ? 44 : 16)}
+          x={titleX}
           y={box.y + 26 + i * 16}
-          fontSize={12.5}
+          fontSize={TITLE_SIZE}
           fontWeight={600}
           fill="#F4F6F5"
           fillOpacity={pending ? 0.8 : 1}
@@ -97,16 +110,16 @@ export function RegionNode({
       ))}
       {/* Plain-language caption: what this place is actually about. */}
       <text
-        x={box.x + 16}
+        x={box.x + PAD_L}
         y={box.y + 26 + lines.length * 16 + 2}
-        fontSize={9.5}
+        fontSize={CAPTION_SIZE}
         fill="#8B97A6"
-        style={{ letterSpacing: "0.04em" }}
+        style={{ letterSpacing: `${CAPTION_TRACKING}em` }}
       >
-        {regionPlainLabel(region.type).toUpperCase()}
+        {caption}
       </text>
       {complete ? (
-        <text x={box.x + 16} y={box.y + box.h - 16} fontSize={11} fill="#3DDC84" fontWeight={600}>
+        <text x={box.x + 16} y={box.y + box.h - 16} fontSize={11} fill="#17A34A" fontWeight={600}>
           ✓ Complete
         </text>
       ) : (
