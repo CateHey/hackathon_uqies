@@ -1,24 +1,23 @@
 /**
  * One place for everything the product is called.
  *
- * Internal package names (`@free-me/*`) and type names (`FreedomPlan`) are deliberately
- * unchanged — they are invisible to users and renaming them would touch 76 files for no
- * benefit. Everything a person can read comes from here.
+ * Internal package names (`@free-me/*`) and type names (`FreedomPlan`) match the brand again —
+ * they were never renamed, which is why coming back cost one file instead of seventy-six.
  */
 export const BRAND = {
-  /** Full name, used once per screen at most. */
-  name: "Pay Yourself First",
+  /** Full name. */
+  name: "Free Me",
   /** How it's referred to everywhere else. */
-  short: "PAYF",
-  /** The principle, in one line. */
-  tagline: "Fund your future before you spend the rest.",
+  short: "Free Me",
+  /** The promise, in one line. */
+  tagline: "Discover your path to financial freedom.",
   /** Used for demo account addresses. */
-  domain: "payf.app",
+  domain: "free-me.app",
 } as const;
 
 /** Shown in both modes and carried on every generated plan. */
 export const DISCLAIMER =
-  "PAYF provides general financial education, not personal financial advice. It doesn't know your full circumstances — consider them, and seek licensed advice for decisions that matter to you.";
+  "Free Me provides general financial education, not personal financial advice. It doesn't know your full circumstances — consider them, and seek licensed advice for decisions that matter to you.";
 
 /** The sentence every disclaimer must contain, whatever the brand — asserted in evals. */
 export const DISCLAIMER_CORE = "general financial education, not personal financial advice";

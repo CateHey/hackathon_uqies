@@ -55,7 +55,7 @@ export const Goal = z.object({
 });
 export type Goal = z.infer<typeof Goal>;
 
-/** Everything Free Me knows about a person. Numbers are monthly unless stated. */
+/** Everything PAYF knows about a person. Numbers are monthly unless stated. */
 export const FreedomProfile = z.object({
   freedomStatement: z.string().min(1).max(500),
   age: z.number().int().min(13).max(100),

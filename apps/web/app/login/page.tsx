@@ -65,7 +65,7 @@ export default function LoginPage() {
   return (
     <div className="mx-auto max-w-md space-y-8 py-10">
       <div className="text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-mist">🚀 Free Me</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-mist">🪙 PAYF</p>
         <h1 className="mt-2 font-display text-4xl font-semibold">{mode === "signin" ? "Welcome back" : "Create your account"}</h1>
         <p className="mt-2 text-mist">
           {mode === "signin" ? "Your map, your progress — on every device." : "Keep your map and progress safe across devices."}
