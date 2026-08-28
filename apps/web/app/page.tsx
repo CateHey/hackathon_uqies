@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { DemoButton } from "@/components/demo-button";
 import { LinkButton } from "@/components/ui";
 
@@ -25,6 +26,9 @@ export default function Home() {
           <LinkButton href="/onboarding/freedom" className="!px-7 !py-3 !text-base">Start your journey 🚀</LinkButton>
           <DemoButton name="sarah" label="See Sarah's journey" />
         </div>
+        <p className="text-sm text-mist">
+          or <Link href="/demo" className="text-accent-2 hover:underline">pick one of five personas</Link>
+        </p>
       </section>
 
       <section className="grid w-full max-w-4xl gap-4 sm:grid-cols-3">

@@ -46,6 +46,17 @@ export class SupabaseRepository implements PlanRepository {
     if (error) throw new Error(`plans.insert failed: ${error.message}`);
   }
 
+  async countAiPlansSince(sessionId: string, since: Date): Promise<number> {
+    const { count, error } = await this.db
+      .from("plans")
+      .select("id", { count: "exact", head: true })
+      .eq("session_id", sessionId)
+      .eq("mode", "ai")
+      .gte("created_at", since.toISOString());
+    if (error) throw new Error(`plans.count failed: ${error.message}`);
+    return count ?? 0;
+  }
+
   /** Cheap probe used by /api/health: is the schema applied and reachable? (A real select — HEAD requests don't surface a missing table.) */
   async ready(): Promise<{ ok: boolean; error: string | null }> {
     const sessions = await this.db.from("sessions").select("id").limit(1);

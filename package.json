@@ -20,7 +20,9 @@
     "format": "prettier --write .",
     "e2e": "pnpm --filter web e2e",
     "db:push": "supabase db push",
-    "db:test": "pnpm --filter web test -- supabase"
+    "db:test": "pnpm --filter web test -- supabase",
+    "seed:demo": "pnpm --filter web seed:demo",
+    "smoke": "pnpm --filter web smoke"
   },
   "devDependencies": {
     "prettier": "^3.9.6",

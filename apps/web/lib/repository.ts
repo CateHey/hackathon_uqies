@@ -49,6 +49,7 @@ export interface PlanRecord {
   metrics: Metrics;
   mode: PlanMode;
   usage?: { inputTokens: number; outputTokens: number; cacheReadTokens: number; cacheWriteTokens: number } | null;
+  createdAt?: string;
 }
 
 export interface PlanRepository {
@@ -56,6 +57,8 @@ export interface PlanRepository {
   upsert(session: StoredSession): Promise<StoredSession>;
   delete(id: string): Promise<void>;
   recordPlan(record: PlanRecord): Promise<void>;
+  /** How many model-generated plans this session has had since `since` — the basis for rate limiting. */
+  countAiPlansSince(sessionId: string, since: Date): Promise<number>;
 }
 
 export function emptySession(id: string): StoredSession {
@@ -96,7 +99,13 @@ export class MemoryRepository implements PlanRepository {
   }
 
   async recordPlan(record: PlanRecord): Promise<void> {
-    this.history.push(structuredClone(record));
+    this.history.push(structuredClone({ ...record, createdAt: new Date().toISOString() }));
+  }
+
+  async countAiPlansSince(sessionId: string, since: Date): Promise<number> {
+    return this.history.filter(
+      (r) => r.sessionId === sessionId && r.mode === "ai" && new Date(r.createdAt ?? 0) >= since,
+    ).length;
   }
 
   get size(): number {
@@ -158,6 +167,9 @@ export class ResilientRepository implements PlanRepository {
   }
   async recordPlan(record: PlanRecord) {
     return (await this.choose()).repo.recordPlan(record);
+  }
+  async countAiPlansSince(sessionId: string, since: Date) {
+    return (await this.choose()).repo.countAiPlansSince(sessionId, since);
   }
 }
 

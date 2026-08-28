@@ -21,8 +21,19 @@ export const POST = handle(async (req) => {
 
   // Optional body: { force: "template" } skips the model entirely.
   const body = (await req.json().catch(() => ({}))) as { force?: unknown };
-  const mode = body?.force === "template" ? "template" : planMode();
+  let mode = body?.force === "template" ? "template" : planMode();
   const now = new Date();
+
+  // Each model generation costs real money: cap them per session per day. Over the cap,
+  // the person still gets a fresh rules-engine map — just not another personalised one.
+  if (mode === "ai") {
+    const limit = Number(process.env.GENERATE_LIMIT_PER_DAY ?? 5);
+    const used = await getRepository().countAiPlansSince(session.id, new Date(now.getTime() - 24 * 60 * 60 * 1000));
+    if (used >= limit) {
+      console.warn(JSON.stringify({ event: "generate_rate_limited", sessionId: session.id, used, limit }));
+      mode = "template";
+    }
+  }
 
   const metrics = computeMetrics(session.profile, { now });
   const plan = templatePlan(session.profile, metrics, { now });
