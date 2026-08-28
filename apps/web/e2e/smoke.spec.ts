@@ -166,6 +166,20 @@ test.describe("Free Me — hackathon MVP flow", () => {
     await expect(page.getByRole("button", { name: "Saved ✓" })).toBeVisible();
   });
 
+  test("guest can open Professional mode from the landing card without any plan", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: /Open in Professional mode/ }).click();
+    await expect(page).toHaveURL(/\/map$/);
+    await expect(page.getByText("Current position")).toBeVisible();
+    await expect(page.getByRole("radio", { name: /Professional/ })).toHaveAttribute("aria-checked", "true");
+
+    // Feature cards also work as a guest.
+    await page.goto("/");
+    await page.getByRole("button", { name: /Try an allocation/ }).click();
+    await expect(page).toHaveURL(/\/allocate$/);
+    await expect(page.getByRole("button", { name: "Suggest a split" })).toBeVisible();
+  });
+
   test("learn index and dev map render", async ({ page }) => {
     await page.goto("/learn");
     await expect(page.getByRole("link", { name: /Budgeting basics/ })).toBeVisible();

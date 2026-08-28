@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useAllocate, usePlan, useProgress } from "@free-me/api-client";
 import { formatMoney, type AllocationBucket } from "@free-me/core";
+import { DemoButton } from "@/components/demo-button";
 import { Button, Card, ErrorNote, SectionTitle, Spinner } from "@/components/ui";
 
 const FLEX = "flexible";
@@ -19,9 +20,12 @@ export default function AllocatePage() {
   if (plan.isPending) return <Spinner label="Loading…" />;
   if (plan.isError) {
     return (
-      <div className="py-16 text-center">
-        <p className="text-mist">Build your map first, then come back with money to allocate.</p>
-        <Link href="/onboarding/freedom" className="text-accent hover:underline">Start your journey</Link>
+      <div className="space-y-4 py-16 text-center">
+        <p className="text-mist">Build your map first, then come back with money to allocate — or try it on Sarah&apos;s journey.</p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Link href="/onboarding/freedom" className="text-accent hover:underline">Start your journey</Link>
+          <DemoButton name="sarah" label="Try it with Sarah's plan" href="/allocate" />
+        </div>
       </div>
     );
   }
