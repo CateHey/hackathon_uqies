@@ -27,6 +27,14 @@ pnpm eval:template      write template (no-AI) golden plans for local/demo use
 2. `cp apps/web/.env.example apps/web/.env.local` and fill in `ANTHROPIC_API_KEY` (or set `DEMO_MODE=true` to run from cached plans).
 3. `pnpm dev`
 
+## Deployment
+
+Production: **https://hackathon-uqies-web.vercel.app** (Vercel, root directory `apps/web`, auto-deploys from `main`).
+Environment variables on Vercel mirror `apps/web/.env.local`: `ANTHROPIC_API_KEY`, the three Supabase keys,
+`PLAN_EFFORT=medium`, optionally `GENERATE_LIMIT_PER_DAY`. Check a deployment with
+`pnpm smoke https://hackathon-uqies-web.vercel.app`, or run the browser suite against it with
+`E2E_BASE_URL=https://hackathon-uqies-web.vercel.app pnpm e2e`.
+
 ## Demo data
 
 - **/demo** lists five personas (Sarah, Liam, Priya, Marco, Ana); each opens a model-generated journey instantly.
