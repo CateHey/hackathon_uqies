@@ -32,7 +32,7 @@ export function ExploreMap({ bundle }: { bundle: PlanBundle }) {
                 <div className="absolute left-3 top-3 z-10 max-w-sm rounded-xl border border-accent/30 bg-ink/90 p-3 text-sm text-parchment shadow-lg">
                   <span className="mr-1">🌉</span>
                   {hover.relationship}
-                  {hover.status === "locked" && <span className="mt-1 block text-xs text-mist">Unlocks when you: {hover.requirement}</span>}
+                  {hover.status === "locked" && <span className="mt-1 block text-xs text-mist">Suggested next: {hover.requirement}</span>}
                 </div>
               )}
               <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%" }}>
@@ -74,8 +74,8 @@ function Legend() {
           {label}
         </li>
       ))}
-      <li className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4 bg-accent" /> Bridge open</li>
-      <li className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4 border-t border-dashed border-mist" /> Bridge locked</li>
+      <li className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4 bg-accent" /> Path open</li>
+      <li className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4 border-t border-dashed border-mist" /> Path pending</li>
     </ul>
   );
 }

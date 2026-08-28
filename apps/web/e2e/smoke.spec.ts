@@ -86,7 +86,7 @@ test.describe("Free Me — hackathon MVP flow", () => {
       await box.click();
       await expect(box).toBeChecked({ timeout: 15_000 });
     }
-    await expect(page.getByRole("status")).toContainText(/Bridge unlocked|complete/);
+    await expect(page.getByRole("status")).toContainText(/New path open|complete/);
     await shot(page, "05-region-complete");
 
     // Back on the map the next step has moved on.

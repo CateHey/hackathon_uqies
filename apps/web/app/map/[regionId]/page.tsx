@@ -49,7 +49,7 @@ export default function RegionPage() {
     progress.mutate(event, {
       onSuccess: (data) => {
         const unlocked = data.unlockedBridgeIds.map((id) => p.bridges.find((b) => b.id === id)).filter(Boolean);
-        if (unlocked.length) setToast(`🌉 Bridge unlocked — ${unlocked.map((b) => `${name(b!.from)} → ${name(b!.to)}`).join(", ")}`);
+        if (unlocked.length) setToast(`🌉 New path open — ${unlocked.map((b) => `${name(b!.from)} → ${name(b!.to)}`).join(", ")}`);
         else if (data.completedRegionIds.length) setToast(`✓ ${data.completedRegionIds.map(name).join(", ")} complete`);
       },
     });
@@ -127,14 +127,14 @@ export default function RegionPage() {
             {[...bridgesIn, ...bridgesOut].map((b) => (
               <li key={b.id} className="rounded-2xl border border-white/10 p-4 text-sm">
                 <p className="flex flex-wrap items-center gap-2 font-medium">
-                  <span>{b.status === "unlocked" ? "🌉" : "🔒"}</span>
+                  <span aria-hidden>{b.status === "unlocked" ? "🌉" : "⋯"}</span>
                   <Link href={`/map/${b.from}`} className="hover:text-accent">{name(b.from)}</Link>
                   <span className="text-mist">→</span>
                   <Link href={`/map/${b.to}`} className="hover:text-accent">{name(b.to)}</Link>
                   <Badge status={b.status} />
                 </p>
                 <p className="mt-1 text-parchment/90">{b.relationship}</p>
-                {b.status === "locked" && <p className="mt-1 text-xs text-mist">Unlocks when you: {b.requirement}</p>}
+                {b.status === "locked" && <p className="mt-1 text-xs text-mist">Suggested next: {b.requirement}</p>}
               </li>
             ))}
           </ul>

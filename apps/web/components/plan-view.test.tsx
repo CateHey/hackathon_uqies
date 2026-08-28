@@ -33,6 +33,9 @@ describe("Explore and Professional render the same plan", () => {
     expect(pro).toContain(b.plan.freedomCity.title);
     expect(pro).toContain("Emergency fund");
     expect(pro).toContain("$3,000");
+    // Nothing in either view is presented as locked.
+    expect(pro).not.toContain("Locked");
+    expect(explore).not.toContain("Locked");
   });
 
   it("the next step shows up in Professional mode as priority 1", () => {
@@ -43,10 +46,12 @@ describe("Explore and Professional render the same plan", () => {
     expect(pro).toContain(next.title);
   });
 
-  it("the map renders vertically too, with locked regions marked", () => {
+  it("the map renders vertically too, with not-yet-opened regions shown as pending — never locked", () => {
     const b = bundle();
     const svg = renderToString(<FreedomMapSvg plan={b.plan} orientation="vertical" />);
-    expect(svg).toContain("🔒 Locked");
+    expect(svg).toContain("Pending");
+    expect(svg).not.toContain("🔒");
+    expect(svg).not.toContain("Locked");
     expect(svg.match(/<path d="M/g)?.length).toBeGreaterThanOrEqual(b.plan.bridges.length);
   });
 });

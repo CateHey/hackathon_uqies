@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import type { Bridge, BridgePath as BridgePathT } from "@free-me/core";
+import { statusLabel } from "@/lib/status";
 
+/** A connection between two places. Open ones are solid gold; the rest are simply not drawn in yet. */
 export function BridgePath({
   path,
   bridge,
@@ -14,9 +16,10 @@ export function BridgePath({
   bridge: Bridge;
   index: number;
   onHover?: (bridge: Bridge | null) => void;
+  /** Render final state with no draw-in animation (server/static output). */
   staticRender?: boolean;
 }) {
-  const unlocked = bridge.status === "unlocked";
+  const open = bridge.status === "unlocked";
   return (
     <g
       onMouseEnter={() => onHover?.(bridge)}
@@ -24,14 +27,14 @@ export function BridgePath({
       onFocus={() => onHover?.(bridge)}
       onBlur={() => onHover?.(null)}
       tabIndex={0}
-      aria-label={`Bridge ${bridge.status}: ${bridge.relationship}`}
+      aria-label={`Connection ${statusLabel(bridge.status)}: ${bridge.relationship}`}
       className="outline-none"
     >
       <title>{bridge.relationship}</title>
       <path d={path.path} fill="none" stroke="transparent" strokeWidth={18} />
-      {unlocked ? (
+      {open ? (
         <motion.path
-          key={`${bridge.id}-unlocked`}
+          key={`${bridge.id}-open`}
           d={path.path}
           fill="none"
           stroke="#FF7A1A"
@@ -43,10 +46,10 @@ export function BridgePath({
         />
       ) : (
         <motion.path
-          key={`${bridge.id}-locked`}
+          key={`${bridge.id}-pending`}
           d={path.path}
           fill="none"
-          stroke="#3b4757"
+          stroke="#5a6b7d"
           strokeWidth={2}
           strokeDasharray="6 7"
           strokeLinecap="round"

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { statusClass, statusLabel } from "@/lib/status";
 
 type Variant = "primary" | "secondary" | "ghost";
 
@@ -65,21 +66,9 @@ export function Stars({ value }: { value: number }) {
   );
 }
 
-const badgeColors: Record<string, string> = {
-  locked: "bg-white/5 text-mist",
-  available: "bg-white/10 text-parchment",
-  active: "bg-accent/20 text-accent",
-  complete: "bg-success/20 text-success",
-  todo: "bg-white/5 text-mist",
-  in_progress: "bg-accent/20 text-accent",
-  done: "bg-success/20 text-success",
-};
-
 export function Badge({ status }: { status: string }) {
   return (
-    <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium capitalize ${badgeColors[status] ?? "bg-white/5 text-mist"}`}>
-      {status.replace("_", " ")}
-    </span>
+    <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${statusClass(status)}`}>{statusLabel(status)}</span>
   );
 }
 
