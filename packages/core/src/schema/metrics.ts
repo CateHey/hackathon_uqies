@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { GoalType } from "./profile";
+import { FundedBy, GoalType } from "./profile";
 
 /** How much room the person has to save each month, derived from their savings rate. */
 export const Capacity = z.enum(["none", "tight", "steady", "strong"]);
@@ -9,6 +9,8 @@ export const GoalProjection = z.object({
   goalId: z.string(),
   label: z.string(),
   type: GoalType,
+  /** "savings" unless the goal says otherwise — see FundedBy. */
+  fundedBy: FundedBy,
   targetAmount: z.number().nullable(),
   targetDate: z.string().nullable(),
   /** Savings already available for this goal (spare savings beyond the emergency target, applied in priority order). */

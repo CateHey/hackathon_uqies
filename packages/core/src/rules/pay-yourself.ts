@@ -43,6 +43,11 @@ export interface PayYourselfPlan {
   lines: PayYourselfLine[];
   /** Goals that received nothing this month, in priority order. */
   unfunded: { goalId: string; label: string; reason: string }[];
+  /**
+   * Goals that don't get a monthly line because saving isn't how they happen — a business,
+   * equity, income growth. Kept visible so the plan never pretends they're funded.
+   */
+  growthGoals: { goalId: string; label: string; target: number | null; reason: string }[];
   /** The growth assumption used, 0 for plain saving. */
   annualRate: number;
 }
@@ -71,6 +76,7 @@ export function payYourselfPlan(
   const money = (n: number) => formatMoney(n, profile.currency);
   const lines: PayYourselfLine[] = [];
   const unfunded: PayYourselfPlan["unfunded"] = [];
+  const growthGoals: PayYourselfPlan["growthGoals"] = [];
   let left = monthlyTotal;
 
   // ---------------------------------------------------------------- 1 · the safety net
@@ -96,8 +102,21 @@ export function payYourselfPlan(
   }
 
   // ---------------------------------------------------------------- 2 · the goals
+  // A "growth" goal is never given a monthly line: a business or equity target isn't reached by
+  // putting money aside, and pretending otherwise would swallow the budget of the goals that are.
+  for (const g of metrics.goalProjections) {
+    if (excluded.has(g.goalId) || g.fundedBy !== "growth") continue;
+    growthGoals.push({
+      goalId: g.goalId,
+      label: g.label,
+      target: g.targetAmount,
+      reason:
+        "This one isn't reached by saving — it comes from what you build. It stays on the plan, but it doesn't take a slice of this month.",
+    });
+  }
+
   const goals = metrics.goalProjections
-    .filter((g) => !excluded.has(g.goalId) && g.targetAmount !== null)
+    .filter((g) => !excluded.has(g.goalId) && g.targetAmount !== null && g.fundedBy !== "growth")
     .map((g) => {
       const months = g.monthsUntilDeadline;
       const need =
@@ -203,6 +222,7 @@ export function payYourselfPlan(
     shareOfIncome: profile.monthlyIncome > 0 ? round(monthlyTotal / profile.monthlyIncome, 4) : 0,
     lines,
     unfunded,
+    growthGoals,
     annualRate,
   };
 }

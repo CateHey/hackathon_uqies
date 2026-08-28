@@ -22,11 +22,29 @@ export type Knowledge = z.infer<typeof Knowledge>;
 export const RiskPreference = z.enum(["conservative", "moderate", "high"]);
 export type RiskPreference = z.infer<typeof RiskPreference>;
 
+/**
+ * How a goal actually gets funded.
+ * - "savings"  what you put aside each month gets you there
+ * - "growth"   the money comes from a business, equity or income growth — not from saving
+ * - "mixed"    savings contribute, but they aren't the whole story
+ */
+export const FundedBy = z.enum(["savings", "growth", "mixed"]);
+export type FundedBy = z.infer<typeof FundedBy>;
+
 export const Goal = z.object({
   id: z.string().min(1),
   type: GoalType,
   label: z.string().min(1).max(80),
   targetAmount: z.number().nonnegative().optional(),
+  /**
+   * Money already set aside for THIS goal. When set it is used as-is; when absent the rules
+   * engine falls back to spreading spare savings across goals in priority order.
+   */
+  currentBalance: z.number().nonnegative().optional(),
+  /** Defaults to "savings". */
+  fundedBy: FundedBy.optional(),
+  /** Shown on the vision board. */
+  emoji: z.string().max(8).optional(),
   /** ISO date, YYYY-MM-DD */
   targetDate: z
     .string()

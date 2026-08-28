@@ -55,6 +55,7 @@ export function computeMetrics(profile: FreedomProfile, opts: { now?: Date } = {
           goalId: g.id,
           label: g.label,
           type: g.type,
+          fundedBy: g.fundedBy ?? "savings",
           targetAmount,
           targetDate,
           funded: 0,
@@ -65,8 +66,13 @@ export function computeMetrics(profile: FreedomProfile, opts: { now?: Date } = {
           onTrack: null,
         };
       }
-      const funded = round(Math.min(spare, targetAmount), 2);
-      spare = round(spare - funded, 2);
+      // An explicit per-goal balance wins and doesn't touch the shared pool; otherwise the
+      // spare savings waterfall fills goals in priority order.
+      const funded =
+        g.currentBalance !== undefined
+          ? round(Math.min(g.currentBalance, targetAmount), 2)
+          : round(Math.min(spare, targetAmount), 2);
+      if (g.currentBalance === undefined) spare = round(spare - funded, 2);
       const remaining = round(targetAmount - funded, 2);
       const monthsToTarget = remaining === 0 ? 0 : surplus > 0 ? Math.ceil(remaining / surplus) : null;
       const requiredMonthly =
@@ -83,6 +89,7 @@ export function computeMetrics(profile: FreedomProfile, opts: { now?: Date } = {
         goalId: g.id,
         label: g.label,
         type: g.type,
+        fundedBy: g.fundedBy ?? "savings",
         targetAmount,
         targetDate,
         funded,
