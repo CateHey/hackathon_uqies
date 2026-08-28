@@ -1,10 +1,11 @@
-import { fixtures, type FixtureName, type FreedomProfile } from "@free-me/core";
+import { personaNames, personas, type FreedomProfile, type PersonaName } from "@free-me/core";
 
-export const profiles: Record<FixtureName, FreedomProfile> = fixtures;
-export const profileNames = Object.keys(profiles) as FixtureName[];
+/** The golden plans back the demo, so they are generated for the people the demo shows. */
+export const profiles: Record<PersonaName, FreedomProfile> = personas;
+export const profileNames = personaNames;
 
 export interface GoldenFile {
-  name: FixtureName;
+  name: PersonaName;
   source: "ai" | "template";
   generatedAt: string;
   profile: FreedomProfile;

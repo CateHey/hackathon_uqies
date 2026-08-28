@@ -4,7 +4,7 @@ import { expect, test } from "@playwright/test";
  * Sign in as a seeded demo account and land on that person's journey. Runs only when the
  * server reports Supabase Auth is configured (and `pnpm seed:demo` has been run).
  */
-const EMAIL = "sarah@demo.free-me.app";
+const EMAIL = "vinuy@demo.free-me.app";
 const PASSWORD = process.env.DEMO_PASSWORD ?? "FreeMe-demo-2026";
 
 test("demo account: sign in → own map → sign out", async ({ page }) => {
@@ -22,9 +22,9 @@ test("demo account: sign in → own map → sign out", async ({ page }) => {
     profile: { freedomStatement: string };
     plan: { source: string };
   };
-  expect(plan.profile.freedomStatement).toMatch(/travel without worrying/);
+  expect(plan.profile.freedomStatement).toMatch(/deposit on my first place/);
   expect(plan.plan.source).toBe("ai");
-  await expect(page.getByRole("button", { name: /sarah · Sign out/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: /vinuy · Sign out/ })).toBeVisible();
   await page.screenshot({ path: "e2e/screenshots/13-signed-in.png", fullPage: true });
 
   await page.getByRole("button", { name: /Sign out/ }).click();

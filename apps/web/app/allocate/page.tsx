@@ -24,7 +24,7 @@ export default function AllocatePage() {
         <p className="text-mist">Build your map first, then come back with money to allocate — or try it on Sarah&apos;s journey.</p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link href="/onboarding/freedom" className="text-accent hover:underline">Start your journey</Link>
-          <DemoButton name="sarah" label="Try it with Sarah's plan" href="/allocate" />
+          <DemoButton name="vinuy" label="Try it with Vinuy's plan" href="/allocate" />
         </div>
       </div>
     );

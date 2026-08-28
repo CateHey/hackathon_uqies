@@ -6,14 +6,14 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { DISCLAIMER, FreedomPlan, type FixtureName } from "@free-me/core";
+import { DISCLAIMER, FreedomPlan, type PersonaName } from "@free-me/core";
 import { lessonIds } from "@free-me/content";
 import { postValidate } from "@free-me/ai";
 import { profileNames } from "./profiles";
 import type { GoldenFile } from "./profiles";
 
 const goldenDir = path.resolve(import.meta.dirname, "golden");
-const load = (name: FixtureName): GoldenFile | null => {
+const load = (name: PersonaName): GoldenFile | null => {
   const file = path.join(goldenDir, `${name}.json`);
   return existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as GoldenFile) : null;
 };
@@ -73,53 +73,58 @@ describe.each(available)("golden plan: %s", (name) => {
   });
 });
 
-describe("profile-specific expectations", () => {
-  it.runIf(load("sarah"))("sarah: Japan has a region, property is not a priority, starts in the spine", () => {
-    const g = load("sarah")!;
-    const japan = g.plan.regions.find((r) => r.goalId === "g-japan");
-    expect(japan?.type).toBe("personal_goal");
-    expect(region(g, "property")?.relevance).toBeLessThanOrEqual(2);
-    expect(region(g, "markets")?.relevance).toBeGreaterThanOrEqual(3);
-    expect(["foundation", "security"]).toContain(g.plan.currentPriorityRegionId);
-    expect(g.plan.freedomCity.title).toMatch(/^🌴/);
+describe("person-specific expectations", () => {
+  it.runIf(load("aman"))("Aman: the World Cup gets its own place, and the tone stays encouraging", () => {
+    const g = load("aman")!;
+    const trip = g.plan.regions.find((r) => r.goalId === "g-worldcup");
+    expect(trip?.type).toBe("personal_goal");
     expect(byType(g, "personal_goal").length).toBeGreaterThanOrEqual(1);
-  });
-
-  it.runIf(load("userA"))("userA: Japan region, beginner start", () => {
-    const g = load("userA")!;
-    expect(g.plan.regions.find((r) => r.goalId === "g-japan")?.type).toBe("personal_goal");
+    // A student on casual shifts starts at the beginning, not in the markets.
     expect(["foundation", "security"]).toContain(g.plan.currentPriorityRegionId);
+    expect(region(g, "property")?.relevance).toBeLessThanOrEqual(2);
+    expect(g.plan.freedomCity.title).toMatch(/^🌴/);
+    for (const s of g.plan.steps) expect(s.title).not.toMatch(/\b(impossible|hopeless|never)\b/i);
   });
 
-  it.runIf(load("userB"))("userB: property is central, markets carries the investing goal, trade-off bridge exists", () => {
-    const g = load("userB")!;
-    expect(region(g, "property")?.relevance).toBeGreaterThanOrEqual(4);
-    expect(region(g, "property")?.goalId).toBe("g-home");
-    expect(region(g, "markets")?.goalId).toBe("g-invest");
-    expect(["growth", "property", "security"]).toContain(g.plan.currentPriorityRegionId);
+  it.runIf(load("vinuy"))("Vinuy: the deposit is the point, and it carries the real target", () => {
+    const g = load("vinuy")!;
+    const property = region(g, "property");
+    expect(property?.relevance).toBeGreaterThanOrEqual(4);
+    expect(property?.goalId).toBe("g-deposit");
+    const deposit = g.plan.steps.find((s) => s.regionId === "property" && s.kind === "save" && s.metric);
+    expect(deposit?.metric?.target).toBe(100000);
+    expect(g.plan.freedomCity.title).toMatch(/^🏡/);
+  });
+
+  it.runIf(load("camille"))("Camille: the master's has its own region and an honest monthly figure", () => {
+    const g = load("camille")!;
+    const masters = g.plan.regions.find((r) => r.goalId === "g-masters");
+    expect(masters?.type).toBe("personal_goal");
+    const save = g.plan.steps.find((s) => s.regionId === masters?.id && s.kind === "save" && s.metric);
+    expect(save?.metric?.target).toBe(60000);
+    // She is behind on this one; the plan must not pretend otherwise.
+    const projection = g.metrics.goalProjections.find((p) => p.goalId === "g-masters");
+    expect(projection?.onTrack).toBe(false);
+    expect(save?.why.length ?? 0).toBeGreaterThan(30);
+  });
+
+  it.runIf(load("mike"))("Mike: two goals that compete, and a bridge that says so", () => {
+    const g = load("mike")!;
+    expect(region(g, "property")?.goalId).toBe("g-apartment");
+    expect(region(g, "markets")?.goalId).toBe("g-million");
+    expect(region(g, "markets")?.relevance).toBeGreaterThanOrEqual(4);
+    // The trade-off between the venture money and the deposit is drawn, not hidden.
     expect(g.plan.bridges.some((b) => b.from === "markets" && b.to === "property")).toBe(true);
     expect(region(g, "foundation")?.status).toBe("complete");
   });
 
-  it.runIf(load("debtHeavy"))("debtHeavy: security first, with a debt step and lesson", () => {
-    const g = load("debtHeavy")!;
-    expect(g.plan.currentPriorityRegionId).toBe("security");
-    const securitySteps = g.plan.steps.filter((s) => s.regionId === "security");
-    expect(securitySteps.some((s) => /debt/i.test(`${s.title} ${s.why}`))).toBe(true);
-    expect(region(g, "security")?.lessonIds).toContain("understanding-debt");
-    expect(region(g, "digital_assets")?.relevance).toBeLessThanOrEqual(2);
-  });
-
-  it.runIf(load("zeroIncome"))("zeroIncome: no impossible targets, encouraging tone", () => {
-    const g = load("zeroIncome")!;
-    for (const s of g.plan.steps) {
-      if (s.metric) {
-        expect(Number.isFinite(s.metric.target)).toBe(true);
-        expect(s.metric.target).toBeGreaterThan(0);
-      }
-      expect(s.title).not.toMatch(/\b(impossible|hopeless|never)\b/i);
-    }
-    expect(["foundation", "security", "growth"]).toContain(g.plan.currentPriorityRegionId);
-    expect(g.plan.steps.find((s) => s.regionId === "security" && s.kind === "save")?.status).toBe("done");
+  it.runIf(load("zuko"))("Zuko: a stretch target, met with figures rather than cheerleading", () => {
+    const g = load("zuko")!;
+    expect(region(g, "markets")?.goalId).toBe("g-two-million");
+    expect(["growth", "markets", "security"]).toContain(g.plan.currentPriorityRegionId);
+    expect(region(g, "foundation")?.status).toBe("complete");
+    expect(region(g, "security")?.status).toBe("complete");
+    // No step may promise the target; it may only describe what saving does.
+    for (const s of g.plan.steps) expect(s.why).not.toMatch(/\b(guaranteed|certain to|will reach)\b/i);
   });
 });

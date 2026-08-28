@@ -1,0 +1,474 @@
+{
+  "name": "mike",
+  "source": "template",
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "profile": {
+    "freedomStatement": "Build something of my own that pays me back — and own more than one door.",
+    "age": 29,
+    "country": "AU",
+    "currency": "AUD",
+    "lifeStage": "professional",
+    "monthlyIncome": 9500,
+    "monthlyExpenses": 5200,
+    "savings": 85000,
+    "debt": 0,
+    "goals": [
+      {
+        "id": "g-million",
+        "type": "early_retirement",
+        "label": "$1M net worth by 35, through my own venture",
+        "targetAmount": 1000000,
+        "targetDate": "2032-09-01",
+        "priority": 1
+      },
+      {
+        "id": "g-apartment",
+        "type": "home",
+        "label": "Deposit for a second investment apartment",
+        "targetAmount": 65000,
+        "targetDate": "2032-09-01",
+        "priority": 2
+      }
+    ],
+    "knowledge": "advanced",
+    "risk": "high",
+    "priorities": "I'd rather put money to work than leave it sitting."
+  },
+  "metrics": {
+    "currency": "AUD",
+    "monthlyIncome": 9500,
+    "monthlyExpenses": 5200,
+    "savings": 85000,
+    "debt": 0,
+    "surplus": 4300,
+    "savingsRate": 0.4526,
+    "emergencyTargetMonths": 3,
+    "emergencyTarget": 15600,
+    "emergencyMonths": 16.35,
+    "emergencyGap": 0,
+    "emergencyProgress": 1,
+    "spareSavings": 69400,
+    "debtToAnnualIncome": 0,
+    "monthsToClearDebt": 0,
+    "capacity": "strong",
+    "goalProjections": [
+      {
+        "goalId": "g-million",
+        "label": "$1M net worth by 35, through my own venture",
+        "type": "early_retirement",
+        "targetAmount": 1000000,
+        "targetDate": "2032-09-01",
+        "funded": 69400,
+        "remaining": 930600,
+        "monthsToTarget": 217,
+        "monthsUntilDeadline": 72,
+        "requiredMonthly": 12925,
+        "onTrack": false
+      },
+      {
+        "goalId": "g-apartment",
+        "label": "Deposit for a second investment apartment",
+        "type": "home",
+        "targetAmount": 65000,
+        "targetDate": "2032-09-01",
+        "funded": 0,
+        "remaining": 65000,
+        "monthsToTarget": 16,
+        "monthsUntilDeadline": 72,
+        "requiredMonthly": 903,
+        "onTrack": true
+      }
+    ]
+  },
+  "plan": {
+    "version": 1,
+    "source": "template",
+    "generatedAt": "2026-09-01T00:00:00.000Z",
+    "profileSummary": {
+      "headline": "Wealth-focused professional growing savings",
+      "tags": [
+        "💼 Professional",
+        "📈 Wealth-focused",
+        "💰 Strong saver",
+        "📚 Advanced knowledge",
+        "⚖️ High risk preference"
+      ]
+    },
+    "currentPriorityRegionId": "growth",
+    "nextStepId": "growth.saving-target",
+    "regions": [
+      {
+        "status": "complete",
+        "progress": 1,
+        "stepIds": [
+          "foundation.understand-spending",
+          "foundation.build-budget"
+        ],
+        "id": "foundation",
+        "type": "foundation",
+        "exploreTitle": "Foundation Village",
+        "proTitle": "Financial foundations",
+        "summary": "Know where your money goes and put a simple budget in place.",
+        "why": "You already have the basics in place. This is here so you can see the whole path, not because you need to redo it.",
+        "relevance": 5,
+        "lessonIds": [
+          "budgeting-basics"
+        ]
+      },
+      {
+        "status": "complete",
+        "progress": 1,
+        "stepIds": [
+          "security.emergency-buffer"
+        ],
+        "id": "security",
+        "type": "security",
+        "exploreTitle": "Security Harbour",
+        "proTitle": "Financial security",
+        "summary": "Build a buffer against surprises and get on top of any debt.",
+        "why": "Your buffer is already in place — this region is about keeping it that way.",
+        "relevance": 5,
+        "lessonIds": [
+          "emergency-fund"
+        ]
+      },
+      {
+        "status": "active",
+        "progress": 0,
+        "stepIds": [
+          "growth.saving-target",
+          "growth.grow-income"
+        ],
+        "id": "growth",
+        "type": "growth",
+        "exploreTitle": "Savings Garden",
+        "proTitle": "Saving & growth",
+        "summary": "Turn saving into a habit and grow what you earn.",
+        "why": "You already save a large share of what you earn — this region is about making sure it is automatic and pointed at the right goals.",
+        "relevance": 5,
+        "lessonIds": [
+          "compound-interest"
+        ]
+      },
+      {
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "markets.what-is-investing",
+          "markets.risk-and-diversification"
+        ],
+        "id": "markets",
+        "type": "markets",
+        "exploreTitle": "Markets District",
+        "proTitle": "Investing & markets",
+        "summary": "Understand shares, funds, risk and diversification before you commit money.",
+        "why": "Long-term investing is the most relevant growth path for you: you have capacity and a long horizon.",
+        "relevance": 5,
+        "lessonIds": [
+          "what-is-investing",
+          "understanding-risk",
+          "diversification",
+          "etfs-explained"
+        ],
+        "goalId": "g-million"
+      },
+      {
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "property.deposit"
+        ],
+        "id": "property",
+        "type": "property",
+        "exploreTitle": "Property Quarter",
+        "proTitle": "Property",
+        "summary": "What a deposit takes, how borrowing works, and whether property fits your plan.",
+        "why": "Owning a home is one of your stated goals, so this path is central to your map.",
+        "relevance": 5,
+        "lessonIds": [
+          "saving-for-a-deposit"
+        ],
+        "goalId": "g-apartment"
+      },
+      {
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "business.side-income"
+        ],
+        "id": "business",
+        "type": "business",
+        "exploreTitle": "Enterprise Workshop",
+        "proTitle": "Business & extra income",
+        "summary": "Side income, entrepreneurship and what it takes to build something of your own.",
+        "why": "Not a must, but extra income is the fastest way to raise your saving capacity.",
+        "relevance": 3,
+        "lessonIds": []
+      },
+      {
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "digital_assets.understand-volatility"
+        ],
+        "id": "digital_assets",
+        "type": "digital_assets",
+        "exploreTitle": "Digital Frontier",
+        "proTitle": "Digital assets",
+        "summary": "How cryptocurrency works, why it swings so much, and how to think about the risk.",
+        "why": "Volatile and speculative; on the map for education, not as a destination.",
+        "relevance": 3,
+        "lessonIds": [
+          "crypto-and-volatility"
+        ]
+      },
+      {
+        "status": "locked",
+        "progress": 0,
+        "stepIds": [
+          "freedom_city.define-freedom"
+        ],
+        "id": "freedom_city",
+        "type": "freedom_city",
+        "exploreTitle": "🏡 Freedom City",
+        "proTitle": "Your definition of freedom",
+        "summary": "$1M net worth by 35, through my own venture · Deposit for a second investment apartment · Financial security",
+        "why": "This is the destination — your version of freedom, not a number someone else picked.",
+        "relevance": 5,
+        "lessonIds": []
+      }
+    ],
+    "bridges": [
+      {
+        "id": "foundation->security",
+        "from": "foundation",
+        "to": "security",
+        "status": "unlocked",
+        "requirement": "Understand where your money goes",
+        "requiredStepIds": [
+          "foundation.understand-spending"
+        ],
+        "relationship": "Knowing your spending tells you exactly how big your buffer needs to be.",
+        "why": "A buffer target is just your monthly expenses multiplied — you need the first number to get the second."
+      },
+      {
+        "id": "security->growth",
+        "from": "security",
+        "to": "growth",
+        "status": "unlocked",
+        "requirement": "Build your emergency buffer",
+        "requiredStepIds": [
+          "security.emergency-buffer"
+        ],
+        "relationship": "With a buffer in place, your savings can stay pointed at goals instead of being raided for surprises.",
+        "why": "Saving for goals before you have a buffer usually means un-saving them at the first emergency."
+      },
+      {
+        "id": "growth->markets",
+        "from": "growth",
+        "to": "markets",
+        "status": "locked",
+        "requirement": "Set a monthly saving target",
+        "requiredStepIds": [
+          "growth.saving-target"
+        ],
+        "relationship": "Investing only works with money you won't need soon — your saving habit is what feeds it.",
+        "why": "Markets reward time and consistency; the habit has to exist first."
+      },
+      {
+        "id": "growth->property",
+        "from": "growth",
+        "to": "property",
+        "status": "locked",
+        "requirement": "Set a monthly saving target",
+        "requiredStepIds": [
+          "growth.saving-target"
+        ],
+        "relationship": "A deposit is a very large saving goal with a deadline — the same habit, bigger numbers.",
+        "why": "Deposit progress is almost entirely a function of monthly saving and time."
+      },
+      {
+        "id": "growth->business",
+        "from": "growth",
+        "to": "business",
+        "status": "locked",
+        "requirement": "Set a monthly saving target",
+        "requiredStepIds": [
+          "growth.saving-target"
+        ],
+        "relationship": "Extra income raises your capacity for every other goal on this map.",
+        "why": "More income is the one input that makes every other target arrive sooner."
+      },
+      {
+        "id": "growth->digital_assets",
+        "from": "growth",
+        "to": "digital_assets",
+        "status": "locked",
+        "requirement": "Set a saving target and learn what investing is",
+        "requiredStepIds": [
+          "growth.saving-target",
+          "markets.what-is-investing"
+        ],
+        "relationship": "Digital assets amplify everything about markets — understand the ordinary version first.",
+        "why": "Volatility is only survivable when it's a small part of a plan you already understand."
+      },
+      {
+        "id": "markets->property",
+        "from": "markets",
+        "to": "property",
+        "status": "locked",
+        "requirement": "Complete the Markets District",
+        "requiredStepIds": [],
+        "relationship": "Money put into investments is money not in your deposit — the trade-off runs both ways.",
+        "why": "Two good goals can compete for the same dollars; the bridge makes the trade-off visible."
+      },
+      {
+        "id": "markets->freedom_city",
+        "from": "markets",
+        "to": "freedom_city",
+        "status": "locked",
+        "requirement": "Complete the Markets District",
+        "requiredStepIds": [],
+        "relationship": "Long-term investing is how your Freedom City keeps being funded after the first goals are met.",
+        "why": "Freedom that lasts needs money that grows without you working for every dollar of it."
+      }
+    ],
+    "steps": [
+      {
+        "id": "foundation.understand-spending",
+        "regionId": "foundation",
+        "order": 1,
+        "status": "done",
+        "kind": "learn",
+        "title": "Understand where your money goes",
+        "description": "Track one month of spending and sort it into needs, wants and savings.",
+        "why": "You spend about $5,200 a month against $9,500 coming in. Knowing where it goes is the first lever you control."
+      },
+      {
+        "id": "foundation.build-budget",
+        "regionId": "foundation",
+        "order": 2,
+        "status": "done",
+        "kind": "action",
+        "title": "Set a simple budget",
+        "description": "Decide, in advance, how much goes to essentials, to enjoying life, and to your goals each month.",
+        "why": "A budget turns your $4,300 monthly surplus from an accident into a decision."
+      },
+      {
+        "id": "security.emergency-buffer",
+        "regionId": "security",
+        "order": 1,
+        "status": "done",
+        "kind": "save",
+        "title": "Build a 3-month emergency buffer",
+        "description": "Set aside $15,600 — 3 months of your expenses — somewhere you can reach it but won't touch it.",
+        "why": "Your $85,000 already covers a 3-month buffer. Every dollar above it is free to work on your goals.",
+        "metric": {
+          "label": "Emergency buffer",
+          "current": 15600,
+          "target": 15600,
+          "unit": "AUD"
+        }
+      },
+      {
+        "id": "growth.saving-target",
+        "regionId": "growth",
+        "order": 1,
+        "status": "todo",
+        "kind": "action",
+        "title": "Set a monthly saving target",
+        "description": "Pick a number you can hit every month and automate it on payday.",
+        "why": "You have about $4,300 a month left after expenses — a 45% saving rate. Automating it is the difference between hoping and doing."
+      },
+      {
+        "id": "growth.grow-income",
+        "regionId": "growth",
+        "order": 2,
+        "status": "todo",
+        "kind": "learn",
+        "title": "Find one way to grow your income",
+        "description": "More income is the fastest way to more capacity: a raise, extra hours, a new skill, or a small side project.",
+        "why": "Every extra dollar you earn can go straight to a goal without cutting anything you enjoy."
+      },
+      {
+        "id": "markets.what-is-investing",
+        "regionId": "markets",
+        "order": 1,
+        "status": "todo",
+        "kind": "learn",
+        "title": "Learn what investing actually is",
+        "description": "Shares, funds, returns and time — the vocabulary before the decisions.",
+        "why": "Understanding is free; mistakes are not. Learn the mechanics before any money moves."
+      },
+      {
+        "id": "markets.risk-and-diversification",
+        "regionId": "markets",
+        "order": 2,
+        "status": "todo",
+        "kind": "learn",
+        "title": "Understand risk and diversification",
+        "description": "Why prices move, what you can and can't control, and how spreading money reduces the damage of being wrong.",
+        "why": "You described your risk preference as high. Knowing what that means in practice keeps you from being surprised later."
+      },
+      {
+        "id": "property.deposit",
+        "regionId": "property",
+        "order": 1,
+        "status": "todo",
+        "kind": "save",
+        "title": "Save your deposit for Deposit for a second investment apartment",
+        "description": "About $903 a month gets you to $65,000 by 2032-09-01.",
+        "why": "At your current pace you'll reach $65,000 in about 16 months, inside your 72-month deadline.",
+        "metric": {
+          "label": "Deposit",
+          "current": 0,
+          "target": 65000,
+          "unit": "AUD"
+        }
+      },
+      {
+        "id": "business.side-income",
+        "regionId": "business",
+        "order": 1,
+        "status": "todo",
+        "kind": "action",
+        "title": "Test one small income idea",
+        "description": "Pick something you could sell, make or do this month. Small and real beats big and imaginary.",
+        "why": "Extra income is the one lever that raises your capacity for every other goal at once."
+      },
+      {
+        "id": "digital_assets.understand-volatility",
+        "regionId": "digital_assets",
+        "order": 1,
+        "status": "todo",
+        "kind": "learn",
+        "title": "Understand volatility before anything else",
+        "description": "Why digital assets swing so hard, what that does to a plan, and how to size any exposure so it can't hurt your goals.",
+        "why": "This is the highest-volatility area on the map. Understanding comes first, and for many plans understanding is enough."
+      },
+      {
+        "id": "freedom_city.define-freedom",
+        "regionId": "freedom_city",
+        "order": 1,
+        "status": "todo",
+        "kind": "review",
+        "title": "Revisit what freedom means to you",
+        "description": "Once a quarter, re-read your freedom statement and check the map still points at it.",
+        "why": "You said: \"Build something of my own that pays me back — and own more than one door.\" The whole map exists to get you there."
+      }
+    ],
+    "freedomCity": {
+      "title": "🏡 Freedom City",
+      "pillars": [
+        "$1M net worth by 35, through my own venture",
+        "Deposit for a second investment apartment",
+        "Financial security"
+      ],
+      "narrative": "Your freedom is made of $1M net worth by 35, through my own venture, Deposit for a second investment apartment and Financial security. Every step on this map moves you closer to it."
+    },
+    "disclaimers": [
+      "Free Me provides general financial education, not personal financial advice. It doesn't know your full circumstances — consider them, and seek licensed advice for decisions that matter to you."
+    ]
+  },
+  "attempts": 0
+}
