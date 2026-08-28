@@ -70,7 +70,7 @@ describe("templatePlan — personalisation", () => {
     expect(save?.why).toMatch(/behind/);
     expect(region(plan, "property").relevance).toBeLessThanOrEqual(2);
     expect(region(plan, "markets").relevance).toBeGreaterThanOrEqual(3);
-    expect(plan.freedomCity.title).toBe("🌴 Your Vision");
+    expect(plan.freedomCity.title).toBe("🌴 Freedom City");
     expect(plan.profileSummary.tags[0]).toBe("🎓 Student");
     expect(plan.profileSummary.tags[1]).toBe("🌍 Travel-focused");
   });
@@ -90,7 +90,7 @@ describe("templatePlan — personalisation", () => {
     expect(region(plan, "markets").goalId).toBe("g-invest");
     expect(plan.bridges.some((b) => b.id === "markets->property")).toBe(true);
     expect(plan.regions.filter((r) => r.type === "personal_goal")).toHaveLength(0);
-    expect(plan.freedomCity.title).toBe("🏡 Your Vision");
+    expect(plan.freedomCity.title).toBe("🏡 Freedom City");
   });
 
   it("debtHeavy: security first, with a debt step and lesson", () => {
@@ -125,7 +125,7 @@ describe("templatePlan — personalisation", () => {
     const plan = templatePlan(profile, computeMetrics(profile, { now: FIXTURE_NOW }), { now: FIXTURE_NOW });
     expect(plan.steps.find((s) => s.id === "goal-g-x.define")?.title).toBe("Put a number on A boat");
     expect(region(plan, "goal-g-x").exploreTitle).toBe("A boat Landmark");
-    expect(plan.freedomCity.title).toBe("🚀 Your Vision");
+    expect(plan.freedomCity.title).toBe("🚀 Freedom City");
   });
 
   it("business goals and high risk raise business and digital relevance", () => {
@@ -141,7 +141,7 @@ describe("templatePlan — personalisation", () => {
     expect(region(plan, "digital_assets").relevance).toBe(3);
     expect(region(plan, "markets").relevance).toBe(5);
     expect(region(plan, "property").why).toMatch(/capacity/);
-    expect(plan.freedomCity.title).toBe("🏗️ Your Vision");
+    expect(plan.freedomCity.title).toBe("🏗️ Freedom City");
   });
 
   it("a home goal without a target amount still gets a learning step", () => {

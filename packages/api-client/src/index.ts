@@ -11,15 +11,12 @@ import {
   PlanBundle,
   PlanStatusResponse,
   ProfileResponse,
-  SaveResponse,
   ProgressResponse,
   WhyApiResponse,
   type AllocationRequest,
   type DemoName,
   type FreedomProfile,
-  type GoalPatch,
   type ProgressEvent,
-  type SaveRequest,
   type WhyRequest,
 } from "@free-me/core";
 
@@ -72,10 +69,6 @@ export function createApi(opts: ApiOptions = {}) {
     generatePlan: (opts?: { force?: "template" }) => request("/plan/generate", GenerateResponse, post(opts ?? {})),
     getPlan: () => request("/plan", PlanBundle),
     planStatus: () => request("/plan/status", PlanStatusResponse),
-    getSave: () => request("/save", SaveResponse),
-    exploreSave: (req: SaveRequest) => request("/save", SaveResponse, post(req)),
-    updateGoal: (id: string, patch: GoalPatch) =>
-      request(`/goals/${encodeURIComponent(id)}`, ProfileResponse, post(patch)),
     applyUpgrade: () => request("/plan/upgrade", PlanBundle, post()),
     why: (req: WhyRequest) => request("/plan/why", WhyApiResponse, post(req)),
     allocate: (req: AllocationRequest) => request("/allocate", AllocateApiResponse, post(req)),
@@ -178,32 +171,6 @@ export function useProgress() {
       qc.setQueryData(planKey, (prev: PlanBundle | undefined) =>
         prev ? { ...prev, plan: data.plan, metrics: data.metrics } : prev,
       );
-    },
-  });
-}
-
-export const saveKey = ["save"] as const;
-
-/** The Pay Yourself First split. Recomputed server-side on every change — never cached stale. */
-export function useSave(req: SaveRequest = {}) {
-  const api = useApi();
-  const hasSettings = Object.keys(req).length > 0;
-  return useQuery({
-    queryKey: [...saveKey, req] as const,
-    queryFn: () => (hasSettings ? api.exploreSave(req) : api.getSave()),
-    retry: (count, err) => !(err instanceof ApiClientError && err.status === 404) && count < 2,
-    placeholderData: (prev) => prev,
-  });
-}
-
-export function useUpdateGoal() {
-  const api = useApi();
-  const qc = useQueryClient();
-  return useMutation({
-    mutationFn: ({ id, patch }: { id: string; patch: GoalPatch }) => api.updateGoal(id, patch),
-    onSuccess: () => {
-      void qc.invalidateQueries({ queryKey: saveKey });
-      void qc.invalidateQueries({ queryKey: planKey });
     },
   });
 }

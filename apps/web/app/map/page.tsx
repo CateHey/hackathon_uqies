@@ -25,7 +25,7 @@ export default function MapPage() {
         <p className="text-mist">{noPlan ? "Tell us what freedom means to you and we'll build it — or look around a finished map first." : plan.error.message}</p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <LinkButton href="/onboarding/freedom">{noPlan ? "Start your journey" : "Start again"}</LinkButton>
-          {noPlan && <DemoButton name="vinuy" label="Explore Vinuy's plan instead" />}
+          {noPlan && <DemoButton name="sarah" label="Explore Sarah's map instead" />}
         </div>
       </div>
     );

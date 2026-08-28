@@ -132,4 +132,5 @@ export const FreedomPlan = PlanOutput.extend({
 });
 export type FreedomPlan = z.infer<typeof FreedomPlan>;
 
-export { DISCLAIMER } from "../brand";
+export const DISCLAIMER =
+  "Free Me provides general financial education, not personal financial advice. It doesn't know your full circumstances — consider them, and seek licensed advice for decisions that matter to you.";

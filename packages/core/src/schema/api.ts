@@ -125,5 +125,5 @@ export const HealthResponse = z.object({
 });
 export type HealthResponse = z.infer<typeof HealthResponse>;
 
-export const DemoName = z.enum(["aman", "vinuy", "camille", "mike", "zuko"]);
+export const DemoName = z.enum(["sarah", "userA", "userB", "debtHeavy", "zeroIncome"]);
 export type DemoName = z.infer<typeof DemoName>;

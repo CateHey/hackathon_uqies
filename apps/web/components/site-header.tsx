@@ -6,10 +6,9 @@ import { ModeToggle } from "./mode-toggle";
 import { AUTH_ENABLED, useUser } from "@/lib/use-user";
 
 const nav = [
-  { href: "/save", label: "Pay yourself" },
-  { href: "/vision", label: "Vision" },
   { href: "/map", label: "Map" },
   { href: "/learn", label: "Learn" },
+  { href: "/allocate", label: "Allocate" },
   { href: "/demo", label: "Demo" },
 ];
 
@@ -24,7 +23,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-20 border-b border-white/5 bg-ink/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="whitespace-nowrap font-display text-xl font-semibold tracking-wide text-parchment">
-          <span aria-hidden>🪙</span> PAYF
+          🚀 Free Me
         </Link>
         {!inOnboarding && (
           <nav className="hidden items-center gap-1 text-sm sm:flex" aria-label="Primary">

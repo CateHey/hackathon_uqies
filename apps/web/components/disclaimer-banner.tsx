@@ -1,6 +1,6 @@
 "use client";
 
-import { BRAND, DISCLAIMER } from "@free-me/core";
+import { DISCLAIMER } from "@free-me/core";
 import { useUiStore } from "@/lib/store";
 
 export function DisclaimerBanner() {
@@ -23,7 +23,7 @@ export function DisclaimerBanner() {
 export function DisclaimerFooter() {
   return (
     <footer className="mx-auto max-w-6xl px-4 py-8 text-center text-xs text-mist">
-      {BRAND.short} provides general financial education, not personal financial advice.
+      Free Me provides general financial education, not personal financial advice.
     </footer>
   );
 }
