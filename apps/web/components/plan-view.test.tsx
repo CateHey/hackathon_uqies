@@ -30,6 +30,12 @@ describe("Explore and Professional render the same plan", () => {
       expect(pro).toContain(r.why.slice(0, 40));
     }
     expect(explore).toContain(`${b.plan.bridges.length} bridges`);
+
+    // Evocative names always carry a plain-language caption, in both views.
+    expect(explore).toContain("SHARES, ETFS & FUNDS");
+    expect(explore).toContain("CRYPTO & VOLATILITY");
+    expect(pro).toContain("Shares, ETFs & funds");
+    expect(pro).toContain("Crypto & volatility");
     expect(pro).toContain(b.plan.freedomCity.title);
     expect(pro).toContain("Emergency fund");
     expect(pro).toContain("$3,000");

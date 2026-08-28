@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useProgress, usePlan, useWhy } from "@free-me/api-client";
-import { formatMoney, type Step } from "@free-me/core";
+import { formatMoney, regionPlainLabel, type Step } from "@free-me/core";
 import { lessons } from "@free-me/content";
 import { regionEmoji } from "@free-me/tokens";
 import { ProgressBar } from "@/components/professional/stat-tile";
@@ -64,6 +64,7 @@ export default function RegionPage() {
           <h1 className="font-display text-4xl">{title}</h1>
           <Badge status={region.status} />
         </div>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-soft">{regionPlainLabel(region.type)}</p>
         <p className="text-mist">{region.summary}</p>
         <p className="text-sm text-mist">Relevance for you: <Stars value={region.relevance} /></p>
       </header>

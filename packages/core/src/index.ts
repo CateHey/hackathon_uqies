@@ -1,4 +1,5 @@
 export * from "./schema";
+export * from "./labels";
 export * from "./rules/metrics";
 export * from "./rules/unlock";
 export * from "./rules/template";

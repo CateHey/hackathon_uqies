@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
-import type { Bridge, PlanBundle } from "@free-me/core";
+import { REGION_SHORT_LABEL, type Bridge, type PlanBundle, type RegionType } from "@free-me/core";
 import { regionColors } from "@free-me/tokens";
 import { useMediaQuery } from "@/lib/use-media-query";
 import { NextStepBanner } from "../next-step-banner";
@@ -55,23 +55,23 @@ export function ExploreMap({ bundle }: { bundle: PlanBundle }) {
 }
 
 function Legend() {
-  const items: [string, string][] = [
-    ["foundation", "Foundation"],
-    ["security", "Security"],
-    ["growth", "Growth"],
-    ["personal_goal", "Your goals"],
-    ["markets", "Markets"],
-    ["property", "Property"],
-    ["business", "Business"],
-    ["digital_assets", "Digital assets"],
-    ["freedom_city", "Freedom City"],
+  const order: RegionType[] = [
+    "foundation",
+    "security",
+    "growth",
+    "personal_goal",
+    "markets",
+    "property",
+    "business",
+    "digital_assets",
+    "freedom_city",
   ];
   return (
     <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-mist">
-      {items.map(([key, label]) => (
-        <li key={key} className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: regionColors[key as keyof typeof regionColors] }} />
-          {label}
+      {order.map((type) => (
+        <li key={type} className="flex items-center gap-1.5">
+          <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: regionColors[type] }} />
+          {REGION_SHORT_LABEL[type]}
         </li>
       ))}
       <li className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4 bg-accent" /> Path open</li>

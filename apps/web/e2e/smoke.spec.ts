@@ -68,7 +68,8 @@ test.describe("Free Me — hackathon MVP flow", () => {
     await expect(map).toBeVisible();
 
     // Region detail for the active priority.
-    await page.getByRole("button", { name: new RegExp(`^${escape(active.exploreTitle)},`) }).click();
+    // The node's accessible name is "<title> — <plain label>, <status>, <n>% complete".
+    await page.getByRole("button", { name: new RegExp(`^${escape(active.exploreTitle)}\\s*[—-]`) }).click();
     await expect(page).toHaveURL(new RegExp(`/map/${active.id}$`));
     await expect(page.getByRole("heading", { level: 1 })).toContainText(active.exploreTitle);
     await shot(page, "04-region-active");

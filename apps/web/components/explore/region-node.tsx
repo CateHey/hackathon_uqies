@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { Region, RegionBox } from "@free-me/core";
+import { regionPlainLabel, type Region, type RegionBox } from "@free-me/core";
 import { regionColors, regionEmoji } from "@free-me/tokens";
 import { statusLabel } from "@/lib/status";
 import { wrapTitle } from "./map-text";
@@ -48,7 +48,7 @@ export function RegionNode({
       transition={{ delay: 0.05 * index, duration: 0.45 }}
       role="button"
       tabIndex={0}
-      aria-label={`${region.exploreTitle}, ${statusLabel(region.status)}, ${percent}% complete`}
+      aria-label={`${region.exploreTitle} — ${regionPlainLabel(region.type)}, ${statusLabel(region.status)}, ${percent}% complete`}
       className="cursor-pointer outline-none"
       onClick={() => onSelect?.(region.id)}
       onKeyDown={(e) => {
@@ -95,6 +95,16 @@ export function RegionNode({
           {line}
         </text>
       ))}
+      {/* Plain-language caption: what this place is actually about. */}
+      <text
+        x={box.x + 16}
+        y={box.y + 26 + lines.length * 16 + 2}
+        fontSize={9.5}
+        fill="#8B97A6"
+        style={{ letterSpacing: "0.04em" }}
+      >
+        {regionPlainLabel(region.type).toUpperCase()}
+      </text>
       {complete ? (
         <text x={box.x + 16} y={box.y + box.h - 16} fontSize={11} fill="#3DDC84" fontWeight={600}>
           ✓ Complete

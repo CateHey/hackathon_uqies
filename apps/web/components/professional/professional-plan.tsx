@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { formatMoney, orderRegions, type PlanBundle, type Step } from "@free-me/core";
+import { formatMoney, orderRegions, regionPlainLabel, type PlanBundle, type Step } from "@free-me/core";
 import { lessons } from "@free-me/content";
 import { regionEmoji } from "@free-me/tokens";
 import { Badge, Card, SectionTitle, Stars } from "../ui";
@@ -67,6 +67,7 @@ export function ProfessionalPlan({ bundle }: { bundle: PlanBundle }) {
         <Card>
           <SectionTitle eyebrow="Current priority">
             {regionEmoji[priority.type]} {priority.proTitle}
+            <span className="ml-2 align-middle text-sm font-normal text-mist">· {regionPlainLabel(priority.type)}</span>
           </SectionTitle>
           <p className="text-sm text-parchment/90">{priority.why}</p>
           <div className="mt-3">
@@ -103,10 +104,11 @@ export function ProfessionalPlan({ bundle }: { bundle: PlanBundle }) {
             <tbody>
               {ordered.map((r) => (
                 <tr key={r.id} className="border-t border-white/5 align-top">
-                  <td className="whitespace-nowrap px-4 py-3">
+                  <td className="px-4 py-3">
                     <Link href={`/map/${r.id}`} className="font-medium text-parchment hover:text-accent">
                       {regionEmoji[r.type]} {r.proTitle}
                     </Link>
+                    <span className="block text-xs text-mist">{regionPlainLabel(r.type)}</span>
                   </td>
                   <td className="whitespace-nowrap px-4 py-3"><Stars value={r.relevance} /></td>
                   <td className="whitespace-nowrap px-4 py-3"><Badge status={r.status} /></td>
