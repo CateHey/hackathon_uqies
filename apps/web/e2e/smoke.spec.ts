@@ -178,6 +178,16 @@ test.describe("Free Me — hackathon MVP flow", () => {
     await page.getByRole("button", { name: /Try an allocation/ }).click();
     await expect(page).toHaveURL(/\/allocate$/);
     await expect(page.getByRole("button", { name: "Suggest a split" })).toBeVisible();
+
+    // Investing / crypto paths are reachable and rated, even while locked.
+    await page.goto("/");
+    await page.getByRole("button", { name: /See the paths/ }).click();
+    await expect(page).toHaveURL(/\/map\/markets$/);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(/Markets/i);
+    await expect(page.getByText(/Relevance for you/)).toBeVisible();
+    await expect(page.getByText("How this connects")).toBeVisible();
+    await expect(page.getByRole("link", { name: /What is investing\?/ })).toBeVisible();
+    await page.screenshot({ path: "e2e/screenshots/14-markets-path.png", fullPage: true });
   });
 
   test("learn index and dev map render", async ({ page }) => {

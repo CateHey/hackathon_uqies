@@ -13,6 +13,7 @@ const features: { icon: string; title: string; text: string; href: string; mode?
   { icon: "🗺️", title: "Your Freedom Map", text: "Villages, districts and bridges. Finish a step and the next path opens.", href: "/map", mode: "explore", cta: "Open the map" },
   { icon: "❓", title: "Why? on everything", text: "Every region, bridge and step explains itself with your own numbers.", href: "/map/security", cta: "See a why" },
   { icon: "🌉", title: "Bridges = trade-offs", text: "Investing vs. a deposit, saving vs. a trip — the map shows how goals compete.", href: "/map/growth", cta: "Look at a bridge" },
+  { icon: "📈", title: "Markets, property, crypto", text: "Every path is on your map with an honest ★ rating for you — and the reason behind it.", href: "/map/markets", cta: "See the paths" },
   { icon: "📚", title: "Lessons, personalised", text: "Ten lessons that rewrite themselves around your goals and level.", href: "/learn", cta: "Browse lessons" },
   { icon: "💰", title: "I have money to allocate", text: "Type an amount, get a split with reasons, adjust it, save it to your plan.", href: "/allocate", cta: "Try an allocation" },
   { icon: "⚡", title: "Instant map, AI upgrade", text: "Your map appears in a second; the personalised version arrives in the background.", href: "/onboarding/freedom", cta: "Build your own" },
