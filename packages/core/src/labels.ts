@@ -16,7 +16,7 @@ export const REGION_PLAIN_LABEL: Record<RegionType, string> = {
   business: "Side income & business",
   digital_assets: "Crypto & volatility",
   personal_goal: "Your goal",
-  freedom_city: "Your destination",
+  freedom_city: "Everything you're paying yourself for",
 };
 
 export function regionPlainLabel(type: RegionType): string {
@@ -33,5 +33,5 @@ export const REGION_SHORT_LABEL: Record<RegionType, string> = {
   business: "Side income",
   digital_assets: "Crypto",
   personal_goal: "Your goals",
-  freedom_city: "Destination",
+  freedom_city: "Your vision",
 };

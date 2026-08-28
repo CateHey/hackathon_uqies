@@ -38,7 +38,7 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <LinkButton href="/onboarding/freedom" className="!px-7 !py-3 !text-base">Start your journey 🚀</LinkButton>
-          <DemoButton name="sarah" label="See Sarah's journey" />
+          <DemoButton name="vinuy" label="See Vinuy's plan" />
         </div>
         <p className="text-sm text-mist">
           No account needed — everything below works as a guest.{" "}

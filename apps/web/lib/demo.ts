@@ -3,7 +3,7 @@ import path from "node:path";
 import {
   applyProgress,
   computeMetrics,
-  fixtures,
+  personas,
   PlanBundle,
   templatePlan,
   type DemoName,
@@ -17,7 +17,9 @@ import {
  * because it goes by region type, not step ids (the model names its own steps).
  */
 const DEMO_COMPLETED_REGIONS: Partial<Record<DemoName, string[]>> = {
-  sarah: ["foundation"],
+  vinuy: ["foundation"],
+  zuko: ["foundation", "security"],
+  mike: ["foundation"],
 };
 
 /** Prefer a real AI golden plan when one has been generated; otherwise build a template plan on the fly. */
@@ -25,7 +27,7 @@ export function demoBundle(name: DemoName): { bundle: PlanBundleT; source: "ai" 
   const golden = loadGolden(name);
   if (golden) return { bundle: { ...golden, plan: withDemoHistory(name, golden.plan) }, source: "ai" };
 
-  const profile = fixtures[name];
+  const profile = personas[name];
   const now = new Date();
   const metrics = computeMetrics(profile, { now });
   const plan = withDemoHistory(name, templatePlan(profile, metrics, { now }));

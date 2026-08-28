@@ -1,6 +1,6 @@
-import { computeMetrics, fixtures, formatMoney, type DemoName } from "@free-me/core";
+import { BRAND, computeMetrics, formatMoney, personas as profiles, type DemoName } from "@free-me/core";
 
-/** Display layer for the demo personas — the numbers come from the fixtures in @free-me/core. */
+/** Display layer for the demo people — the numbers come from `personas` in @free-me/core. */
 export interface Persona {
   key: DemoName;
   name: string;
@@ -12,56 +12,56 @@ export interface Persona {
 
 export const PERSONAS: Persona[] = [
   {
-    key: "sarah",
-    name: "Sarah",
+    key: "aman",
+    name: "Aman",
+    emoji: "⚽",
+    headline: "20 · casual work · World Cup 2030",
+    story: "$6,500 for the trip, $250 spare a month, and four years. The smallest goal here, and the tightest budget.",
+    email: `aman@demo.${BRAND.domain}`,
+  },
+  {
+    key: "vinuy",
+    name: "Vinuy",
+    emoji: "🏠",
+    headline: "23 · early career · deposit by 30",
+    story: "$100,000 for a 10% deposit, seven years, and a solid surplus. Close — but not quite, at today's pace.",
+    email: `vinuy@demo.${BRAND.domain}`,
+  },
+  {
+    key: "camille",
+    name: "Camille",
     emoji: "🎓",
-    headline: "21 · student · Japan in 18 months",
-    story: "Part-time job, $800 saved, wants to travel without worrying about money — and to be financially independent one day.",
-    email: "sarah@demo.free-me.app",
+    headline: "26 · paying for a master's in cash",
+    story: "$60,000 by 2030 without borrowing. The plan says what it actually takes, and what it doesn't.",
+    email: `camille@demo.${BRAND.domain}`,
   },
   {
-    key: "userA",
-    name: "Liam",
-    emoji: "🎒",
-    headline: "19 · student · $300 to his name",
-    story: "Just started uni, tiny surplus, big appetite for a trip. The map starts at the very beginning.",
-    email: "liam@demo.free-me.app",
+    key: "mike",
+    name: "Mike",
+    emoji: "🚀",
+    headline: "29 · founder · $1M by 35 and a second property",
+    story: "Two big goals competing for the same dollars — and one of them isn't a savings goal at all.",
+    email: `mike@demo.${BRAND.domain}`,
   },
   {
-    key: "userB",
-    name: "Priya",
-    emoji: "💼",
-    headline: "29 · professional · first home",
-    story: "$50k saved, strong surplus, buffer already done. Property is central and investing competes for the same dollars.",
-    email: "priya@demo.free-me.app",
-  },
-  {
-    key: "debtHeavy",
-    name: "Marco",
-    emoji: "🧾",
-    headline: "26 · early career · $60k of debt",
-    story: "Steady income but debt bigger than a year of pay. Security comes first, and the map says why.",
-    email: "marco@demo.free-me.app",
-  },
-  {
-    key: "zeroIncome",
-    name: "Ana",
-    emoji: "📚",
-    headline: "20 · student · no income yet",
-    story: "Decent savings, an exchange semester to fund, nothing coming in each month — a plan that stays honest and encouraging.",
-    email: "ana@demo.free-me.app",
+    key: "zuko",
+    name: "Zuko",
+    emoji: "📈",
+    headline: "38 · high earner · $2M by 42",
+    story: "$520,000 saved and $6,200 a month spare. The number still doesn't work — and the app says so.",
+    email: `zuko@demo.${BRAND.domain}`,
   },
 ];
 
 /** Three quick facts for a persona card, straight from the rules engine. */
 export function personaFacts(key: DemoName): string[] {
-  const profile = fixtures[key];
+  const profile = profiles[key];
   const m = computeMetrics(profile);
   const money = (n: number) => formatMoney(n, profile.currency);
   const goal = profile.goals[0];
   return [
     `${money(profile.savings)} saved`,
-    m.surplus > 0 ? `${money(m.surplus)}/month surplus` : "No monthly surplus",
-    goal ? `Goal: ${goal.label}${goal.targetAmount ? ` (${money(goal.targetAmount)})` : ""}` : "",
+    m.surplus > 0 ? `${money(m.surplus)}/month spare` : "No monthly surplus",
+    goal ? `${goal.label}${goal.targetAmount ? ` · ${money(goal.targetAmount)}` : ""}` : "",
   ].filter(Boolean);
 }

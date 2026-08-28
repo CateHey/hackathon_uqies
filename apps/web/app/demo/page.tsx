@@ -1,4 +1,4 @@
-import { fixtures } from "@free-me/core";
+import { personas as profiles } from "@free-me/core";
 import { DemoButton } from "@/components/demo-button";
 import { PERSONAS, personaFacts } from "@/lib/personas";
 
@@ -28,7 +28,7 @@ export default function DemoPage() {
               </div>
               <p className="mt-3 text-sm text-parchment/90">{p.story}</p>
               <p className="mt-3 rounded-xl bg-white/5 p-3 text-sm italic text-parchment/80">
-                &ldquo;{fixtures[p.key].freedomStatement}&rdquo;
+                &ldquo;{profiles[p.key].freedomStatement}&rdquo;
               </p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {personaFacts(p.key).map((f) => (

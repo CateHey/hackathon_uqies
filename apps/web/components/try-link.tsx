@@ -33,7 +33,7 @@ export function TryLink({
       try {
         await api.getPlan();
       } catch (e) {
-        if (e instanceof ApiClientError && e.status === 404) await loadDemo.mutateAsync("sarah");
+        if (e instanceof ApiClientError && e.status === 404) await loadDemo.mutateAsync("vinuy");
         else throw e;
       }
       router.push(href);

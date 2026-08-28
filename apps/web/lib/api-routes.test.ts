@@ -147,11 +147,12 @@ describe("API flow (template mode)", () => {
   });
 
   it("loads a demo persona into the session", async () => {
-    const res = await demo(req(null), params({ name: "sarah" }));
+    const res = await demo(req(null), params({ name: "vinuy" }));
     const data = GenerateResponse.parse(await res.json());
     expect(data.mode).toBe("demo");
+    expect(data.profile.goals[0]?.label).toBe("10% house deposit");
+    // Vinuy arrives with the foundations already done (see DEMO_COMPLETED_REGIONS).
     expect(data.plan.regions.find((r) => r.id === "foundation")?.status).toBe("complete");
-    expect(data.plan.currentPriorityRegionId).toBe("security");
     expect((await demo(req(null), params({ name: "nobody" }))).status).toBe(404);
   });
 

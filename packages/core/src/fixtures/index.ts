@@ -107,3 +107,6 @@ export const zeroIncome: FreedomProfile = {
 
 export const fixtures = { sarah, userA, userB, debtHeavy, zeroIncome } as const;
 export type FixtureName = keyof typeof fixtures;
+
+/** The five demo people shown in the product. Test fixtures above stay put so tests don't churn. */
+export * from "./personas";

@@ -20,7 +20,7 @@ describe("region labels", () => {
   });
 
   it("uses no metaphors — captions say what the area is", () => {
-    const metaphors = /district|frontier|village|harbour|garden|quarter|workshop|city/i;
+    const metaphors = /district|frontier|village|harbour|garden|quarter|workshop|\bcity\b/i;
     for (const type of RegionType.options) {
       expect(REGION_PLAIN_LABEL[type], type).not.toMatch(metaphors);
     }

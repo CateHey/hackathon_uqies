@@ -473,12 +473,12 @@ export function templatePlan(profile: FreedomProfile, metrics: Metrics, opts: { 
   // ---------------------------------------------------------------- Freedom City
   const pillars = Array.from(new Set([...profile.goals.map((g) => g.label), "Financial security"]));
   const cityTitle = has("travel")
-    ? "🌴 Freedom City"
+    ? "🌴 Your Vision"
     : has("home")
-      ? "🏡 Freedom City"
+      ? "🏡 Your Vision"
       : has("business")
-        ? "🏗️ Freedom City"
-        : "🚀 Freedom City";
+        ? "🏗️ Your Vision"
+        : "🚀 Your Vision";
   addStep("freedom_city", "define-freedom", {
     kind: "review",
     title: "Revisit what freedom means to you",
@@ -489,7 +489,7 @@ export function templatePlan(profile: FreedomProfile, metrics: Metrics, opts: { 
     id: "freedom_city",
     type: "freedom_city",
     exploreTitle: cityTitle,
-    proTitle: "Your definition of freedom",
+    proTitle: "Your vision",
     summary: pillars.join(" · "),
     why: "This is the destination — your version of freedom, not a number someone else picked.",
     relevance: 5,
