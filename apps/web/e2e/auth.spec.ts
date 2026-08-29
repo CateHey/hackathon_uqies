@@ -20,10 +20,14 @@ test("demo account: sign in → own map → sign out", async ({ page }) => {
   await expect(page.getByRole("img", { name: /Your Freedom Map/ })).toBeVisible();
   const plan = (await (await page.request.get("/api/plan")).json()) as {
     profile: { freedomStatement: string };
-    plan: { source: string };
+    plan: { source: string; regions: unknown[] };
   };
   expect(plan.profile.freedomStatement).toMatch(/deposit on my first place/);
-  expect(plan.plan.source).toBe("ai");
+  // Whether the seeded plan is model-generated or rules-based depends on whether golden plans
+  // have been generated for the current cast — an operational fact, not a correctness one.
+  // What must hold is that signing in lands you on *your* plan.
+  expect(["ai", "template"]).toContain(plan.plan.source);
+  expect(plan.plan.regions.length).toBeGreaterThan(0);
   await expect(page.getByRole("button", { name: /vinuy · Sign out/ })).toBeVisible();
   await page.screenshot({ path: "e2e/screenshots/13-signed-in.png", fullPage: true });
 

@@ -36,9 +36,9 @@ async function main() {
   const h = health.body as { ok?: boolean; mode?: string; db?: string; dbReady?: boolean; dbError?: string | null; auth?: boolean; version?: string };
   allOk = line(health.status === 200 && Boolean(h.ok), "health", `mode=${h.mode} db=${h.db} ready=${h.dbReady} auth=${h.auth} version=${h.version}${h.dbError ? ` error=${h.dbError}` : ""}`) && allOk;
 
-  const demo = await call("/demo/sarah", { method: "POST" });
+  const demo = await call("/demo/vinuy", { method: "POST" });
   const d = demo.body as { plan?: { regions?: unknown[]; source?: string; currentPriorityRegionId?: string } };
-  allOk = line(demo.status === 200 && Array.isArray(d.plan?.regions), "load Sarah's demo journey", `source=${d.plan?.source} regions=${d.plan?.regions?.length} priority=${d.plan?.currentPriorityRegionId}`) && allOk;
+  allOk = line(demo.status === 200 && Array.isArray(d.plan?.regions), "load Vinuy's demo journey", `source=${d.plan?.source} regions=${d.plan?.regions?.length} priority=${d.plan?.currentPriorityRegionId}`) && allOk;
 
   const plan = await call("/plan");
   const p = plan.body as { plan?: { nextStepId?: string } };
